@@ -7,6 +7,8 @@ import com.example.task_managementplatform.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
+
 @Service
 @RequiredArgsConstructor
 
@@ -16,6 +18,7 @@ import org.springframework.stereotype.Service;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
     public User createUser(CreateUserRequest request) {
 
@@ -33,7 +36,7 @@ public class UserService {
 
         // momentan salvam parola simplu
         // mai tarziu o criptam cu BCrypt
-        user.setPassword(request.getPassword());
+        user.setPassword(passwordEncoder.encode(request.getPassword()));
 
         user.setFullName(request.getFullName());
 
