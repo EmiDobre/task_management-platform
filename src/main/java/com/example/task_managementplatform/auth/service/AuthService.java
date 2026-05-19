@@ -2,6 +2,7 @@ package com.example.task_managementplatform.auth.service;
 
 import com.example.task_managementplatform.auth.dto.LoginRequest;
 import com.example.task_managementplatform.auth.dto.LoginResponse;
+import com.example.task_managementplatform.security.JwtService;
 import com.example.task_managementplatform.user.entity.User;
 import com.example.task_managementplatform.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 public class AuthService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final JwtService jwtService;
 
     public LoginResponse login(LoginRequest request) {
         // caut user dupa mail:
@@ -27,8 +29,8 @@ public class AuthService {
             throw new RuntimeException("Invalid email or password");
         }
 
-        //returnare token: todo fake acum
-        String fakeToken = "jwt-token-placeholder";
-        return new LoginResponse(fakeToken);
+        //returnare token generat de jwt
+        String token = jwtService.generateToken(user.getEmail());
+        return new LoginResponse(token);
     }
 }
