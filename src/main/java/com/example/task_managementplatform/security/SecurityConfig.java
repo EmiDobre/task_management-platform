@@ -5,20 +5,50 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
+import lombok.RequiredArgsConstructor;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
+@RequiredArgsConstructor
+
 public class SecurityConfig {
+
+    private final JwtAuthenticationFilter jwtAuthenticationFilter;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        // deazactivare csrf pt  a testa /api/ping
+
         http
+
+                // dezactivam csrf pentru REST API
                 .csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests(auth -> auth
-                        .anyRequest().permitAll()
+
+                // fara sesiuni clasice
+                .sessionManagement(session ->
+                        session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 )
-                .httpBasic(Customizer.withDefaults());
+
+                // reguli endpointuri
+                .authorizeHttpRequests(auth -> auth
+
+                        // endpointuri publice
+                        .requestMatchers(
+                                "/api/auth/**",
+                                "/api/users"
+                        ).permitAll()
+
+                        // orice alt request necesita auth
+                        .anyRequest().authenticated()
+                )
+
+                // adaugam JWT filter in security chain
+                .addFilterBefore(
+                        jwtAuthenticationFilter,
+                        UsernamePasswordAuthenticationFilter.class
+                );
 
         return http.build();
+
     }
 }
