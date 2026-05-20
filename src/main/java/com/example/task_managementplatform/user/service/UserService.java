@@ -43,14 +43,22 @@ public class UserService {
 
         user.setEmail(request.getEmail());
 
-        // momentan salvam parola simplu
-        // mai tarziu o criptam cu BCrypt
+        // salvare parola encodata
         user.setPassword(passwordEncoder.encode(request.getPassword()));
 
         user.setFullName(request.getFullName());
 
-        // fiecare user nou are rol USER
-        user.setRole(Role.USER);
+        // fiecare user nou are rol USER daca nu e schimbat de admin
+        // exista un admin default
+        if(request.getEmail().equals("admin@test.com")) {
+
+            user.setRole(Role.ADMIN);
+
+        } else {
+
+            user.setRole(Role.USER);
+
+        }
 
         // salvam userul in baza de date
         return userRepository.save(user);
