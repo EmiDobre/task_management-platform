@@ -12,6 +12,7 @@ import java.io.IOException;
 
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 
 import java.util.Collections;
 
@@ -60,10 +61,20 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                             Collections.emptyList()
                     );
 
+            // marcam requestul ca autentificat
+            authToken.setDetails(
+                    new WebAuthenticationDetailsSource()
+                            .buildDetails(request)
+            );
+
             // salvam userul in Spring Security Context - se stie cine e logat acum
             SecurityContextHolder
                     .getContext()
                     .setAuthentication(authToken);
+
+            //TODO sterge - doar pt verificare
+            System.out.println("JWT VALID");
+            System.out.println(email);
 
         }
 

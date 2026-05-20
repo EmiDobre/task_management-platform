@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.task_managementplatform.user.dto.UpdateProfileRequest;
+import com.example.task_managementplatform.user.dto.UpdatePasswordRequest;
 
 @RestController
 @RequestMapping("/api/users")
@@ -29,18 +30,32 @@ public class UserController {
     //2.1. view profil: GET  /api/users/me
     @GetMapping("/me")
     public User getCurrentUser(){
+
         return userService.getCurrentUser();
+
     }
 
-    //2.2. update nume: POST /api/users/me/profile
-    @PostMapping("/me/profile")
+    //2.2. update nume: PUT /api/users/me/profile
+    @PutMapping ("/me/profile")
     public User updateProfile(@RequestBody UpdateProfileRequest request) {
+
         return  userService.updateProfile(request);
+
     }
 
-    //2.2 update mail: POST /api/users/me/email
-    @PostMapping("/me/email")
+    //2.2 update mail: PUT /api/users/me/email
+    @PutMapping("/me/email")
     public User updateEmail(@RequestBody UpdateEmailRequest request) {
+
         return userService.updateEmail(request);
+
+    }
+
+    //2.2 update parola: PUT /api/users/me/password
+    @PutMapping("/me/password")
+    public User updatePassword( @RequestBody UpdatePasswordRequest request) {
+
+        return userService.updatePassword(request);
+
     }
 }

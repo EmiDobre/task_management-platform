@@ -15,6 +15,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 //user management:
 import com.example.task_managementplatform.user.dto.UpdateProfileRequest;
 import com.example.task_managementplatform.user.dto.UpdateEmailRequest;
+import com.example.task_managementplatform.user.dto.UpdatePasswordRequest;
 
 @Service
 @RequiredArgsConstructor
@@ -89,6 +90,36 @@ public class UserService {
 
         }
         user.setEmail(request.getEmail());
+        return userRepository.save(user);
+    }
+
+    //2.2 update date personale: parola
+    public User updatePassword(UpdatePasswordRequest request) {
+        User user = getCurrentUser();
+
+        // verificam parola curenta
+        boolean matches = passwordEncoder.matches(
+                request.getCurrentPassword(),
+                user.getPassword()
+        );
+
+        if(!matches) {
+
+            throw new RuntimeException("Current password is incorrect");
+
+        }
+        //TODO sterge - doar pt vf
+        System.out.println(matches);
+        System.out.println(user.getPassword());
+
+        // hash-uim parola noua
+        String encodedPassword = passwordEncoder
+                .encode(request.getNewPassword());
+
+        // actualizam parola
+        user.setPassword(encodedPassword);
+
+        // salvam modificarile
         return userRepository.save(user);
     }
 
