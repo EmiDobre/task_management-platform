@@ -7,9 +7,11 @@ import com.example.task_managementplatform.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.stereotype.Service;
-
+//securitate:
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.core.context.SecurityContextHolder;
+//user management:
+import com.example.task_managementplatform.user.dto.UpdateProfileRequest;
 
 @Service
 @RequiredArgsConstructor
@@ -22,6 +24,7 @@ public class UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
+    //1. register:
     public User createUser(CreateUserRequest request) {
 
         // verificam daca exista deja email-ul
@@ -50,6 +53,7 @@ public class UserService {
 
     }
 
+    //2.1. view user curent
     public User getCurrentUser(){
         //lucrez cu contextul salvat in Security Holder:
         SecurityContext context = SecurityContextHolder.getContext();
@@ -62,6 +66,13 @@ public class UserService {
         //cautare in baza de date dupa mail:
         return userRepository.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("User not found"));
+    }
+
+    //2.2.update date personale: nume
+    public User updateProfile(UpdateProfileRequest request) {
+        User user = getCurrentUser();
+        user.setFullName(request.getFullName());
+        return userRepository.save(user);
     }
 
 }

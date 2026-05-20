@@ -6,6 +6,8 @@ import com.example.task_managementplatform.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import com.example.task_managementplatform.user.dto.UpdateProfileRequest;
+
 @RestController
 @RequestMapping("/api/users")
 @RequiredArgsConstructor
@@ -23,10 +25,15 @@ public class UserController {
 
     }
 
-    //2. view profil: GET  /api/users/me
+    //2.1. view profil: GET  /api/users/me
     @GetMapping("/me")
     public User getCurrentUser(){
         return userService.getCurrentUser();
     }
 
+    //2.2. update nume: POST /api/users/me/profile
+    @PostMapping("/me/profile")
+    public User updateProfile(@RequestBody UpdateProfileRequest request) {
+        return  userService.updateProfile(request);
+    }
 }
