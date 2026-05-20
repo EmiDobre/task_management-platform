@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 import com.example.task_managementplatform.user.dto.UpdateProfileRequest;
 import com.example.task_managementplatform.user.dto.UpdatePasswordRequest;
+import org.springframework.security.access.prepost.PreAuthorize;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/users")
@@ -56,6 +58,15 @@ public class UserController {
     public User updatePassword( @RequestBody UpdatePasswordRequest request) {
 
         return userService.updatePassword(request);
+
+    }
+
+    //2.3: ADMIN operatii - listare useri GET /api/users
+    @GetMapping
+    @PreAuthorize("hasRole('ADMIN')")
+    public List<User> getAllUsers() {
+
+        return userService.getAllUsers();
 
     }
 }

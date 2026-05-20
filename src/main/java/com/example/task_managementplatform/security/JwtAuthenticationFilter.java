@@ -5,6 +5,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -13,14 +14,18 @@ import java.io.IOException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
+import com.example.task_managementplatform.user.entity.User;
+import com.example.task_managementplatform.user.repository.UserRepository;
 
 import java.util.Collections;
+import java.util.List;
 
 @Component
 @RequiredArgsConstructor
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private final JwtService jwtService;
+    private final UserRepository userRepository;
 
 
     @Override
@@ -52,13 +57,21 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
             // extragem emailul din token
             String email = jwtService.extractEmail(jwt);
+            //injectam userul din DB:
+            User user = userRepository.findByEmail(email)
+                    .orElseThrow(() -> new RuntimeException("User not found"));
 
-            // cream obiectul de autentificare
+            // cream obiectul de autentificare:
+            SimpleGrantedAuthority authority =
+                    new SimpleGrantedAuthority(
+                            "ROLE_" + user.getRole().name()
+                    );
+
             UsernamePasswordAuthenticationToken authToken =
                     new UsernamePasswordAuthenticationToken(
                             email,
                             null,
-                            Collections.emptyList()
+                            List.of(authority)
                     );
 
             // marcam requestul ca autentificat

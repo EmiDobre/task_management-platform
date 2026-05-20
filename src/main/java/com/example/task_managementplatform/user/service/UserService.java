@@ -16,6 +16,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import com.example.task_managementplatform.user.dto.UpdateProfileRequest;
 import com.example.task_managementplatform.user.dto.UpdateEmailRequest;
 import com.example.task_managementplatform.user.dto.UpdatePasswordRequest;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -129,6 +130,13 @@ public class UserService {
 
         // salvam modificarile
         return userRepository.save(user);
+    }
+
+    //2.3: ADMIN operatii - listare useri
+    public List<User> getAllUsers() {
+
+        return userRepository.findAll();
+
     }
 
 }
