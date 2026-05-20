@@ -1,6 +1,7 @@
 package com.example.task_managementplatform.user.controller;
 
 import com.example.task_managementplatform.user.dto.CreateUserRequest;
+import com.example.task_managementplatform.user.dto.UpdateEmailRequest;
 import com.example.task_managementplatform.user.entity.User;
 import com.example.task_managementplatform.user.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -35,5 +36,11 @@ public class UserController {
     @PostMapping("/me/profile")
     public User updateProfile(@RequestBody UpdateProfileRequest request) {
         return  userService.updateProfile(request);
+    }
+
+    //2.2 update mail: POST /api/users/me/email
+    @PostMapping("/me/email")
+    public User updateEmail(@RequestBody UpdateEmailRequest request) {
+        return userService.updateEmail(request);
     }
 }

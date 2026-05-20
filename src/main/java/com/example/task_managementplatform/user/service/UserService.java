@@ -7,11 +7,14 @@ import com.example.task_managementplatform.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.stereotype.Service;
+
 //securitate:
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.core.context.SecurityContextHolder;
+
 //user management:
 import com.example.task_managementplatform.user.dto.UpdateProfileRequest;
+import com.example.task_managementplatform.user.dto.UpdateEmailRequest;
 
 @Service
 @RequiredArgsConstructor
@@ -72,6 +75,20 @@ public class UserService {
     public User updateProfile(UpdateProfileRequest request) {
         User user = getCurrentUser();
         user.setFullName(request.getFullName());
+        return userRepository.save(user);
+    }
+
+    //2.2 update date personale: mail -> jwt nu va mai fi ok -> isi va da update
+    public User updateEmail(UpdateEmailRequest request) {
+        User user = getCurrentUser();
+
+        //vf daca emailul exista deja: nu pot avea 2 useri diferiti cu acelasi mail
+        if(userRepository.findByEmail(request.getEmail()).isPresent()) {
+
+            throw new RuntimeException("Email already exists");
+
+        }
+        user.setEmail(request.getEmail());
         return userRepository.save(user);
     }
 
