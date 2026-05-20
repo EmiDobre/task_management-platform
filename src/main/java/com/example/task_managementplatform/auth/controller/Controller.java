@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 public class Controller {
     private final AuthService authService;
 
+    // logare: POST /api/auth/login
     @PostMapping("/login")
     public LoginResponse login(@RequestBody LoginRequest request){
         return  authService.login(request);

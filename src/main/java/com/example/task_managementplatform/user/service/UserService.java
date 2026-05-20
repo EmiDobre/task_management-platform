@@ -5,9 +5,11 @@ import com.example.task_managementplatform.user.entity.Role;
 import com.example.task_managementplatform.user.entity.User;
 import com.example.task_managementplatform.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.context.SecurityContext;
 import org.springframework.stereotype.Service;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 @Service
 @RequiredArgsConstructor
@@ -46,6 +48,20 @@ public class UserService {
         // salvam userul in baza de date
         return userRepository.save(user);
 
+    }
+
+    public User getCurrentUser(){
+        //lucrez cu contextul salvat in Security Holder:
+        SecurityContext context = SecurityContextHolder.getContext();
+        if(context.getAuthentication() == null) {
+            throw new RuntimeException("No authenticated user");
+        }
+        // userul il gasesc dupa mailul salvat in context
+        String email = context.getAuthentication().getName();
+
+        //cautare in baza de date dupa mail:
+        return userRepository.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("User not found"));
     }
 
 }

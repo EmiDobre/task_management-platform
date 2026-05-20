@@ -15,10 +15,18 @@ public class UserController {
 
     private final UserService userService;
 
+    //1. register: POST /api/users
     @PostMapping
     public User createUser(@RequestBody CreateUserRequest request) {
 
         return userService.createUser(request);
 
     }
+
+    //2. view profil: GET  /api/users/me
+    @GetMapping("/me")
+    public User getCurrentUser(){
+        return userService.getCurrentUser();
+    }
+
 }
