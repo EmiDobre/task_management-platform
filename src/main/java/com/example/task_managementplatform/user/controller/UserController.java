@@ -71,6 +71,18 @@ public class UserController {
     @PutMapping("/{id}/role")
     @PreAuthorize("hasRole('ADMIN')")
     public User updateUserRole(@PathVariable Long id, @RequestBody UpdateRoleRequest request){
+
         return userService.updateUserRole(id, request);
+
     }
+
+    //2.3: ADMIN - dezactiveaza userul PUT /api/users/{id}/deactivate
+    @PutMapping("/{id}/deactivate")
+    @PreAuthorize("hasRole('ADMIN')")
+    public User deactivateUser( @PathVariable Long id) {
+
+        return userService.deactivateUser(id);
+
+    }
+
 }

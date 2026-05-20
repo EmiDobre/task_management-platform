@@ -17,9 +17,17 @@ public class AuthService {
     private final JwtService jwtService;
 
     public LoginResponse login(LoginRequest request) {
+
         // caut user dupa mail:
         User user = userRepository.findByEmail(request.getEmail())
                 .orElseThrow(() -> new RuntimeException("Invalid email or password"));
+
+        //userul se poate loga doar daca nu este dezactivat de admin
+        if(!user.isActive()) {
+
+            throw new RuntimeException("User is deactivated");
+
+        }
 
         //verific hahs(parola request) = parola hashuita reala a userului
         if (!passwordEncoder.matches(
@@ -32,5 +40,6 @@ public class AuthService {
         //returnare token generat de jwt
         String token = jwtService.generateToken(user.getEmail());
         return new LoginResponse(token);
+
     }
 }

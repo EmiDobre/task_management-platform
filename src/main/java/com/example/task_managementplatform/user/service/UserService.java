@@ -149,4 +149,20 @@ public class UserService {
         return userRepository.save(user);
     }
 
+    //2.3 ADMIN: dezactiveaza user - ramane in DB doar nu mai face nimic
+    public User deactivateUser(Long userId) {
+
+        // cautam userul
+        User user = userRepository.findById(userId)
+                .orElseThrow(() ->
+                        new RuntimeException("User not found"));
+
+        // dezactivam contul
+        user.setActive(false);
+
+        // salvam modificarile
+        return userRepository.save(user);
+
+    }
+
 }
