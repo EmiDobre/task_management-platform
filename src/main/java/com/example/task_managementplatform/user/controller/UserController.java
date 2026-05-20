@@ -1,14 +1,11 @@
 package com.example.task_managementplatform.user.controller;
 
-import com.example.task_managementplatform.user.dto.CreateUserRequest;
-import com.example.task_managementplatform.user.dto.UpdateEmailRequest;
+import com.example.task_managementplatform.user.dto.*;
 import com.example.task_managementplatform.user.entity.User;
 import com.example.task_managementplatform.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import com.example.task_managementplatform.user.dto.UpdateProfileRequest;
-import com.example.task_managementplatform.user.dto.UpdatePasswordRequest;
 import org.springframework.security.access.prepost.PreAuthorize;
 import java.util.List;
 
@@ -68,5 +65,12 @@ public class UserController {
 
         return userService.getAllUsers();
 
+    }
+
+    //2.3: ADMIN - update rol user: PUT /api/users/{id}/role
+    @PutMapping("/{id}/role")
+    @PreAuthorize("hasRole('ADMIN')")
+    public User updateUserRole(@PathVariable Long id, @RequestBody UpdateRoleRequest request){
+        return userService.updateUserRole(id, request);
     }
 }

@@ -1,6 +1,6 @@
 package com.example.task_managementplatform.user.service;
 
-import com.example.task_managementplatform.user.dto.CreateUserRequest;
+import com.example.task_managementplatform.user.dto.*;
 import com.example.task_managementplatform.user.entity.Role;
 import com.example.task_managementplatform.user.entity.User;
 import com.example.task_managementplatform.user.repository.UserRepository;
@@ -13,9 +13,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 //user management:
-import com.example.task_managementplatform.user.dto.UpdateProfileRequest;
-import com.example.task_managementplatform.user.dto.UpdateEmailRequest;
-import com.example.task_managementplatform.user.dto.UpdatePasswordRequest;
 import java.util.List;
 
 @Service
@@ -137,6 +134,19 @@ public class UserService {
 
         return userRepository.findAll();
 
+    }
+
+    //2.3 ADMIN: update rol user
+    public User updateUserRole(Long userId, UpdateRoleRequest request) {
+        //caut user dupa id:
+        User user = userRepository.findById(userId).orElseThrow(() ->
+                new RuntimeException("User not found"));
+
+        //schimbare rol:
+        user.setRole(request.getRole());
+
+        //salvare globala - returnare obiect <=> UPDATE users SET facut in Repository ....
+        return userRepository.save(user);
     }
 
 }
