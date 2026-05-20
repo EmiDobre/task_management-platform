@@ -85,4 +85,13 @@ public class UserController {
 
     }
 
+    //2.3: ADMIN - activeaza user: PUT /api/users/{id}/activate
+    @PutMapping("/{id}/activate")
+    @PreAuthorize("hasRole('ADMIN')")
+    public User activateUser( @PathVariable Long id) {
+
+        return userService.activateUser(id);
+
+    }
+
 }
