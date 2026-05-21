@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -22,6 +23,7 @@ public class ProjectService {
     private final ProjectRepository projectRepository;
     private final UserRepository userRepository;
 
+    //3.1. creare proiect
     public Project createProject( CreateProjectRequest request) {
 
         //verificare existenta autentificare:
@@ -40,6 +42,13 @@ public class ProjectService {
         User owner = userRepository.findByEmail(email)
                 .orElseThrow(() ->
                         new RuntimeException("User not found"));
+
+        //verificare daca proiectul deja exista:
+        if(projectRepository.findByName(request.getName()).isPresent()) {
+
+            throw new RuntimeException("Project name already exists");
+
+        }
 
         // cream proiectul
         Project project = new Project();
@@ -63,6 +72,13 @@ public class ProjectService {
 
         // salvam proiectul
         return projectRepository.save(project);
+
+    }
+
+    //3.2: listare proiecte
+    public List<Project> getAllProjects() {
+
+        return projectRepository.findAll();
 
     }
 
