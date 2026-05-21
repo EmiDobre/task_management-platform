@@ -65,11 +65,13 @@ public class UserService {
 
     //2.1. view user curent
     public User getCurrentUser(){
+
         //lucrez cu contextul salvat in Security Holder:
         SecurityContext context = SecurityContextHolder.getContext();
         if(context.getAuthentication() == null) {
             throw new RuntimeException("No authenticated user");
         }
+
         // userul il gasesc dupa mailul salvat in context
         String email = context.getAuthentication().getName();
 
