@@ -47,7 +47,6 @@ public class Project {
     @Enumerated(EnumType.STRING)
     private ProjectStatus status;
 
-    // soft delete
-    private boolean active = true;
+    // soft delete - cand tstausul este archived
 
 }

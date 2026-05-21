@@ -2,6 +2,7 @@ package com.example.task_managementplatform.project.controller;
 
 import com.example.task_managementplatform.project.dto.AddMemberRequest;
 import com.example.task_managementplatform.project.dto.CreateProjectRequest;
+import com.example.task_managementplatform.project.dto.UpdateProjectRequest;
 import com.example.task_managementplatform.project.entity.Project;
 import com.example.task_managementplatform.project.service.ProjectService;
 
@@ -34,11 +35,28 @@ public class ProjectController {
 
     }
 
-    //3.3. adaugare membru la proiect: PUT /api/projects/{id}/members
+    //3.3. adaugare membru la proiect: PUT /api/projects/{id proiect}/members
     @PutMapping("/{id}/members")
     public Project addMember( @PathVariable Long id, @RequestBody AddMemberRequest request) {
 
         return projectService.addMember(id, request);
+
+    }
+
+    //3.4: dezactivare proiect: PUT /api/projects/{id proiect}/deactivate
+    @PutMapping("/{id}/deactivate")
+    public Project deactivateProject( @PathVariable Long id) {
+
+        return projectService.deactivateProject(id);
+
+    }
+
+    //3.5: update proiect : PUT /api/projects/{id}
+    @PutMapping("/{id}")
+    public Project updateProject(@PathVariable Long id,
+                                 @RequestBody UpdateProjectRequest request) {
+
+        return projectService.updateProject(id, request);
 
     }
 
