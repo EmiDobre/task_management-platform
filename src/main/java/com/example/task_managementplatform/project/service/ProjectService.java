@@ -1,5 +1,6 @@
 package com.example.task_managementplatform.project.service;
 
+import com.example.task_managementplatform.project.dto.AddMemberRequest;
 import com.example.task_managementplatform.project.dto.CreateProjectRequest;
 import com.example.task_managementplatform.project.entity.Project;
 import com.example.task_managementplatform.project.entity.ProjectStatus;
@@ -79,6 +80,42 @@ public class ProjectService {
     public List<Project> getAllProjects() {
 
         return projectRepository.findAll();
+
+    }
+
+    //3.3: adaugare membru in proiect doar daca userul logat este owner
+    public Project addMember( Long projectId, AddMemberRequest request ) {
+
+        // cautam proiectul
+        Project project = projectRepository.findById(projectId)
+                .orElseThrow(() ->
+                        new RuntimeException("Project not found"));
+
+        //cautam owner proiect si verific daca e logat
+        SecurityContext context = SecurityContextHolder.getContext();
+        if(context.getAuthentication() == null) {
+            throw new RuntimeException("No authenticated user");
+        }
+
+        String email = context.getAuthentication().getName();
+        if(!project.getOwner().getEmail().equals(email)) {
+
+            throw new RuntimeException(
+                    "Only the project owner can add members"
+            );
+
+        }
+
+        // cautam userul de pus in proiect
+        User user = userRepository.findById(request.getUserId())
+                .orElseThrow(() ->
+                        new RuntimeException("User not found"));
+
+        // adaugam membrul
+        project.getMembers().add(user);
+
+        // salvam modificarile
+        return projectRepository.save(project);
 
     }
 

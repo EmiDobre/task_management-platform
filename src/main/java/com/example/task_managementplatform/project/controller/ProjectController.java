@@ -1,5 +1,6 @@
 package com.example.task_managementplatform.project.controller;
 
+import com.example.task_managementplatform.project.dto.AddMemberRequest;
 import com.example.task_managementplatform.project.dto.CreateProjectRequest;
 import com.example.task_managementplatform.project.entity.Project;
 import com.example.task_managementplatform.project.service.ProjectService;
@@ -30,6 +31,14 @@ public class ProjectController {
     public List<Project> getAllProjects() {
 
         return projectService.getAllProjects();
+
+    }
+
+    //3.3. adaugare membru la proiect: PUT /api/projects/{id}/members
+    @PutMapping("/{id}/members")
+    public Project addMember( @PathVariable Long id, @RequestBody AddMemberRequest request) {
+
+        return projectService.addMember(id, request);
 
     }
 
