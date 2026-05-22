@@ -71,21 +71,21 @@ public class ProjectService {
 
         // cream proiectul
         Project project = new Project();
+
         project.setName(request.getName());
+
         project.setDescription(request.getDescription());
+
         project.setCreatedAt(LocalDateTime.now());
 
-        // owner proiect
         project.setOwner(owner);
 
         // ownerul devine automat membru
         project.setMembers(new ArrayList<>());
         project.getMembers().add(owner);
 
-        // status initial
         project.setStatus(ProjectStatus.ACTIVE);
 
-        // salvam proiectul
         return projectRepository.save(project);
 
     }
