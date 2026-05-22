@@ -1,5 +1,7 @@
 package com.example.task_managementplatform.user.service;
 
+import com.example.task_managementplatform.project.entity.Project;
+import com.example.task_managementplatform.project.repository.ProjectRepository;
 import com.example.task_managementplatform.user.dto.*;
 import com.example.task_managementplatform.user.entity.Role;
 import com.example.task_managementplatform.user.entity.User;
@@ -25,6 +27,7 @@ public class UserService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final ProjectRepository projectRepository;
 
     //1. register:
     public User createUser(CreateUserRequest request) {
@@ -180,6 +183,18 @@ public class UserService {
 
         // salvam modificarile
         return userRepository.save(user);
+
+    }
+
+    //2.4: view proiecte user
+    public List<Project> getMyProjects() {
+
+        // luam userul logat
+        User user = getCurrentUser();
+
+        // cautam proiectele unde este membru
+        return projectRepository
+                .findByMembersContaining(user);
 
     }
 

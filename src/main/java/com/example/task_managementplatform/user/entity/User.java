@@ -4,6 +4,10 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import com.example.task_managementplatform.project.entity.Project;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -36,5 +40,10 @@ public class User {
     // user activ sau dezactivat
     @Column(nullable = false)
     private boolean active = true;
+
+    //conectare cu tabela de la Proiect: ++ modificari in repo Proiect
+    @JsonIgnore //mappedBy - nu mai creeaza tabela noua
+    @ManyToMany(mappedBy = "members")
+    private List<Project> projects;
 
 }
