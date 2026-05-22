@@ -34,31 +34,23 @@ public class UserService {
 
         // verificam daca exista deja email-ul
         if (userRepository.findByEmail(request.getEmail()).isPresent()) {
-
             throw new RuntimeException("Email already exists");
-
         }
 
         // cream obiectul user
         User user = new User();
-
         user.setEmail(request.getEmail());
 
         // salvare parola encodata
         user.setPassword(passwordEncoder.encode(request.getPassword()));
-
         user.setFullName(request.getFullName());
 
         // fiecare user nou are rol USER daca nu e schimbat de admin
         // exista un admin default
         if(request.getEmail().equals("admin@test.com")) {
-
             user.setRole(Role.ADMIN);
-
         } else {
-
             user.setRole(Role.USER);
-
         }
 
         // salvam userul in baza de date
@@ -85,27 +77,30 @@ public class UserService {
 
     //2.2.update date personale: nume
     public User updateProfile(UpdateProfileRequest request) {
+
         User user = getCurrentUser();
         user.setFullName(request.getFullName());
         return userRepository.save(user);
+
     }
 
     //2.2 update date personale: mail -> jwt nu va mai fi ok -> isi va da update
     public User updateEmail(UpdateEmailRequest request) {
+
         User user = getCurrentUser();
 
         //vf daca emailul exista deja: nu pot avea 2 useri diferiti cu acelasi mail
         if(userRepository.findByEmail(request.getEmail()).isPresent()) {
-
             throw new RuntimeException("Email already exists");
-
         }
+
         user.setEmail(request.getEmail());
         return userRepository.save(user);
     }
 
     //2.2 update date personale: parola
     public User updatePassword(UpdatePasswordRequest request) {
+
         User user = getCurrentUser();
 
         // verificam parola curenta
@@ -115,10 +110,9 @@ public class UserService {
         );
 
         if(!matches) {
-
             throw new RuntimeException("Current password is incorrect");
-
         }
+
         //TODO sterge - doar pt vf
         System.out.println(matches);
         System.out.println(user.getPassword());
@@ -132,6 +126,7 @@ public class UserService {
 
         // salvam modificarile
         return userRepository.save(user);
+
     }
 
     //2.3: ADMIN operatii - listare useri
@@ -143,6 +138,7 @@ public class UserService {
 
     //2.3 ADMIN: update rol user
     public User updateUserRole(Long userId, UpdateRoleRequest request) {
+
         //caut user dupa id:
         User user = userRepository.findById(userId).orElseThrow(() ->
                 new RuntimeException("User not found"));
@@ -152,14 +148,14 @@ public class UserService {
 
         //salvare globala - returnare obiect <=> UPDATE users SET facut in Repository ....
         return userRepository.save(user);
+
     }
 
     //2.3 ADMIN: dezactiveaza user = nu se mai poate log (++modificari in auth)
     public User deactivateUser(Long userId) {
 
         // cautam userul
-        User user = userRepository.findById(userId)
-                .orElseThrow(() ->
+        User user = userRepository.findById(userId).orElseThrow(() ->
                         new RuntimeException("User not found"));
 
         // dezactivam contul
@@ -174,8 +170,7 @@ public class UserService {
     public User activateUser(Long userId) {
 
         // cautam userul
-        User user = userRepository.findById(userId)
-                .orElseThrow(() ->
+        User user = userRepository.findById(userId).orElseThrow(() ->
                         new RuntimeException("User not found"));
 
         // dezactivam contul

@@ -7,6 +7,7 @@ import com.example.task_managementplatform.project.entity.Project;
 import com.example.task_managementplatform.project.service.ProjectService;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,8 +28,9 @@ public class ProjectController {
 
     }
 
-    // 3.2. listare proitecte: GET /api/projects
+    // 3.2. listare TOATE proiectele: GET /api/projects
     @GetMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public List<Project> getAllProjects() {
 
         return projectService.getAllProjects();

@@ -25,40 +25,54 @@ public class ProjectService {
     private final ProjectRepository projectRepository;
     private final UserRepository userRepository;
 
-    //3.1. creare proiect
-    public Project createProject( CreateProjectRequest request) {
+    //Metoode Helper:
+    private User getCurrentUser() {
 
-        //verificare existenta autentificare:
+        // luam contextul de securitate
         SecurityContext context = SecurityContextHolder.getContext();
 
+        // verificam autentificarea
         if(context.getAuthentication() == null) {
-
             throw new RuntimeException("No authenticated user");
-
         }
 
         // luam emailul userului logat
         String email = context.getAuthentication().getName();
 
+        // cautam userul in baza de date
+        return userRepository.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+    }
+
+    private boolean isOwner( Project project, User user) {
+
+        return project.getOwner().getEmail().equals(user.getEmail());
+
+    }
+
+    private boolean isMember(Project project, User user) {
+
+        return project.getMembers().stream().anyMatch(member ->
+                        member.getEmail().equals(user.getEmail()));
+    }
+
+    //3.1. creare proiect
+    public Project createProject( CreateProjectRequest request) {
+
         // cautam ownerul in baza de date
-        User owner = userRepository.findByEmail(email)
-                .orElseThrow(() ->
-                        new RuntimeException("User not found"));
+        User owner = getCurrentUser();
 
         //verificare daca proiectul deja exista:
         if(projectRepository.findByName(request.getName()).isPresent()) {
-
             throw new RuntimeException("Project name already exists");
-
         }
+
 
         // cream proiectul
         Project project = new Project();
-
         project.setName(request.getName());
-
         project.setDescription(request.getDescription());
-
         project.setCreatedAt(LocalDateTime.now());
 
         // owner proiect
@@ -66,7 +80,6 @@ public class ProjectService {
 
         // ownerul devine automat membru
         project.setMembers(new ArrayList<>());
-
         project.getMembers().add(owner);
 
         // status initial
@@ -85,7 +98,7 @@ public class ProjectService {
     }
 
     //3.3: adaugare membru in proiect doar daca userul logat este owner
-    // si doar daca poriectul nu este arhivat
+    //      si doar daca proiectul nu este arhivat
     public Project addMember( Long projectId, AddMemberRequest request ) {
 
         // cautam proiectul
@@ -95,26 +108,15 @@ public class ProjectService {
 
         //stare proiect
         if(project.getStatus() == ProjectStatus.ARCHIVED) {
-
-            throw new RuntimeException(
-                    "Archived projects cannot be modified"
-            );
-
+            throw new RuntimeException("Archived projects cannot be modified");
         }
 
-        //cautam owner proiect si verific daca e logat
-        SecurityContext context = SecurityContextHolder.getContext();
-        if(context.getAuthentication() == null) {
-            throw new RuntimeException("No authenticated user");
-        }
+        //userul logat
+        User currentUser = getCurrentUser();
 
-        String email = context.getAuthentication().getName();
-        if(!project.getOwner().getEmail().equals(email)) {
-
-            throw new RuntimeException(
-                    "Only the project owner can add members"
-            );
-
+        //verificare user logat = owner
+        if(!isOwner(project, currentUser)) {
+            throw new RuntimeException("Only the project owner can add members");
         }
 
         // cautam userul de pus in proiect
@@ -139,20 +141,11 @@ public class ProjectService {
                         new RuntimeException("Project not found"));
 
         // luam userul logat
-        SecurityContext context = SecurityContextHolder.getContext();
-        if(context.getAuthentication() == null) {
-            throw new RuntimeException("No authenticated user");
-        }
-
-        String email = context.getAuthentication().getName();
+        User currentUser = getCurrentUser();
 
         //doar ownerul poate dezactiva
-        if(!project.getOwner().getEmail().equals(email)) {
-
-            throw new RuntimeException(
-                    "Only the project owner can archive project"
-            );
-
+        if(!isOwner(project, currentUser)) {
+            throw new RuntimeException("Only the project owner can archive project");
         }
 
         // soft delete
@@ -172,55 +165,34 @@ public class ProjectService {
 
         // stare proiect
         if(project.getStatus() == ProjectStatus.ARCHIVED) {
-
-            throw new RuntimeException(
-                    "Archived projects cannot be modified"
-            );
-
+            throw new RuntimeException("Archived projects cannot be modified");
         }
 
-        // luam emailul userului logat
-        SecurityContext context = SecurityContextHolder.getContext();
-        if(context.getAuthentication() == null) {
-            throw new RuntimeException("No authenticated user");
-        }
-        String email = context.getAuthentication().getName();
+        // user logat:
+        User currentUser = getCurrentUser();
 
         // verificam daca este owner
-        boolean isOwner = project.getOwner()
-                .getEmail()
-                .equals(email);
+        boolean owner = isOwner(project,currentUser);
 
         // verificam daca este membru
-        boolean isMember = project.getMembers()
-                .stream()
-                .anyMatch(member ->
-                        member.getEmail().equals(email));
+        boolean member = isMember(project, currentUser);
 
         // daca nu este nici owner nici membru
-        if(!isOwner && !isMember) {
-
-            throw new RuntimeException(
-                    "You are not part of this project"
-            );
-
+        if(!owner && !member) {
+            throw new RuntimeException("You are not part of this project");
         }
 
         // doar ownerul poate modifica nume si descriere
-        if(isOwner) {
+        if(owner) {
 
             if(request.getName() != null) {
-
                 project.setName(request.getName());
-
             }
 
             if(request.getDescription() != null) {
-
                 project.setDescription(
                         request.getDescription()
                 );
-
             }
 
         }
