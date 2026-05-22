@@ -3,6 +3,7 @@ package com.example.task_managementplatform.task.service;
 import com.example.task_managementplatform.project.entity.Project;
 import com.example.task_managementplatform.project.entity.ProjectStatus;
 import com.example.task_managementplatform.project.repository.ProjectRepository;
+import com.example.task_managementplatform.task.dto.AssignTaskRequest;
 import com.example.task_managementplatform.task.dto.CreateTaskRequest;
 import com.example.task_managementplatform.task.dto.UpdateTaskRequest;
 import com.example.task_managementplatform.task.entity.Task;
@@ -223,6 +224,59 @@ public class TaskService {
         }
 
         taskRepository.delete(task);
+
+    }
+
+    //4.2 asignare task la userul cerut
+    public Task assignUser(Long taskId, AssignTaskRequest request) {
+
+        // cautam taskul
+        Task task = taskRepository.findById(taskId)
+                .orElseThrow(() ->
+                        new RuntimeException(
+                                "Task not found"
+                        ));
+
+        // user logat
+        User currentUser = getCurrentUser();
+
+        // doar creatorul poate asigna
+        if(!isCreator(task, currentUser)) {
+
+            throw new RuntimeException("Only creator can assign users");
+
+        }
+
+        // userul asignat
+        User assignedUser = userRepository
+                .findById(request.getUserId())
+                .orElseThrow(() ->
+                        new RuntimeException("User not found"));
+
+        // userul asignat trebuie sa fie mai intai membru in proiect
+        if(!isMember(task.getProject(), assignedUser)) {
+            throw new RuntimeException("User is not part of the project");
+        }
+
+        // asignam userul
+        task.setAssignedUser(assignedUser);
+
+        task.setUpdatedAt(LocalDateTime.now());
+
+        return taskRepository.save(task);
+
+    }
+
+    //4.3 filtre taskuri
+    public List<Task> getTasksByStatus(TaskStatus status) {
+
+        return taskRepository.findByStatus(status);
+
+    }
+
+    public List<Task> getTasksByPriority(TaskPriority priority) {
+
+        return taskRepository.findByPriority(priority);
 
     }
 }

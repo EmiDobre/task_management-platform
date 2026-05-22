@@ -1,5 +1,6 @@
 package com.example.task_managementplatform.user.entity;
 
+import com.example.task_managementplatform.task.entity.Task;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -45,5 +46,11 @@ public class User {
     @JsonIgnore //mappedBy - nu mai creeaza tabela noua
     @ManyToMany(mappedBy = "members")
     private List<Project> projects;
+
+    //conectare cu tabela de task - sa aiba "workspace"-ul lui
+    //fara maped by as crea relatie dubla
+    @JsonIgnore //anti recursivitate infinita
+    @OneToMany(mappedBy = "assignedUser")
+    private List<Task> assignedTasks;
 
 }

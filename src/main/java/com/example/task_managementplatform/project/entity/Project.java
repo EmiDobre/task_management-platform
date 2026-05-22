@@ -1,5 +1,6 @@
 package com.example.task_managementplatform.project.entity;
 
+import com.example.task_managementplatform.task.entity.Task;
 import com.example.task_managementplatform.user.entity.User;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -48,5 +49,9 @@ public class Project {
     private ProjectStatus status;
 
     // soft delete - cand statusul este archived
+
+    //taskuri totale per proiect:
+    @OneToMany(mappedBy = "project")
+    private List<Task> tasks;
 
 }

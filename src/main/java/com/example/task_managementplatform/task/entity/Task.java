@@ -3,6 +3,7 @@ package com.example.task_managementplatform.task.entity;
 import com.example.task_managementplatform.project.entity.Project;
 import com.example.task_managementplatform.user.entity.User;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -48,6 +49,7 @@ public class Task {
     private User assignedUser;
 
     // proiectul din care face parte
+    @JsonIgnore //pt recursivitate
     @ManyToOne
     @JoinColumn(name = "project_id")
     private Project project;

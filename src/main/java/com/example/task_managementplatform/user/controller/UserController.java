@@ -1,6 +1,7 @@
 package com.example.task_managementplatform.user.controller;
 
 import com.example.task_managementplatform.project.entity.Project;
+import com.example.task_managementplatform.task.entity.Task;
 import com.example.task_managementplatform.user.dto.*;
 import com.example.task_managementplatform.user.entity.User;
 import com.example.task_managementplatform.user.service.UserService;
@@ -95,11 +96,19 @@ public class UserController {
 
     }
 
-    //2.4: view proiecte in care e membru: GET /api/users/me/projects
+    //3: view proiecte in care e membru: GET /api/users/me/projects
     @GetMapping("/me/projects")
     public List<Project> getMyProjects() {
 
         return userService.getMyProjects();
+
+    }
+
+    //4: view taskuri useri: GET /api/users/me/tasks
+    @GetMapping("/me/tasks")
+    public List<Task> getMyTasks() {
+
+        return userService.getMyTasks();
 
     }
 

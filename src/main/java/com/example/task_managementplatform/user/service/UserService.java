@@ -2,6 +2,8 @@ package com.example.task_managementplatform.user.service;
 
 import com.example.task_managementplatform.project.entity.Project;
 import com.example.task_managementplatform.project.repository.ProjectRepository;
+import com.example.task_managementplatform.task.entity.Task;
+import com.example.task_managementplatform.task.repository.TaskRepository;
 import com.example.task_managementplatform.user.dto.*;
 import com.example.task_managementplatform.user.entity.Role;
 import com.example.task_managementplatform.user.entity.User;
@@ -28,6 +30,7 @@ public class UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final ProjectRepository projectRepository;
+    private final TaskRepository taskRepository;
 
     //1. register:
     public User createUser(CreateUserRequest request) {
@@ -181,7 +184,7 @@ public class UserService {
 
     }
 
-    //2.4: view proiecte user
+    //3: proiecte - userul isi vede propriile proiecte la care e membru
     public List<Project> getMyProjects() {
 
         // luam userul logat
@@ -193,4 +196,11 @@ public class UserService {
 
     }
 
+    //4. task - userul poate sa aiba un workspace cu taksurile lui
+    public List<Task> getMyTasks() {
+
+        User currentUser = getCurrentUser();
+        return taskRepository.findByAssignedUser(currentUser);
+
+    }
 }
