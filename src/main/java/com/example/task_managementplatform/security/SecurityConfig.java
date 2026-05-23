@@ -9,6 +9,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
+import org.springframework.http.HttpMethod;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableMethodSecurity
@@ -33,13 +36,18 @@ public class SecurityConfig {
                 // reguli endpointuri
                 .authorizeHttpRequests(auth -> auth
 
-                        // endpointuri publice
+                        // auth public
                         .requestMatchers(
-                                "/api/auth/**",
+                                "/api/auth/**"
+                        ).permitAll()
+
+                        // register public
+                        .requestMatchers(
+                                HttpMethod.POST,
                                 "/api/users"
                         ).permitAll()
 
-                        // orice alt request necesita auth
+                        // restul necesita auth
                         .anyRequest().authenticated()
                 )
 
@@ -52,4 +60,5 @@ public class SecurityConfig {
         return http.build();
 
     }
+
 }
