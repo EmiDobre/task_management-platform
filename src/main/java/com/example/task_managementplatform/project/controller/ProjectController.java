@@ -6,6 +6,7 @@ import com.example.task_managementplatform.project.dto.UpdateProjectRequest;
 import com.example.task_managementplatform.project.entity.Project;
 import com.example.task_managementplatform.project.service.ProjectService;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +23,8 @@ public class ProjectController {
 
     // 3.1. creare proiect: POST /api/projects
     @PostMapping
-    public Project createProject( @RequestBody CreateProjectRequest request ) {
+    public Project createProject(
+            @Valid @RequestBody CreateProjectRequest request ) {
 
         return projectService.createProject(request);
 
@@ -39,7 +41,8 @@ public class ProjectController {
 
     //3.3. adaugare membru la proiect: PUT /api/projects/{id proiect}/members
     @PutMapping("/{id}/members")
-    public Project addMember( @PathVariable Long id, @RequestBody AddMemberRequest request) {
+    public Project addMember( @PathVariable Long id,
+                              @Valid@RequestBody AddMemberRequest request) {
 
         return projectService.addMember(id, request);
 

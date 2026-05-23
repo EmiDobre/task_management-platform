@@ -5,6 +5,7 @@ import com.example.task_managementplatform.auth.dto.LoginResponse;
 import com.example.task_managementplatform.auth.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -14,7 +15,8 @@ public class Controller {
 
     // logare: POST /api/auth/login
     @PostMapping("/login")
-    public LoginResponse login(@RequestBody LoginRequest request){
+    public LoginResponse login(
+            @Valid @RequestBody LoginRequest request){
         return  authService.login(request);
     }
 }

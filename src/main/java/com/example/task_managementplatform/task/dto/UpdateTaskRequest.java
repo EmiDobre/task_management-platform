@@ -5,8 +5,8 @@ import com.example.task_managementplatform.task.entity.TaskStatus;
 
 import lombok.Getter;
 import lombok.Setter;
-
 import java.time.LocalDateTime;
+//nu am nevoie de validari: update partial
 
 @Getter
 @Setter

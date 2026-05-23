@@ -8,6 +8,7 @@ import com.example.task_managementplatform.task.entity.TaskPriority;
 import com.example.task_managementplatform.task.entity.TaskStatus;
 import com.example.task_managementplatform.task.service.TaskService;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +25,8 @@ public class TaskController {
 
     //4.1 creare POST /api/tasks
     @PostMapping
-    public Task createTask(@RequestBody CreateTaskRequest request) {
+    public Task createTask(
+            @Valid @RequestBody CreateTaskRequest request) {
 
         return taskService.createTask(request);
 
@@ -49,7 +51,8 @@ public class TaskController {
     //4.2 asignare la user: PUT /api/tasks/{id task}/assign
     //id proiect e cunoscut deja la creare task
     @PutMapping("/{id}/assign")
-    public Task assignUser(@PathVariable Long id, @RequestBody AssignTaskRequest request) {
+    public Task assignUser(@PathVariable Long id,
+                           @Valid@RequestBody AssignTaskRequest request) {
 
         return taskService.assignUser(id, request);
 

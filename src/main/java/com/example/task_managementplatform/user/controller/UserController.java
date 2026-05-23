@@ -5,6 +5,7 @@ import com.example.task_managementplatform.task.entity.Task;
 import com.example.task_managementplatform.user.dto.*;
 import com.example.task_managementplatform.user.entity.User;
 import com.example.task_managementplatform.user.service.UserService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,7 +23,8 @@ public class UserController {
 
     //1. register: POST /api/users
     @PostMapping
-    public User createUser(@RequestBody CreateUserRequest request) {
+    public User createUser(
+            @Valid @RequestBody CreateUserRequest request) {
 
         return userService.createUser(request);
 
@@ -38,7 +40,8 @@ public class UserController {
 
     //2.2. update nume: PUT /api/users/me/profile
     @PutMapping ("/me/profile")
-    public User updateProfile(@RequestBody UpdateProfileRequest request) {
+    public User updateProfile(
+            @Valid@RequestBody UpdateProfileRequest request) {
 
         return  userService.updateProfile(request);
 
@@ -46,7 +49,8 @@ public class UserController {
 
     //2.2 update mail: PUT /api/users/me/email
     @PutMapping("/me/email")
-    public User updateEmail(@RequestBody UpdateEmailRequest request) {
+    public User updateEmail(
+            @Valid@RequestBody UpdateEmailRequest request) {
 
         return userService.updateEmail(request);
 
@@ -54,7 +58,8 @@ public class UserController {
 
     //2.2 update parola: PUT /api/users/me/password
     @PutMapping("/me/password")
-    public User updatePassword( @RequestBody UpdatePasswordRequest request) {
+    public User updatePassword(
+            @Valid@RequestBody UpdatePasswordRequest request) {
 
         return userService.updatePassword(request);
 
@@ -72,7 +77,8 @@ public class UserController {
     //2.3: ADMIN - update rol user: PUT /api/users/{id}/role
     @PutMapping("/{id}/role")
     @PreAuthorize("hasRole('ADMIN')")
-    public User updateUserRole(@PathVariable Long id, @RequestBody UpdateRoleRequest request){
+    public User updateUserRole(@PathVariable Long id,
+                               @Valid@RequestBody UpdateRoleRequest request){
 
         return userService.updateUserRole(id, request);
 
