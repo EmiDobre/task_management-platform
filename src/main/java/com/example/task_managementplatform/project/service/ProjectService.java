@@ -1,5 +1,8 @@
 package com.example.task_managementplatform.project.service;
 
+import com.example.task_managementplatform.exception.BadRequestException;
+import com.example.task_managementplatform.exception.ForbiddenException;
+import com.example.task_managementplatform.exception.ResourceNotFoundException;
 import com.example.task_managementplatform.project.dto.AddMemberRequest;
 import com.example.task_managementplatform.project.dto.CreateProjectRequest;
 import com.example.task_managementplatform.project.dto.UpdateProjectRequest;
@@ -33,7 +36,7 @@ public class ProjectService {
 
         // verificam autentificarea
         if(context.getAuthentication() == null) {
-            throw new RuntimeException("No authenticated user");
+            throw new ForbiddenException("No authenticated user");
         }
 
         // luam emailul userului logat
@@ -41,7 +44,7 @@ public class ProjectService {
 
         // cautam userul in baza de date
         return userRepository.findByEmail(email)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("User not found"));
 
     }
 
@@ -65,7 +68,7 @@ public class ProjectService {
 
         //verificare daca proiectul deja exista:
         if(projectRepository.findByName(request.getName()).isPresent()) {
-            throw new RuntimeException("Project name already exists");
+            throw new BadRequestException("Project name already exists");
         }
 
 
@@ -104,11 +107,11 @@ public class ProjectService {
         // cautam proiectul
         Project project = projectRepository.findById(projectId)
                 .orElseThrow(() ->
-                        new RuntimeException("Project not found"));
+                        new ResourceNotFoundException("Project not found"));
 
         //stare proiect
         if(project.getStatus() == ProjectStatus.ARCHIVED) {
-            throw new RuntimeException("Archived projects cannot be modified");
+            throw new BadRequestException("Archived projects cannot be modified");
         }
 
         //userul logat
@@ -116,13 +119,13 @@ public class ProjectService {
 
         //verificare user logat = owner
         if(!isOwner(project, currentUser)) {
-            throw new RuntimeException("Only the project owner can add members");
+            throw new BadRequestException("Only the project owner can add members");
         }
 
         // cautam userul de pus in proiect
         User user = userRepository.findById(request.getUserId())
                 .orElseThrow(() ->
-                        new RuntimeException("User not found"));
+                        new ResourceNotFoundException("User not found"));
 
         // adaugam membrul
         project.getMembers().add(user);
@@ -138,14 +141,14 @@ public class ProjectService {
         // cautam proiectul
         Project project = projectRepository.findById(projectId)
                 .orElseThrow(() ->
-                        new RuntimeException("Project not found"));
+                        new ResourceNotFoundException("Project not found"));
 
         // luam userul logat
         User currentUser = getCurrentUser();
 
         //doar ownerul poate dezactiva
         if(!isOwner(project, currentUser)) {
-            throw new RuntimeException("Only the project owner can archive project");
+            throw new ForbiddenException("Only the project owner can archive project");
         }
 
         // soft delete
@@ -161,11 +164,11 @@ public class ProjectService {
         // cautam proiectul
         Project project = projectRepository.findById(projectId)
                 .orElseThrow(() ->
-                        new RuntimeException("Project not found"));
+                        new ResourceNotFoundException("Project not found"));
 
         // stare proiect
         if(project.getStatus() == ProjectStatus.ARCHIVED) {
-            throw new RuntimeException("Archived projects cannot be modified");
+            throw new BadRequestException("Archived projects cannot be modified");
         }
 
         // user logat:
@@ -179,7 +182,7 @@ public class ProjectService {
 
         // daca nu este nici owner nici membru
         if(!owner && !member) {
-            throw new RuntimeException("You are not part of this project");
+            throw new ForbiddenException("You are not part of this project");
         }
 
         // doar ownerul poate modifica nume si descriere

@@ -11,6 +11,7 @@ import com.example.task_managementplatform.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.stereotype.Service;
+import com.example.task_managementplatform.exception.*;
 
 //securitate:
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -37,7 +38,7 @@ public class UserService {
 
         // verificam daca exista deja email-ul
         if (userRepository.findByEmail(request.getEmail()).isPresent()) {
-            throw new RuntimeException("Email already exists");
+            throw new BadRequestException("Email already exists");
         }
 
         // cream obiectul user
@@ -67,7 +68,7 @@ public class UserService {
         //lucrez cu contextul salvat in Security Holder:
         SecurityContext context = SecurityContextHolder.getContext();
         if(context.getAuthentication() == null) {
-            throw new RuntimeException("No authenticated user");
+            throw new ForbiddenException("No authenticated user");
         }
 
         // userul il gasesc dupa mailul salvat in context
@@ -75,7 +76,7 @@ public class UserService {
 
         //cautare in baza de date dupa mail:
         return userRepository.findByEmail(email)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("User not found"));
     }
 
     //2.2.update date personale: nume
@@ -94,7 +95,7 @@ public class UserService {
 
         //vf daca emailul exista deja: nu pot avea 2 useri diferiti cu acelasi mail
         if(userRepository.findByEmail(request.getEmail()).isPresent()) {
-            throw new RuntimeException("Email already exists");
+            throw new BadRequestException("Email already exists");
         }
 
         user.setEmail(request.getEmail());
@@ -113,7 +114,7 @@ public class UserService {
         );
 
         if(!matches) {
-            throw new RuntimeException("Current password is incorrect");
+            throw new BadRequestException("Current password is incorrect");
         }
 
         //TODO sterge - doar pt vf
@@ -144,7 +145,7 @@ public class UserService {
 
         //caut user dupa id:
         User user = userRepository.findById(userId).orElseThrow(() ->
-                new RuntimeException("User not found"));
+                new ResourceNotFoundException("User not found"));
 
         //schimbare rol:
         user.setRole(request.getRole());
@@ -159,7 +160,7 @@ public class UserService {
 
         // cautam userul
         User user = userRepository.findById(userId).orElseThrow(() ->
-                        new RuntimeException("User not found"));
+                        new ResourceNotFoundException("User not found"));
 
         // dezactivam contul
         user.setActive(false);

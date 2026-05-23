@@ -2,6 +2,8 @@ package com.example.task_managementplatform.auth.service;
 
 import com.example.task_managementplatform.auth.dto.LoginRequest;
 import com.example.task_managementplatform.auth.dto.LoginResponse;
+import com.example.task_managementplatform.exception.BadRequestException;
+import com.example.task_managementplatform.exception.ForbiddenException;
 import com.example.task_managementplatform.security.JwtService;
 import com.example.task_managementplatform.user.entity.User;
 import com.example.task_managementplatform.user.repository.UserRepository;
@@ -20,12 +22,12 @@ public class AuthService {
 
         // caut user dupa mail:
         User user = userRepository.findByEmail(request.getEmail())
-                .orElseThrow(() -> new RuntimeException("Invalid email or password"));
+                .orElseThrow(() -> new BadRequestException("Invalid email or password"));
 
         //userul se poate loga doar daca nu este dezactivat de admin
         if(!user.isActive()) {
 
-            throw new RuntimeException("User is deactivated");
+            throw new ForbiddenException("User is deactivated");
 
         }
 
@@ -34,7 +36,7 @@ public class AuthService {
                 request.getPassword(),
                 user.getPassword()
         )) {
-            throw new RuntimeException("Invalid email or password");
+            throw new BadRequestException("Invalid email or password");
         }
 
         //returnare token generat de jwt

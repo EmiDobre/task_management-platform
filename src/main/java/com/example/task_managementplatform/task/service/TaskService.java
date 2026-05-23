@@ -12,6 +12,7 @@ import com.example.task_managementplatform.task.entity.TaskStatus;
 import com.example.task_managementplatform.task.repository.TaskRepository;
 import com.example.task_managementplatform.user.entity.User;
 import com.example.task_managementplatform.user.repository.UserRepository;
+import com.example.task_managementplatform.exception.*;
 
 import lombok.RequiredArgsConstructor;
 
@@ -36,13 +37,13 @@ public class TaskService {
         SecurityContext context = SecurityContextHolder.getContext();
 
         if(context.getAuthentication() == null) {
-            throw new RuntimeException("No authenticated user");
+            throw new ForbiddenException("No authenticated user");
         }
 
         String email = context.getAuthentication().getName();
 
         return userRepository.findByEmail(email).orElseThrow(() ->
-                        new RuntimeException("User not found"));
+                        new ResourceNotFoundException("User not found"));
 
     }
 
@@ -84,18 +85,18 @@ public class TaskService {
         Project project = projectRepository
                 .findById(request.getProjectId())
                 .orElseThrow(() ->
-                        new RuntimeException("Project not found"));
+                        new ResourceNotFoundException("Project not found"));
 
         // proiect arhivat
         if(project.getStatus() == ProjectStatus.ARCHIVED) {
-            throw new RuntimeException( "Cannot create tasks in archived projects");
+            throw new BadRequestException( "Cannot create tasks in archived projects");
         }
 
         // creatorul trebuie sa fie membru
         boolean member = isMember(project, creator);
 
         if(!member) {
-            throw new RuntimeException("You are not part of this project");
+            throw new ForbiddenException("You are not part of this project");
         }
 
         // creare task
@@ -128,10 +129,7 @@ public class TaskService {
 
         // cautam taskul
         Task task = taskRepository.findById(taskId)
-                .orElseThrow(() ->
-                        new RuntimeException(
-                                "Task not found"
-                        ));
+                .orElseThrow(() -> new ResourceNotFoundException("Task not found"));
 
         // user logat
         User currentUser = getCurrentUser();
@@ -141,12 +139,12 @@ public class TaskService {
 
         // proiect arhivat
         if(project.getStatus() == ProjectStatus.ARCHIVED) {
-            throw new RuntimeException("Archived projects cannot be modified");
+            throw new BadRequestException("Archived projects cannot be modified");
         }
 
         // userul trebuie sa fie membru
         if(!isMember(project, currentUser)) {
-            throw new RuntimeException("You are not part of this project");
+            throw new ForbiddenException("You are not part of this project");
         }
 
         // creator task
@@ -157,7 +155,7 @@ public class TaskService {
 
         // daca nu e nici creator nici assigned
         if(!isCreator && !isAssignedUser) {
-            throw new RuntimeException("You cannot modify this task");
+            throw new ForbiddenException("You cannot modify this task");
         }
 
         // doar creatorul poate modifica
@@ -209,9 +207,7 @@ public class TaskService {
         // cautam taskul
         Task task = taskRepository.findById(taskId)
                 .orElseThrow(() ->
-                        new RuntimeException(
-                                "Task not found"
-                        ));
+                        new ResourceNotFoundException("Task not found"));
 
         // user logat
         User currentUser = getCurrentUser();
@@ -219,7 +215,7 @@ public class TaskService {
         // doar creatorul poate sterge
         if(!isCreator(task, currentUser)) {
 
-            throw new RuntimeException("Only the creator can delete this task");
+            throw new ForbiddenException("Only the creator can delete this task");
 
         }
 
@@ -233,9 +229,7 @@ public class TaskService {
         // cautam taskul
         Task task = taskRepository.findById(taskId)
                 .orElseThrow(() ->
-                        new RuntimeException(
-                                "Task not found"
-                        ));
+                        new ResourceNotFoundException("Task not found"));
 
         // user logat
         User currentUser = getCurrentUser();
@@ -243,7 +237,7 @@ public class TaskService {
         // doar creatorul poate asigna
         if(!isCreator(task, currentUser)) {
 
-            throw new RuntimeException("Only creator can assign users");
+            throw new ForbiddenException("Only creator can assign users");
 
         }
 
@@ -251,11 +245,11 @@ public class TaskService {
         User assignedUser = userRepository
                 .findById(request.getUserId())
                 .orElseThrow(() ->
-                        new RuntimeException("User not found"));
+                        new ResourceNotFoundException("User not found"));
 
         // userul asignat trebuie sa fie mai intai membru in proiect
         if(!isMember(task.getProject(), assignedUser)) {
-            throw new RuntimeException("User is not part of the project");
+            throw new ForbiddenException("User is not part of the project");
         }
 
         // asignam userul
