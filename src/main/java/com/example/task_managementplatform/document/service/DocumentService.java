@@ -114,9 +114,8 @@ public class DocumentService {
 
         } catch (Exception e) {
 
-            throw new RuntimeException(
-                    "Failed to upload file"
-            );
+            log.error("Failed to upload file", e);
+            throw new RuntimeException("Failed to upload file");
 
         }
         //logging:
@@ -158,6 +157,7 @@ public class DocumentService {
 
         } catch (Exception e) {
 
+            log.error("Failed to delete file", e);
             throw new RuntimeException("Failed to delete file");
 
         }
@@ -195,6 +195,7 @@ public class DocumentService {
 
         } catch (Exception e) {
 
+            log.error("Failed to download file", e);
             throw new RuntimeException("Failed to download file");
 
         }
