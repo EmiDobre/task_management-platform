@@ -25,6 +25,8 @@ import java.util.UUID;
 
 import io.minio.MinioClient;
 import io.minio.PutObjectArgs;
+import io.minio.RemoveObjectArgs;
+import io.minio.GetObjectArgs;
 
 @Service
 @RequiredArgsConstructor
@@ -140,9 +142,55 @@ public class DocumentService {
                 .findById(documentId).orElseThrow(() ->
                         new ResourceNotFoundException("Document not found"));
 
+        //stergere fisier din minio:
+        try {
+
+            minioClient.removeObject(
+                    RemoveObjectArgs.builder()
+                            .bucket("documents")
+                            .object(document.getObjectKey())
+                            .build()
+            );
+
+        } catch (Exception e) {
+
+            throw new RuntimeException("Failed to delete file");
+
+        }
+
+        //stergere metadate DB
         documentRepository.delete(document);
 
     }
 
-    // folosire minio
+    // download DB->objectKey->minio->fisier real->bytes in response postman
+    public byte[] downloadDocument(Long documentId) {
+
+        Document document = documentRepository
+                .findById(documentId)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException("Document not found")
+                );
+
+        try (
+
+                var stream = minioClient.getObject(
+                        GetObjectArgs.builder()
+                                .bucket("documents")
+                                .object(document.getObjectKey())
+                                .build()
+                )
+
+        ) {
+
+            return stream.readAllBytes();
+
+        } catch (Exception e) {
+
+            throw new RuntimeException("Failed to download file");
+
+        }
+
+    }
+
 }

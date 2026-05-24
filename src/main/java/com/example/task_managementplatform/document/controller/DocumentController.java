@@ -18,8 +18,8 @@ public class DocumentController {
 
     private final DocumentService documentService;
 
-    // upload: POST /api/documents/upload
-    @PostMapping("/upload")
+    // upload: POST /api/documents/upload specificat cu form-data body request!
+    @PostMapping(value = "/upload", consumes = "multipart/form-data")
     public Document uploadDocument(
 
             @RequestParam("file")
@@ -51,6 +51,14 @@ public class DocumentController {
     public void deleteDocument(@PathVariable Long documentId) {
 
         documentService.deleteDocument(documentId);
+
+    }
+
+    //download document existent din minio prin acces db
+    @GetMapping("/{documentId}/download")
+    public byte[] downloadDocument(@PathVariable Long documentId) {
+
+        return documentService.downloadDocument(documentId);
 
     }
 
