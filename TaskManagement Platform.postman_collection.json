@@ -1,0 +1,3956 @@
+{
+  "info": {
+    "_postman_id": "c3a4bf70-4cb7-44a1-9b85-b5c6b4e7f40e",
+    "name": "TaskManagement Platform",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "27375138"
+  },
+  "item": [
+    {
+      "name": "1.login2",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"maria@test.com\",\r\n  \"password\": \"maria123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "1.register1",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"user4@test.com\",\r\n  \"password\": \"user4parola\",\r\n  \"fullName\": \"User Patru\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/users",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "users"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "1.login",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"alex@test.com\",\r\n  \"password\": \"alex123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "1.register2",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"maria@test.com\",\r\n  \"password\": \"maria123\",\r\n  \"fullName\": \"Maria Ionescu\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/users",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "users"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "1.testSecurityFaraHeaderTokenLogin",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/ping",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "ping"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "1.testSecuritycuTokenLogin",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGV4QHRlc3QuY29tIiwiaWF0IjoxNzc5MjI1MjY4LCJleHAiOjE3NzkyMjg4Njh9.KQ2v17Ik5imJPSZ2q29W-6KNEM9p9lxfqRHgBQoB8rk",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/ping",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "ping"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "2.view profil user logat",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGV4QHRlc3QuY29tIiwiaWF0IjoxNzc5Mjc3NTgyLCJleHAiOjE3NzkyODExODJ9.QAPM3FkHD4NG20amsD00acS7xRriWXMw7gs62PcgbEk",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/users/me",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "users",
+            "me"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "2.updateUser: login maria",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"maria@test.com\",\r\n  \"password\": \"maria123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "2.updateUser: get info acum user",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJpYUB0ZXN0LmNvbSIsImlhdCI6MTc3OTI3OTA1NywiZXhwIjoxNzc5MjgyNjU3fQ.FySkDScE98UOszdkL_5qrMLM9cPMtYk-gN8g87rWaA4",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/users/me",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "users",
+            "me"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "2.updateUser: nume nou maria",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJpYUB0ZXN0LmNvbSIsImlhdCI6MTc3OTI3OTA1NywiZXhwIjoxNzc5MjgyNjU3fQ.FySkDScE98UOszdkL_5qrMLM9cPMtYk-gN8g87rWaA4",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"fullName\": \"Maria Updated\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/users/me/profile",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "users",
+            "me",
+            "profile"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "2.updateUser: mail nou maria",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJpYUB0ZXN0LmNvbSIsImlhdCI6MTc3OTI3OTA1NywiZXhwIjoxNzc5MjgyNjU3fQ.FySkDScE98UOszdkL_5qrMLM9cPMtYk-gN8g87rWaA4",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"mariaupdate@test.com\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/users/me/email",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "users",
+            "me",
+            "email"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "2.login maria cu mail updated ",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"mariaupdate@test.com\",\r\n  \"password\": \"maria123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "2.view detalii maria cu mail si nume updated",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJpYXVwZGF0ZUB0ZXN0LmNvbSIsImlhdCI6MTc3OTI4MTIzMywiZXhwIjoxNzc5Mjg0ODMzfQ.oWEdTnkH4tevKNgsi2L_R_ZiruZpNjVw9_sTunPfy0c",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/users/me",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "users",
+            "me"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "2.update parola maria in: updatemaria123",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJpYXVwZGF0ZUB0ZXN0LmNvbSIsImlhdCI6MTc3OTI4MjMyOSwiZXhwIjoxNzc5Mjg1OTI5fQ.RRpt5PMX8OYhW2x2tXt9EgUwQKBipmfP-IBsL-_IpU4",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"currentPassword\": \"maria123\",\r\n  \"newPassword\": \"updatemaria123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/users/me/password",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "users",
+            "me",
+            "password"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "2.login maria cu parola noua mail nou ",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"mariaupdate@test.com\",\r\n  \"password\": \"updatemaria123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "2.register MAIN ADMIN ",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"admin@test.com\",\r\n  \"password\": \"admin123\",\r\n  \"fullName\": \"Main Admin\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/users",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "users"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "2. login MAIN ADMIN",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "\r\n{\r\n  \"email\": \"admin@test.com\",\r\n  \"password\": \"admin123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "2. detalii ADMIN: view",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkB0ZXN0LmNvbSIsImlhdCI6MTc3OTI5MDcyNywiZXhwIjoxNzc5Mjk0MzI3fQ.gy34BhHSVi47DmczCLcPAjTTS9_5Icz_ySr09EE7FuU",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/users/me",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "users",
+            "me"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "2. ADMIN: listeaza toti userii",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkB0ZXN0LmNvbSIsImlhdCI6MTc3OTYzNzM5OCwiZXhwIjoxNzc5NjQwOTk4fQ.aHLLjZ0ojT_DgTdVhsL5w-bTveI0iCPa7dY4gwEvwUI",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/users",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "users"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "2. ADMIN: modifica userul id 1 ca ADMIN ",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkB0ZXN0LmNvbSIsImlhdCI6MTc3OTI5MTg3MSwiZXhwIjoxNzc5Mjk1NDcxfQ.FXPt0TRdhGHHmtI--EcvmF291EH5EMjsKc_bEaqkwbs",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"role\": \"ADMIN\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/users/1/role",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "users",
+            "1",
+            "role"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "2. ADMIN dezactiveaza user 1 (care avea parola fara criptare si oricum nu mergea logarea)",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkB0ZXN0LmNvbSIsImlhdCI6MTc3OTI5MTg3MSwiZXhwIjoxNzc5Mjk1NDcxfQ.FXPt0TRdhGHHmtI--EcvmF291EH5EMjsKc_bEaqkwbs",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/users/1/deactivate",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "users",
+            "1",
+            "deactivate"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "2. ADMIN activeaza user 1 inapoi",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkB0ZXN0LmNvbSIsImlhdCI6MTc3OTI5MTg3MSwiZXhwIjoxNzc5Mjk1NDcxfQ.FXPt0TRdhGHHmtI--EcvmF291EH5EMjsKc_bEaqkwbs",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/users/1/activate",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "users",
+            "1",
+            "activate"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "2. login ca user4 parola user4parola",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "\r\n{\r\n  \"email\": \"user4@test.com\",\r\n  \"password\": \"user4parola\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "2. ADMIN dezactiveaza user4 ",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkB0ZXN0LmNvbSIsImlhdCI6MTc3OTI5MzkwOSwiZXhwIjoxNzc5Mjk3NTA5fQ.jiTSekSVetrESxjPglKpRpNDddzmHb5kqCChbW6j7-Y",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/users/5/deactivate",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "users",
+            "5",
+            "deactivate"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "3. projects: creare proiect Task Manager de maria",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJpYXVwZGF0ZUB0ZXN0LmNvbSIsImlhdCI6MTc3OTM3OTU5OSwiZXhwIjoxNzc5MzgzMTk5fQ.AbYtBjGRedInh6m_rcJyE35Y3PC6NXsULyBLeZYWPGQ",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Task Platform\",\r\n  \"description\": \"Spring Boot backend\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/projects",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "projects"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "2.projects: listare - bug: proiecte cu aceleasi nume",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJpYXVwZGF0ZUB0ZXN0LmNvbSIsImlhdCI6MTc3OTQ3NDk2MiwiZXhwIjoxNzc5NDc4NTYyfQ.8Gl4Z-60xKj3FoNTAkE0kZkVUtiJTCxdMv8QAYiM1Hg",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Task Platform\",\r\n  \"description\": \"Spring Boot backend\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/projects",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "projects"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "3.projects: alex face Task Management Platform project",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGV4QHRlc3QuY29tIiwiaWF0IjoxNzc5Mzk1OTA3LCJleHAiOjE3NzkzOTk1MDd9.qAbuFQ0u5yw7ZbYPZZ5KjU6z1qQfRZ8Bo5tLx0LZdkc",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Task Management Platform\",\r\n  \"description\": \"Backend Spring Boot project\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/projects",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "projects"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "3.projects: alex incearca sa puna user in proiectul in care nu e owner",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGV4QHRlc3QuY29tIiwiaWF0IjoxNzc5Mzk1OTA3LCJleHAiOjE3NzkzOTk1MDd9.qAbuFQ0u5yw7ZbYPZZ5KjU6z1qQfRZ8Bo5tLx0LZdkc",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"userId\": 2\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/projects/1/members",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "projects",
+            "1",
+            "members"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "3.projects: alex adauga user2 la proiectul(cu id4)",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGV4QHRlc3QuY29tIiwiaWF0IjoxNzc5Mzk1OTA3LCJleHAiOjE3NzkzOTk1MDd9.qAbuFQ0u5yw7ZbYPZZ5KjU6z1qQfRZ8Bo5tLx0LZdkc",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"userId\": 2\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/projects/4/members",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "projects",
+            "4",
+            "members"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "3. projects: userul logat view proiecte din care e membru",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJpYXVwZGF0ZUB0ZXN0LmNvbSIsImlhdCI6MTc3OTQ3Mjc2MiwiZXhwIjoxNzc5NDc2MzYyfQ.rGDMLNZxhvBMnU_l1jloa0V2HUEiLYBUXYAGGcyAmZU",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/users/me/projects",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "users",
+            "me",
+            "projects"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "3. ADMIN projects: view toate proiectele -> doar ca admin",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkB0ZXN0LmNvbSIsImlhdCI6MTc3OTYzNzM5OCwiZXhwIjoxNzc5NjQwOTk4fQ.aHLLjZ0ojT_DgTdVhsL5w-bTveI0iCPa7dY4gwEvwUI",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/projects",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "projects"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "4. dupa login maria, detalii proiectele ei",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJpYXVwZGF0ZUB0ZXN0LmNvbSIsImlhdCI6MTc3OTQ4MDY4NiwiZXhwIjoxNzc5NDg0Mjg2fQ.Ewe4b8oTFC6jkjDz1LA8GH7qRa3fdP63wjX7QbAPEG0",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/users/me/projects",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "users",
+            "me",
+            "projects"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "4. update maria creeaza task Implement JWT pt proiectul cu id1 ",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJpYXVwZGF0ZUB0ZXN0LmNvbSIsImlhdCI6MTc3OTQ3Njk5MSwiZXhwIjoxNzc5NDgwNTkxfQ.O1DY4oiZAGVtGogP9XX3X9BWut_uOUW1r4EfjgsQ4gw",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"Implement JWT\",\r\n  \"description\": \"Create authentication filter\",\r\n  \"priority\": \"HIGH\",\r\n  \"deadline\": \"2026-05-30T18:00:00\",\r\n  \"projectId\": 1\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/tasks",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "tasks"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "4. maria creeaza task2 la proiectul cu id1 ",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJpYXVwZGF0ZUB0ZXN0LmNvbSIsImlhdCI6MTc3OTQ4MTE5MiwiZXhwIjoxNzc5NDg0NzkyfQ.Zp19tb81xkjk0p1FBAHD13We91WPTda_rMFjueLuBZY",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"Implement Upload System\",\r\n  \"description\": \"Create MinIO upload integration\",\r\n  \"priority\": \"HIGH\",\r\n  \"deadline\": \"2026-05-30T18:00:00\",\r\n  \"projectId\": 1\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/tasks",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "tasks"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "4.maria il pune pe alex (userid4) membru in proiect cu id1 ",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJpYXVwZGF0ZUB0ZXN0LmNvbSIsImlhdCI6MTc3OTQ4MjgwMCwiZXhwIjoxNzc5NDg2NDAwfQ.9GYwNJ0JTonuMPToSMEP_iT1Q__LxAdscLDToT6Ireo",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"userId\": 4\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/projects/1/members",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "projects",
+            "1",
+            "members"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "4.maria ii da assign lui alex cu taskul cu id1 ",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJpYXVwZGF0ZUB0ZXN0LmNvbSIsImlhdCI6MTc3OTQ4MjgwMCwiZXhwIjoxNzc5NDg2NDAwfQ.9GYwNJ0JTonuMPToSMEP_iT1Q__LxAdscLDToT6Ireo",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"userId\": 4\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/tasks/1/assign",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "tasks",
+            "1",
+            "assign"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "4.alex@test.com cu parola alex123 se logheaza",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "\r\n{\r\n  \"email\": \"alex@test.com\",\r\n  \"password\": \"alex123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "4. get taskurile useurlui logat - alex",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGV4QHRlc3QuY29tIiwiaWF0IjoxNzc5NjM1NDk0LCJleHAiOjE3Nzk2MzkwOTR9.stZqvnF-0iJWcw6zG17SUGbWtqdr0BucJndzKyOegcQ",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/users/me/tasks",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "users",
+            "me",
+            "tasks"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "4. update status in_progress pt task1 al useurlui alex",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGV4QHRlc3QuY29tIiwiaWF0IjoxNzc5NTM1NjM3LCJleHAiOjE3Nzk1MzkyMzd9.S7v0cTEyXC0asQYtg9b-_ff2Y0iZrKkG3w2IMtTgHpI",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"status\": \"IN_PROGRESS\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/tasks/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "tasks",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "6.400 bad request: validari login incorect",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "\r\n{\r\n  \"fullName\": \"\",\r\n  \"email\": \"abc\",\r\n  \"password\": \"1\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/users",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "users"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "6.403 forbidden: validari: dezactivare proiect de catre membru nu owner",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGV4QHRlc3QuY29tIiwiaWF0IjoxNzc5NTQyMTE3LCJleHAiOjE3Nzk1NDU3MTd9.Reor6IfraS4RVTCFshruPA0hKCXY6zdsOJ0pUIAzlPY",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/projects/1/deactivate",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "projects",
+            "1",
+            "deactivate"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "6.404 not found: valdiari: activare proiect care nu exista",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGV4QHRlc3QuY29tIiwiaWF0IjoxNzc5NTQyMTE3LCJleHAiOjE3Nzk1NDU3MTd9.Reor6IfraS4RVTCFshruPA0hKCXY6zdsOJ0pUIAzlPY",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n   \"status\": \"ACTIVE\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/projects/999",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "projects",
+            "999"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "6.alex da upload la file1.txt in proiecutl in care e membru",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGV4QHRlc3QuY29tIiwiaWF0IjoxNzc5NjM4MTQzLCJleHAiOjE3Nzk2NDE3NDN9.PgL2rZbGzG3NCMcYQGPA66rWGJY2nnbEKh0DoDjTI3A",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "uuid": "c8bc39cc-59b8-47fb-b6e8-0767bcb30219",
+              "src": "postman-cloud:///1f15782f-e505-4ac0-b5ac-733c104a2f60"
+            },
+            {
+              "key": "projectId",
+              "value": "1",
+              "type": "text",
+              "uuid": "18d706fb-75d2-4b43-bceb-c75de13f0757"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/documents/upload",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "documents",
+            "upload"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "6.list documentele proiectului cu id 1 ",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGV4QHRlc3QuY29tIiwiaWF0IjoxNzc5NjM5MTQwLCJleHAiOjE3Nzk2NDI3NDB9.IWOY8gS-wbWumjTtbzTlE4Cv9RUYIK9jd63eVjwFGnc",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/documents/project/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "documents",
+            "project",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "6.delete document din db si minio",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGV4QHRlc3QuY29tIiwiaWF0IjoxNzc5NjM1NDk0LCJleHAiOjE3Nzk2MzkwOTR9.stZqvnF-0iJWcw6zG17SUGbWtqdr0BucJndzKyOegcQ",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/documents/2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "documents",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "6.download fisier 1 ",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGV4QHRlc3QuY29tIiwiaWF0IjoxNzc5NjM5MTQwLCJleHAiOjE3Nzk2NDI3NDB9.IWOY8gS-wbWumjTtbzTlE4Cv9RUYIK9jd63eVjwFGnc",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/documents/3/download",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "documents",
+            "3",
+            "download"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "6. upload file2",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGV4QHRlc3QuY29tIiwiaWF0IjoxNzc5NjM4MTQzLCJleHAiOjE3Nzk2NDE3NDN9.PgL2rZbGzG3NCMcYQGPA66rWGJY2nnbEKh0DoDjTI3A",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "uuid": "c476a0cf-6ff7-4db9-9e5f-2b952cd62882",
+              "src": "postman-cloud:///1f157895-f254-4490-97ff-d189c9094a4d"
+            },
+            {
+              "key": "projectId",
+              "value": "1",
+              "type": "text",
+              "uuid": "995d522c-9bc8-4103-a7cb-bad38d1319a4"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/documents/upload",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "documents",
+            "upload"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "flow1. register andrei cu andrei123 parola",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"fullName\": \"Andrei Popescu\",\r\n  \"email\": \"andrei@test.com\",\r\n  \"password\": \"andrei123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/users",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "users"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "flow1. register andrei cu andrei123 parola",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"fullName\": \"Andrei Popescu\",\r\n  \"email\": \"andrei@test.com\",\r\n  \"password\": \"andrei123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/users",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "users"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "164"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 24 May 2026 18:13:47 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"active\": true,\n    \"email\": \"andrei@test.com\",\n    \"fullName\": \"Andrei Popescu\",\n    \"id\": 8,\n    \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n    \"role\": \"USER\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "flow2. login maria ",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"mariaupdate@test.com\",\r\n  \"password\": \"updatemaria123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "flow2. login maria",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"mariaupdate@test.com\",\r\n  \"password\": \"updatemaria123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "163"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 24 May 2026 18:15:35 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJpYXVwZGF0ZUB0ZXN0LmNvbSIsImlhdCI6MTc3OTY0NjUzNCwiZXhwIjoxNzc5NjUwMTM0fQ.BLBNu10aq1o6LIhC8cEuNHFi26zzQoUFCdExZqmr5Ok\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "flow3. maria il adauga pe andrei la proiectul TaskPlatform cu id1",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJpYXVwZGF0ZUB0ZXN0LmNvbSIsImlhdCI6MTc3OTY0NjUzNCwiZXhwIjoxNzc5NjUwMTM0fQ.BLBNu10aq1o6LIhC8cEuNHFi26zzQoUFCdExZqmr5Ok",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"userId\": 8\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/projects/1/members",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "projects",
+            "1",
+            "members"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "flow3. maria il adauga pe andrei la proiectul TaskPlatform cu id1",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"userId\": 8\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/projects/1/members",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "projects",
+                "1",
+                "members"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "1848"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 24 May 2026 18:17:04 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"createdAt\": \"2026-05-21T19:06:57.337236\",\n    \"description\": \"Spring Boot backend\",\n    \"id\": 1,\n    \"members\": [\n        {\n            \"active\": true,\n            \"email\": \"mariaupdate@test.com\",\n            \"fullName\": \"Maria Updated\",\n            \"id\": 6,\n            \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n            \"role\": \"USER\"\n        },\n        {\n            \"active\": true,\n            \"email\": \"alex@test.com\",\n            \"fullName\": \"Alex Popescu\",\n            \"id\": 4,\n            \"password\": \"$2a$10$xwxxsa8uI6yis9cxZ5r0me4g56beuQzgn9vSaG.0teXnfJe81oUZi\",\n            \"role\": \"USER\"\n        },\n        {\n            \"active\": true,\n            \"email\": \"andrei@test.com\",\n            \"fullName\": \"Andrei Popescu\",\n            \"id\": 8,\n            \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n            \"role\": \"USER\"\n        }\n    ],\n    \"name\": \"Task Platform\",\n    \"owner\": {\n        \"active\": true,\n        \"email\": \"mariaupdate@test.com\",\n        \"fullName\": \"Maria Updated\",\n        \"id\": 6,\n        \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n        \"role\": \"USER\"\n    },\n    \"status\": \"ACTIVE\",\n    \"tasks\": [\n        {\n            \"assignedUser\": null,\n            \"createdAt\": \"2026-05-22T23:21:45.172616\",\n            \"creator\": {\n                \"active\": true,\n                \"email\": \"mariaupdate@test.com\",\n                \"fullName\": \"Maria Updated\",\n                \"id\": 6,\n                \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                \"role\": \"USER\"\n            },\n            \"deadline\": \"2026-05-30T18:00:00\",\n            \"description\": \"Create MinIO upload integration\",\n            \"id\": 2,\n            \"priority\": \"HIGH\",\n            \"status\": \"TODO\",\n            \"title\": \"Implement Upload System\",\n            \"updatedAt\": \"2026-05-22T23:21:45.172616\"\n        },\n        {\n            \"assignedUser\": {\n                \"active\": true,\n                \"email\": \"alex@test.com\",\n                \"fullName\": \"Alex Popescu\",\n                \"id\": 4,\n                \"password\": \"$2a$10$xwxxsa8uI6yis9cxZ5r0me4g56beuQzgn9vSaG.0teXnfJe81oUZi\",\n                \"role\": \"USER\"\n            },\n            \"createdAt\": \"2026-05-22T22:12:21.200863\",\n            \"creator\": {\n                \"active\": true,\n                \"email\": \"mariaupdate@test.com\",\n                \"fullName\": \"Maria Updated\",\n                \"id\": 6,\n                \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                \"role\": \"USER\"\n            },\n            \"deadline\": \"2026-05-30T18:00:00\",\n            \"description\": \"Create authentication filter\",\n            \"id\": 1,\n            \"priority\": \"HIGH\",\n            \"status\": \"IN_PROGRESS\",\n            \"title\": \"Implement JWT\",\n            \"updatedAt\": \"2026-05-23T16:15:56.015883\"\n        }\n    ]\n}"
+        }
+      ]
+    },
+    {
+      "name": "flow4.maria creeaza taskuri proiect 1 high prio id 5",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJpYXVwZGF0ZUB0ZXN0LmNvbSIsImlhdCI6MTc3OTY0NjUzNCwiZXhwIjoxNzc5NjUwMTM0fQ.BLBNu10aq1o6LIhC8cEuNHFi26zzQoUFCdExZqmr5Ok",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"Implement Notifications\",\r\n  \"description\": \"Create notification system\",\r\n  \"priority\": \"HIGH\",\r\n  \"status\": \"TODO\",\r\n  \"deadline\": \"2026-06-01T18:00:00\",\r\n  \"projectId\": 1\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/tasks",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "tasks"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "flow4.maria creeaza taskuri proiect 1 high prio id 5",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"title\": \"Implement Notifications\",\r\n  \"description\": \"Create notification system\",\r\n  \"priority\": \"HIGH\",\r\n  \"status\": \"TODO\",\r\n  \"deadline\": \"2026-06-01T18:00:00\",\r\n  \"projectId\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/tasks",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "tasks"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "433"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 24 May 2026 18:37:13 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"assignedUser\": null,\n    \"createdAt\": \"2026-05-24T21:37:13.211325\",\n    \"creator\": {\n        \"active\": true,\n        \"email\": \"mariaupdate@test.com\",\n        \"fullName\": \"Maria Updated\",\n        \"id\": 6,\n        \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n        \"role\": \"USER\"\n    },\n    \"deadline\": \"2026-06-01T18:00:00\",\n    \"description\": \"Create notification system\",\n    \"id\": 6,\n    \"priority\": \"HIGH\",\n    \"status\": \"TODO\",\n    \"title\": \"Implement Notifications\",\n    \"updatedAt\": \"2026-05-24T21:37:13.211325\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "flow5.maria creeaza task cu prio medie - id 6",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJpYXVwZGF0ZUB0ZXN0LmNvbSIsImlhdCI6MTc3OTY0NjUzNCwiZXhwIjoxNzc5NjUwMTM0fQ.BLBNu10aq1o6LIhC8cEuNHFi26zzQoUFCdExZqmr5Ok",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"Fix Validation Errors\",\r\n  \"description\": \"Improve request validation\",\r\n  \"priority\": \"MEDIUM\",\r\n  \"status\": \"TODO\",\r\n  \"deadline\": \"2026-06-02T18:00:00\",\r\n  \"projectId\": 1\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/tasks",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "tasks"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "flow5.maria creeaza task cu prio medie - id 6",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"title\": \"Fix Validation Errors\",\r\n  \"description\": \"Improve request validation\",\r\n  \"priority\": \"MEDIUM\",\r\n  \"status\": \"TODO\",\r\n  \"deadline\": \"2026-06-02T18:00:00\",\r\n  \"projectId\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/tasks",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "tasks"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "435"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 24 May 2026 18:36:10 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"assignedUser\": null,\n    \"createdAt\": \"2026-05-24T21:36:10.2518259\",\n    \"creator\": {\n        \"active\": true,\n        \"email\": \"mariaupdate@test.com\",\n        \"fullName\": \"Maria Updated\",\n        \"id\": 6,\n        \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n        \"role\": \"USER\"\n    },\n    \"deadline\": \"2026-06-02T18:00:00\",\n    \"description\": \"Improve request validation\",\n    \"id\": 4,\n    \"priority\": \"MEDIUM\",\n    \"status\": \"TODO\",\n    \"title\": \"Fix Validation Errors\",\n    \"updatedAt\": \"2026-05-24T21:36:10.2518259\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "flow6.maria creeaza task id7",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJpYXVwZGF0ZUB0ZXN0LmNvbSIsImlhdCI6MTc3OTY0NjUzNCwiZXhwIjoxNzc5NjUwMTM0fQ.BLBNu10aq1o6LIhC8cEuNHFi26zzQoUFCdExZqmr5Ok",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"Update README\",\r\n  \"description\": \"Improve GitHub documentation\",\r\n  \"priority\": \"LOW\",\r\n  \"status\": \"TODO\",\r\n  \"deadline\": \"2026-06-03T18:00:00\",\r\n  \"projectId\": 1\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/tasks",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "tasks"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "flow6.maria creeaza task id7",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"title\": \"Update README\",\r\n  \"description\": \"Improve GitHub documentation\",\r\n  \"priority\": \"LOW\",\r\n  \"status\": \"TODO\",\r\n  \"deadline\": \"2026-06-03T18:00:00\",\r\n  \"projectId\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/tasks",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "tasks"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "426"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 24 May 2026 18:40:05 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"assignedUser\": null,\n    \"createdAt\": \"2026-05-24T21:40:05.9633853\",\n    \"creator\": {\n        \"active\": true,\n        \"email\": \"mariaupdate@test.com\",\n        \"fullName\": \"Maria Updated\",\n        \"id\": 6,\n        \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n        \"role\": \"USER\"\n    },\n    \"deadline\": \"2026-06-03T18:00:00\",\n    \"description\": \"Improve GitHub documentation\",\n    \"id\": 8,\n    \"priority\": \"LOW\",\n    \"status\": \"TODO\",\n    \"title\": \"Update README\",\n    \"updatedAt\": \"2026-05-24T21:40:05.9633853\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "flow7. maria creeaza acelasi task de 2 ori si il sterge pe cel cu id8",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJpYXVwZGF0ZUB0ZXN0LmNvbSIsImlhdCI6MTc3OTY0NjUzNCwiZXhwIjoxNzc5NjUwMTM0fQ.BLBNu10aq1o6LIhC8cEuNHFi26zzQoUFCdExZqmr5Ok",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/tasks/8",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "tasks",
+            "8"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "flow8.maria vede proiectele ei si taskurile din proiecte totodata",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJpYXVwZGF0ZUB0ZXN0LmNvbSIsImlhdCI6MTc3OTY0NjUzNCwiZXhwIjoxNzc5NjUwMTM0fQ.BLBNu10aq1o6LIhC8cEuNHFi26zzQoUFCdExZqmr5Ok",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/users/me/projects",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "users",
+            "me",
+            "projects"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "flow8.maria vede proiectele ei si taskurile din proiecte totodata",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/users/me/projects",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "users",
+                "me",
+                "projects"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "4527"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 24 May 2026 18:46:37 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"createdAt\": \"2026-05-21T19:06:57.337236\",\n        \"description\": \"Spring Boot backend\",\n        \"id\": 1,\n        \"members\": [\n            {\n                \"active\": true,\n                \"email\": \"mariaupdate@test.com\",\n                \"fullName\": \"Maria Updated\",\n                \"id\": 6,\n                \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                \"role\": \"USER\"\n            },\n            {\n                \"active\": true,\n                \"email\": \"alex@test.com\",\n                \"fullName\": \"Alex Popescu\",\n                \"id\": 4,\n                \"password\": \"$2a$10$xwxxsa8uI6yis9cxZ5r0me4g56beuQzgn9vSaG.0teXnfJe81oUZi\",\n                \"role\": \"USER\"\n            },\n            {\n                \"active\": true,\n                \"email\": \"andrei@test.com\",\n                \"fullName\": \"Andrei Popescu\",\n                \"id\": 8,\n                \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n                \"role\": \"USER\"\n            }\n        ],\n        \"name\": \"Task Platform\",\n        \"owner\": {\n            \"active\": true,\n            \"email\": \"mariaupdate@test.com\",\n            \"fullName\": \"Maria Updated\",\n            \"id\": 6,\n            \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n            \"role\": \"USER\"\n        },\n        \"status\": \"ACTIVE\",\n        \"tasks\": [\n            {\n                \"assignedUser\": null,\n                \"createdAt\": \"2026-05-22T23:21:45.172616\",\n                \"creator\": {\n                    \"active\": true,\n                    \"email\": \"mariaupdate@test.com\",\n                    \"fullName\": \"Maria Updated\",\n                    \"id\": 6,\n                    \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                    \"role\": \"USER\"\n                },\n                \"deadline\": \"2026-05-30T18:00:00\",\n                \"description\": \"Create MinIO upload integration\",\n                \"id\": 2,\n                \"priority\": \"HIGH\",\n                \"status\": \"TODO\",\n                \"title\": \"Implement Upload System\",\n                \"updatedAt\": \"2026-05-22T23:21:45.172616\"\n            },\n            {\n                \"assignedUser\": {\n                    \"active\": true,\n                    \"email\": \"alex@test.com\",\n                    \"fullName\": \"Alex Popescu\",\n                    \"id\": 4,\n                    \"password\": \"$2a$10$xwxxsa8uI6yis9cxZ5r0me4g56beuQzgn9vSaG.0teXnfJe81oUZi\",\n                    \"role\": \"USER\"\n                },\n                \"createdAt\": \"2026-05-22T22:12:21.200863\",\n                \"creator\": {\n                    \"active\": true,\n                    \"email\": \"mariaupdate@test.com\",\n                    \"fullName\": \"Maria Updated\",\n                    \"id\": 6,\n                    \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                    \"role\": \"USER\"\n                },\n                \"deadline\": \"2026-05-30T18:00:00\",\n                \"description\": \"Create authentication filter\",\n                \"id\": 1,\n                \"priority\": \"HIGH\",\n                \"status\": \"IN_PROGRESS\",\n                \"title\": \"Implement JWT\",\n                \"updatedAt\": \"2026-05-23T16:15:56.015883\"\n            },\n            {\n                \"assignedUser\": null,\n                \"createdAt\": \"2026-05-24T21:33:07.604772\",\n                \"creator\": {\n                    \"active\": true,\n                    \"email\": \"mariaupdate@test.com\",\n                    \"fullName\": \"Maria Updated\",\n                    \"id\": 6,\n                    \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                    \"role\": \"USER\"\n                },\n                \"deadline\": \"2026-06-01T18:00:00\",\n                \"description\": \"Create notification system\",\n                \"id\": 3,\n                \"priority\": \"HIGH\",\n                \"status\": \"TODO\",\n                \"title\": \"Implement Notifications\",\n                \"updatedAt\": \"2026-05-24T21:33:07.604772\"\n            },\n            {\n                \"assignedUser\": null,\n                \"createdAt\": \"2026-05-24T21:36:10.251826\",\n                \"creator\": {\n                    \"active\": true,\n                    \"email\": \"mariaupdate@test.com\",\n                    \"fullName\": \"Maria Updated\",\n                    \"id\": 6,\n                    \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                    \"role\": \"USER\"\n                },\n                \"deadline\": \"2026-06-02T18:00:00\",\n                \"description\": \"Improve request validation\",\n                \"id\": 4,\n                \"priority\": \"MEDIUM\",\n                \"status\": \"TODO\",\n                \"title\": \"Fix Validation Errors\",\n                \"updatedAt\": \"2026-05-24T21:36:10.251826\"\n            },\n            {\n                \"assignedUser\": null,\n                \"createdAt\": \"2026-05-24T21:37:05.514628\",\n                \"creator\": {\n                    \"active\": true,\n                    \"email\": \"mariaupdate@test.com\",\n                    \"fullName\": \"Maria Updated\",\n                    \"id\": 6,\n                    \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                    \"role\": \"USER\"\n                },\n                \"deadline\": \"2026-06-01T18:00:00\",\n                \"description\": \"Create notification system\",\n                \"id\": 5,\n                \"priority\": \"HIGH\",\n                \"status\": \"TODO\",\n                \"title\": \"Implement Notifications\",\n                \"updatedAt\": \"2026-05-24T21:37:05.514628\"\n            },\n            {\n                \"assignedUser\": null,\n                \"createdAt\": \"2026-05-24T21:37:13.211325\",\n                \"creator\": {\n                    \"active\": true,\n                    \"email\": \"mariaupdate@test.com\",\n                    \"fullName\": \"Maria Updated\",\n                    \"id\": 6,\n                    \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                    \"role\": \"USER\"\n                },\n                \"deadline\": \"2026-06-01T18:00:00\",\n                \"description\": \"Create notification system\",\n                \"id\": 6,\n                \"priority\": \"HIGH\",\n                \"status\": \"TODO\",\n                \"title\": \"Implement Notifications\",\n                \"updatedAt\": \"2026-05-24T21:37:13.211325\"\n            },\n            {\n                \"assignedUser\": null,\n                \"createdAt\": \"2026-05-24T21:38:49.19113\",\n                \"creator\": {\n                    \"active\": true,\n                    \"email\": \"mariaupdate@test.com\",\n                    \"fullName\": \"Maria Updated\",\n                    \"id\": 6,\n                    \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                    \"role\": \"USER\"\n                },\n                \"deadline\": \"2026-06-03T18:00:00\",\n                \"description\": \"Improve GitHub documentation\",\n                \"id\": 7,\n                \"priority\": \"LOW\",\n                \"status\": \"TODO\",\n                \"title\": \"Update README\",\n                \"updatedAt\": \"2026-05-24T21:38:49.19113\"\n            }\n        ]\n    },\n    {\n        \"createdAt\": \"2026-05-21T19:59:01.152116\",\n        \"description\": \"Spring Boot backend si frontend\",\n        \"id\": 3,\n        \"members\": [\n            {\n                \"active\": true,\n                \"email\": \"mariaupdate@test.com\",\n                \"fullName\": \"Maria Updated\",\n                \"id\": 6,\n                \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                \"role\": \"USER\"\n            }\n        ],\n        \"name\": \"Task Platform proiect 2\",\n        \"owner\": {\n            \"active\": true,\n            \"email\": \"mariaupdate@test.com\",\n            \"fullName\": \"Maria Updated\",\n            \"id\": 6,\n            \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n            \"role\": \"USER\"\n        },\n        \"status\": \"ACTIVE\",\n        \"tasks\": []\n    }\n]"
+        }
+      ]
+    },
+    {
+      "name": "flow9.maria filtreaza taskurile cu prioritate high ca apoi sa le asigneze membrilor",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJpYXVwZGF0ZUB0ZXN0LmNvbSIsImlhdCI6MTc3OTY0NjUzNCwiZXhwIjoxNzc5NjUwMTM0fQ.BLBNu10aq1o6LIhC8cEuNHFi26zzQoUFCdExZqmr5Ok",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/tasks/priority/HIGH",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "tasks",
+            "priority",
+            "HIGH"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "flow9.maria filtreaza taskurile cu prioritate high ca apoi sa le asigneze membrilor",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/tasks/priority/HIGH",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "tasks",
+                "priority",
+                "HIGH"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "2331"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 24 May 2026 18:50:25 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"assignedUser\": null,\n        \"createdAt\": \"2026-05-22T23:21:45.172616\",\n        \"creator\": {\n            \"active\": true,\n            \"email\": \"mariaupdate@test.com\",\n            \"fullName\": \"Maria Updated\",\n            \"id\": 6,\n            \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n            \"role\": \"USER\"\n        },\n        \"deadline\": \"2026-05-30T18:00:00\",\n        \"description\": \"Create MinIO upload integration\",\n        \"id\": 2,\n        \"priority\": \"HIGH\",\n        \"status\": \"TODO\",\n        \"title\": \"Implement Upload System\",\n        \"updatedAt\": \"2026-05-22T23:21:45.172616\"\n    },\n    {\n        \"assignedUser\": {\n            \"active\": true,\n            \"email\": \"alex@test.com\",\n            \"fullName\": \"Alex Popescu\",\n            \"id\": 4,\n            \"password\": \"$2a$10$xwxxsa8uI6yis9cxZ5r0me4g56beuQzgn9vSaG.0teXnfJe81oUZi\",\n            \"role\": \"USER\"\n        },\n        \"createdAt\": \"2026-05-22T22:12:21.200863\",\n        \"creator\": {\n            \"active\": true,\n            \"email\": \"mariaupdate@test.com\",\n            \"fullName\": \"Maria Updated\",\n            \"id\": 6,\n            \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n            \"role\": \"USER\"\n        },\n        \"deadline\": \"2026-05-30T18:00:00\",\n        \"description\": \"Create authentication filter\",\n        \"id\": 1,\n        \"priority\": \"HIGH\",\n        \"status\": \"IN_PROGRESS\",\n        \"title\": \"Implement JWT\",\n        \"updatedAt\": \"2026-05-23T16:15:56.015883\"\n    },\n    {\n        \"assignedUser\": null,\n        \"createdAt\": \"2026-05-24T21:33:07.604772\",\n        \"creator\": {\n            \"active\": true,\n            \"email\": \"mariaupdate@test.com\",\n            \"fullName\": \"Maria Updated\",\n            \"id\": 6,\n            \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n            \"role\": \"USER\"\n        },\n        \"deadline\": \"2026-06-01T18:00:00\",\n        \"description\": \"Create notification system\",\n        \"id\": 3,\n        \"priority\": \"HIGH\",\n        \"status\": \"TODO\",\n        \"title\": \"Implement Notifications\",\n        \"updatedAt\": \"2026-05-24T21:33:07.604772\"\n    },\n    {\n        \"assignedUser\": null,\n        \"createdAt\": \"2026-05-24T21:37:05.514628\",\n        \"creator\": {\n            \"active\": true,\n            \"email\": \"mariaupdate@test.com\",\n            \"fullName\": \"Maria Updated\",\n            \"id\": 6,\n            \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n            \"role\": \"USER\"\n        },\n        \"deadline\": \"2026-06-01T18:00:00\",\n        \"description\": \"Create notification system\",\n        \"id\": 5,\n        \"priority\": \"HIGH\",\n        \"status\": \"TODO\",\n        \"title\": \"Implement Notifications\",\n        \"updatedAt\": \"2026-05-24T21:37:05.514628\"\n    },\n    {\n        \"assignedUser\": null,\n        \"createdAt\": \"2026-05-24T21:37:13.211325\",\n        \"creator\": {\n            \"active\": true,\n            \"email\": \"mariaupdate@test.com\",\n            \"fullName\": \"Maria Updated\",\n            \"id\": 6,\n            \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n            \"role\": \"USER\"\n        },\n        \"deadline\": \"2026-06-01T18:00:00\",\n        \"description\": \"Create notification system\",\n        \"id\": 6,\n        \"priority\": \"HIGH\",\n        \"status\": \"TODO\",\n        \"title\": \"Implement Notifications\",\n        \"updatedAt\": \"2026-05-24T21:37:13.211325\"\n    }\n]"
+        }
+      ]
+    },
+    {
+      "name": "flow10.maria asigneaza taskurile lui andrei",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJpYXVwZGF0ZUB0ZXN0LmNvbSIsImlhdCI6MTc3OTY0NjUzNCwiZXhwIjoxNzc5NjUwMTM0fQ.BLBNu10aq1o6LIhC8cEuNHFi26zzQoUFCdExZqmr5Ok",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"userId\": 8\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/tasks/2/assign",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "tasks",
+            "2",
+            "assign"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "flow8.maria asigneaza taskurile lui andrei",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"userId\": 8\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/tasks/2/assign",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "tasks",
+                "2",
+                "assign"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "599"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 24 May 2026 18:55:49 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"assignedUser\": {\n        \"active\": true,\n        \"email\": \"andrei@test.com\",\n        \"fullName\": \"Andrei Popescu\",\n        \"id\": 8,\n        \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n        \"role\": \"USER\"\n    },\n    \"createdAt\": \"2026-05-22T23:21:45.172616\",\n    \"creator\": {\n        \"active\": true,\n        \"email\": \"mariaupdate@test.com\",\n        \"fullName\": \"Maria Updated\",\n        \"id\": 6,\n        \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n        \"role\": \"USER\"\n    },\n    \"deadline\": \"2026-05-30T18:00:00\",\n    \"description\": \"Create MinIO upload integration\",\n    \"id\": 2,\n    \"priority\": \"HIGH\",\n    \"status\": \"TODO\",\n    \"title\": \"Implement Upload System\",\n    \"updatedAt\": \"2026-05-24T21:55:49.4593764\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "flow11.maria asigneaza task care nu exista",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJpYXVwZGF0ZUB0ZXN0LmNvbSIsImlhdCI6MTc3OTY0NjUzNCwiZXhwIjoxNzc5NjUwMTM0fQ.BLBNu10aq1o6LIhC8cEuNHFi26zzQoUFCdExZqmr5Ok",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"userId\": 8\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/tasks/100/assign",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "tasks",
+            "100",
+            "assign"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "flow8.maria asigneaza task care nu exista",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"userId\": 8\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/tasks/100/assign",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "tasks",
+                "100",
+                "assign"
+              ]
+            }
+          },
+          "status": "Not Found",
+          "code": 404,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 24 May 2026 18:57:34 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"error\": \"Task not found\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "flow12.login andrei - gresit",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"andrei@test.com\",\r\n  \"password\": \"andrei\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "flow12.login andrei - gresit",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"andrei@test.com\",\r\n  \"password\": \"andrei\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 24 May 2026 18:59:07 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "close"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"error\": \"Invalid email or password\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "flow13.login andrei succes",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"andrei@test.com\",\r\n  \"password\": \"andrei123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "flow13.login andrei succes",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"andrei@test.com\",\r\n  \"password\": \"andrei123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "156"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 24 May 2026 18:59:54 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbmRyZWlAdGVzdC5jb20iLCJpYXQiOjE3Nzk2NDkxOTQsImV4cCI6MTc3OTY1Mjc5NH0.611BzNwM1C1kmOVw07B2ieeQcksqcD5ggNSNjMzzd64\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "flow14.andrei vede taskurile lui",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbmRyZWlAdGVzdC5jb20iLCJpYXQiOjE3Nzk2NTA2MjMsImV4cCI6MTc3OTY1NDIyM30.Q5MI4kim0C2qtp-WhayGOLhtMzhbHL1St65fPpgRcgM",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/users/me/tasks",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "users",
+            "me",
+            "tasks"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "flow14.andrei vede taskurile lui",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/users/me/tasks",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "users",
+                "me",
+                "tasks"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "3560"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 24 May 2026 19:25:36 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"assignedUser\": {\n            \"active\": true,\n            \"email\": \"andrei@test.com\",\n            \"fullName\": \"Andrei Popescu\",\n            \"id\": 8,\n            \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n            \"role\": \"USER\"\n        },\n        \"createdAt\": \"2026-05-22T23:21:45.172616\",\n        \"creator\": {\n            \"active\": true,\n            \"email\": \"mariaupdate@test.com\",\n            \"fullName\": \"Maria Updated\",\n            \"id\": 6,\n            \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n            \"role\": \"USER\"\n        },\n        \"deadline\": \"2026-05-30T18:00:00\",\n        \"description\": \"Create MinIO upload integration\",\n        \"id\": 2,\n        \"priority\": \"HIGH\",\n        \"status\": \"TODO\",\n        \"title\": \"Implement Upload System\",\n        \"updatedAt\": \"2026-05-24T21:55:49.459376\"\n    },\n    {\n        \"assignedUser\": {\n            \"active\": true,\n            \"email\": \"andrei@test.com\",\n            \"fullName\": \"Andrei Popescu\",\n            \"id\": 8,\n            \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n            \"role\": \"USER\"\n        },\n        \"createdAt\": \"2026-05-24T21:33:07.604772\",\n        \"creator\": {\n            \"active\": true,\n            \"email\": \"mariaupdate@test.com\",\n            \"fullName\": \"Maria Updated\",\n            \"id\": 6,\n            \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n            \"role\": \"USER\"\n        },\n        \"deadline\": \"2026-06-01T18:00:00\",\n        \"description\": \"Create notification system\",\n        \"id\": 3,\n        \"priority\": \"HIGH\",\n        \"status\": \"TODO\",\n        \"title\": \"Implement Notifications\",\n        \"updatedAt\": \"2026-05-24T21:56:59.644485\"\n    },\n    {\n        \"assignedUser\": {\n            \"active\": true,\n            \"email\": \"andrei@test.com\",\n            \"fullName\": \"Andrei Popescu\",\n            \"id\": 8,\n            \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n            \"role\": \"USER\"\n        },\n        \"createdAt\": \"2026-05-24T21:37:05.514628\",\n        \"creator\": {\n            \"active\": true,\n            \"email\": \"mariaupdate@test.com\",\n            \"fullName\": \"Maria Updated\",\n            \"id\": 6,\n            \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n            \"role\": \"USER\"\n        },\n        \"deadline\": \"2026-06-01T18:00:00\",\n        \"description\": \"Create notification system\",\n        \"id\": 5,\n        \"priority\": \"HIGH\",\n        \"status\": \"TODO\",\n        \"title\": \"Implement Notifications\",\n        \"updatedAt\": \"2026-05-24T21:57:16.306889\"\n    },\n    {\n        \"assignedUser\": {\n            \"active\": true,\n            \"email\": \"andrei@test.com\",\n            \"fullName\": \"Andrei Popescu\",\n            \"id\": 8,\n            \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n            \"role\": \"USER\"\n        },\n        \"createdAt\": \"2026-05-24T21:37:13.211325\",\n        \"creator\": {\n            \"active\": true,\n            \"email\": \"mariaupdate@test.com\",\n            \"fullName\": \"Maria Updated\",\n            \"id\": 6,\n            \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n            \"role\": \"USER\"\n        },\n        \"deadline\": \"2026-06-01T18:00:00\",\n        \"description\": \"Create notification system\",\n        \"id\": 6,\n        \"priority\": \"HIGH\",\n        \"status\": \"TODO\",\n        \"title\": \"Implement Notifications\",\n        \"updatedAt\": \"2026-05-24T21:57:30.783417\"\n    },\n    {\n        \"assignedUser\": {\n            \"active\": true,\n            \"email\": \"andrei@test.com\",\n            \"fullName\": \"Andrei Popescu\",\n            \"id\": 8,\n            \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n            \"role\": \"USER\"\n        },\n        \"createdAt\": \"2026-05-24T21:36:10.251826\",\n        \"creator\": {\n            \"active\": true,\n            \"email\": \"mariaupdate@test.com\",\n            \"fullName\": \"Maria Updated\",\n            \"id\": 6,\n            \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n            \"role\": \"USER\"\n        },\n        \"deadline\": \"2026-06-02T18:00:00\",\n        \"description\": \"Improve request validation\",\n        \"id\": 4,\n        \"priority\": \"MEDIUM\",\n        \"status\": \"TODO\",\n        \"title\": \"Fix Validation Errors\",\n        \"updatedAt\": \"2026-05-24T22:22:51.751786\"\n    },\n    {\n        \"assignedUser\": {\n            \"active\": true,\n            \"email\": \"andrei@test.com\",\n            \"fullName\": \"Andrei Popescu\",\n            \"id\": 8,\n            \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n            \"role\": \"USER\"\n        },\n        \"createdAt\": \"2026-05-24T21:38:49.19113\",\n        \"creator\": {\n            \"active\": true,\n            \"email\": \"mariaupdate@test.com\",\n            \"fullName\": \"Maria Updated\",\n            \"id\": 6,\n            \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n            \"role\": \"USER\"\n        },\n        \"deadline\": \"2026-06-03T18:00:00\",\n        \"description\": \"Improve GitHub documentation\",\n        \"id\": 7,\n        \"priority\": \"LOW\",\n        \"status\": \"TODO\",\n        \"title\": \"Update README\",\n        \"updatedAt\": \"2026-05-24T22:23:11.985895\"\n    }\n]"
+        }
+      ]
+    },
+    {
+      "name": "flow15.andrei incepe din task urile asignate",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbmRyZWlAdGVzdC5jb20iLCJpYXQiOjE3Nzk2NTA2MjMsImV4cCI6MTc3OTY1NDIyM30.Q5MI4kim0C2qtp-WhayGOLhtMzhbHL1St65fPpgRcgM",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"status\": \"IN_PROGRESS\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/tasks/2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "tasks",
+            "2"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "flow15.andrei incepe din task urile asignate",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"status\": \"IN_PROGRESS\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/tasks/2",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "tasks",
+                "2"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "606"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 24 May 2026 19:27:32 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"assignedUser\": {\n        \"active\": true,\n        \"email\": \"andrei@test.com\",\n        \"fullName\": \"Andrei Popescu\",\n        \"id\": 8,\n        \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n        \"role\": \"USER\"\n    },\n    \"createdAt\": \"2026-05-22T23:21:45.172616\",\n    \"creator\": {\n        \"active\": true,\n        \"email\": \"mariaupdate@test.com\",\n        \"fullName\": \"Maria Updated\",\n        \"id\": 6,\n        \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n        \"role\": \"USER\"\n    },\n    \"deadline\": \"2026-05-30T18:00:00\",\n    \"description\": \"Create MinIO upload integration\",\n    \"id\": 2,\n    \"priority\": \"HIGH\",\n    \"status\": \"IN_PROGRESS\",\n    \"title\": \"Implement Upload System\",\n    \"updatedAt\": \"2026-05-24T22:27:32.8556564\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "flow16. andrei filtreaza taskurile terminate",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbmRyZWlAdGVzdC5jb20iLCJpYXQiOjE3Nzk2NTA2MjMsImV4cCI6MTc3OTY1NDIyM30.Q5MI4kim0C2qtp-WhayGOLhtMzhbHL1St65fPpgRcgM",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/tasks/status/DONE",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "tasks",
+            "status",
+            "DONE"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "flow16. andrei filtreaza taskurile terminate",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/tasks/status/DONE",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "tasks",
+                "status",
+                "DONE"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "2"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 24 May 2026 19:31:24 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "[]"
+        }
+      ]
+    },
+    {
+      "name": "fllow17.andrei filtreaza taskurile in progress",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbmRyZWlAdGVzdC5jb20iLCJpYXQiOjE3Nzk2NTA2MjMsImV4cCI6MTc3OTY1NDIyM30.Q5MI4kim0C2qtp-WhayGOLhtMzhbHL1St65fPpgRcgM",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/tasks/status/IN_PROGRESS",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "tasks",
+            "status",
+            "IN_PROGRESS"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "fllow17.andrei filtreaza taskurile in progress",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/tasks/status/IN_PROGRESS",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "tasks",
+                "status",
+                "IN_PROGRESS"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "2989"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 24 May 2026 19:32:02 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"assignedUser\": {\n            \"active\": true,\n            \"email\": \"alex@test.com\",\n            \"fullName\": \"Alex Popescu\",\n            \"id\": 4,\n            \"password\": \"$2a$10$xwxxsa8uI6yis9cxZ5r0me4g56beuQzgn9vSaG.0teXnfJe81oUZi\",\n            \"role\": \"USER\"\n        },\n        \"createdAt\": \"2026-05-22T22:12:21.200863\",\n        \"creator\": {\n            \"active\": true,\n            \"email\": \"mariaupdate@test.com\",\n            \"fullName\": \"Maria Updated\",\n            \"id\": 6,\n            \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n            \"role\": \"USER\"\n        },\n        \"deadline\": \"2026-05-30T18:00:00\",\n        \"description\": \"Create authentication filter\",\n        \"id\": 1,\n        \"priority\": \"HIGH\",\n        \"status\": \"IN_PROGRESS\",\n        \"title\": \"Implement JWT\",\n        \"updatedAt\": \"2026-05-23T16:15:56.015883\"\n    },\n    {\n        \"assignedUser\": {\n            \"active\": true,\n            \"email\": \"andrei@test.com\",\n            \"fullName\": \"Andrei Popescu\",\n            \"id\": 8,\n            \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n            \"role\": \"USER\"\n        },\n        \"createdAt\": \"2026-05-22T23:21:45.172616\",\n        \"creator\": {\n            \"active\": true,\n            \"email\": \"mariaupdate@test.com\",\n            \"fullName\": \"Maria Updated\",\n            \"id\": 6,\n            \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n            \"role\": \"USER\"\n        },\n        \"deadline\": \"2026-05-30T18:00:00\",\n        \"description\": \"Create MinIO upload integration\",\n        \"id\": 2,\n        \"priority\": \"HIGH\",\n        \"status\": \"IN_PROGRESS\",\n        \"title\": \"Implement Upload System\",\n        \"updatedAt\": \"2026-05-24T22:27:32.855656\"\n    },\n    {\n        \"assignedUser\": {\n            \"active\": true,\n            \"email\": \"andrei@test.com\",\n            \"fullName\": \"Andrei Popescu\",\n            \"id\": 8,\n            \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n            \"role\": \"USER\"\n        },\n        \"createdAt\": \"2026-05-24T21:33:07.604772\",\n        \"creator\": {\n            \"active\": true,\n            \"email\": \"mariaupdate@test.com\",\n            \"fullName\": \"Maria Updated\",\n            \"id\": 6,\n            \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n            \"role\": \"USER\"\n        },\n        \"deadline\": \"2026-06-01T18:00:00\",\n        \"description\": \"Create notification system\",\n        \"id\": 3,\n        \"priority\": \"HIGH\",\n        \"status\": \"IN_PROGRESS\",\n        \"title\": \"Implement Notifications\",\n        \"updatedAt\": \"2026-05-24T22:28:34.577331\"\n    },\n    {\n        \"assignedUser\": {\n            \"active\": true,\n            \"email\": \"andrei@test.com\",\n            \"fullName\": \"Andrei Popescu\",\n            \"id\": 8,\n            \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n            \"role\": \"USER\"\n        },\n        \"createdAt\": \"2026-05-24T21:36:10.251826\",\n        \"creator\": {\n            \"active\": true,\n            \"email\": \"mariaupdate@test.com\",\n            \"fullName\": \"Maria Updated\",\n            \"id\": 6,\n            \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n            \"role\": \"USER\"\n        },\n        \"deadline\": \"2026-06-02T18:00:00\",\n        \"description\": \"Improve request validation\",\n        \"id\": 4,\n        \"priority\": \"MEDIUM\",\n        \"status\": \"IN_PROGRESS\",\n        \"title\": \"Fix Validation Errors\",\n        \"updatedAt\": \"2026-05-24T22:28:44.230463\"\n    },\n    {\n        \"assignedUser\": {\n            \"active\": true,\n            \"email\": \"andrei@test.com\",\n            \"fullName\": \"Andrei Popescu\",\n            \"id\": 8,\n            \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n            \"role\": \"USER\"\n        },\n        \"createdAt\": \"2026-05-24T21:38:49.19113\",\n        \"creator\": {\n            \"active\": true,\n            \"email\": \"mariaupdate@test.com\",\n            \"fullName\": \"Maria Updated\",\n            \"id\": 6,\n            \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n            \"role\": \"USER\"\n        },\n        \"deadline\": \"2026-06-03T18:00:00\",\n        \"description\": \"Improve GitHub documentation\",\n        \"id\": 7,\n        \"priority\": \"LOW\",\n        \"status\": \"IN_PROGRESS\",\n        \"title\": \"Update README\",\n        \"updatedAt\": \"2026-05-24T22:28:51.384422\"\n    }\n]"
+        }
+      ]
+    },
+    {
+      "name": "flow18.andrei da upload la README.md in minio",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbmRyZWlAdGVzdC5jb20iLCJpYXQiOjE3Nzk2NTA2MjMsImV4cCI6MTc3OTY1NDIyM30.Q5MI4kim0C2qtp-WhayGOLhtMzhbHL1St65fPpgRcgM",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "uuid": "b3221dd2-0596-458a-b29d-9a802dc62fc1",
+              "src": "/C:/Users/emi/Desktop/job/TaskManager/Documents/README.md"
+            },
+            {
+              "key": "projectId",
+              "value": "1",
+              "type": "text",
+              "uuid": "11dc35df-2a51-4594-82bf-747a48534129"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/documents/upload",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "documents",
+            "upload"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "flow18.andrei da upload la README.md in minio",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "uuid": "b3221dd2-0596-458a-b29d-9a802dc62fc1",
+                  "src": "/C:/Users/emi/Desktop/job/TaskManager/Documents/README.md"
+                },
+                {
+                  "key": "projectId",
+                  "value": "1",
+                  "type": "text",
+                  "uuid": "11dc35df-2a51-4594-82bf-747a48534129"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/documents/upload",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "documents",
+                "upload"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "5346"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 24 May 2026 19:36:19 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": 5,\n    \"name\": \"README.md\",\n    \"objectKey\": \"f6cefb87-7e20-42de-a951-71c300cb6ca9_README.md\",\n    \"owner\": {\n        \"active\": true,\n        \"email\": \"andrei@test.com\",\n        \"fullName\": \"Andrei Popescu\",\n        \"id\": 8,\n        \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n        \"role\": \"USER\"\n    },\n    \"project\": {\n        \"createdAt\": \"2026-05-21T19:06:57.337236\",\n        \"description\": \"Spring Boot backend\",\n        \"id\": 1,\n        \"members\": [\n            {\n                \"active\": true,\n                \"email\": \"mariaupdate@test.com\",\n                \"fullName\": \"Maria Updated\",\n                \"id\": 6,\n                \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                \"role\": \"USER\"\n            },\n            {\n                \"active\": true,\n                \"email\": \"alex@test.com\",\n                \"fullName\": \"Alex Popescu\",\n                \"id\": 4,\n                \"password\": \"$2a$10$xwxxsa8uI6yis9cxZ5r0me4g56beuQzgn9vSaG.0teXnfJe81oUZi\",\n                \"role\": \"USER\"\n            },\n            {\n                \"active\": true,\n                \"email\": \"andrei@test.com\",\n                \"fullName\": \"Andrei Popescu\",\n                \"id\": 8,\n                \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n                \"role\": \"USER\"\n            }\n        ],\n        \"name\": \"Task Platform\",\n        \"owner\": {\n            \"active\": true,\n            \"email\": \"mariaupdate@test.com\",\n            \"fullName\": \"Maria Updated\",\n            \"id\": 6,\n            \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n            \"role\": \"USER\"\n        },\n        \"status\": \"ACTIVE\",\n        \"tasks\": [\n            {\n                \"assignedUser\": {\n                    \"active\": true,\n                    \"email\": \"alex@test.com\",\n                    \"fullName\": \"Alex Popescu\",\n                    \"id\": 4,\n                    \"password\": \"$2a$10$xwxxsa8uI6yis9cxZ5r0me4g56beuQzgn9vSaG.0teXnfJe81oUZi\",\n                    \"role\": \"USER\"\n                },\n                \"createdAt\": \"2026-05-22T22:12:21.200863\",\n                \"creator\": {\n                    \"active\": true,\n                    \"email\": \"mariaupdate@test.com\",\n                    \"fullName\": \"Maria Updated\",\n                    \"id\": 6,\n                    \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                    \"role\": \"USER\"\n                },\n                \"deadline\": \"2026-05-30T18:00:00\",\n                \"description\": \"Create authentication filter\",\n                \"id\": 1,\n                \"priority\": \"HIGH\",\n                \"status\": \"IN_PROGRESS\",\n                \"title\": \"Implement JWT\",\n                \"updatedAt\": \"2026-05-23T16:15:56.015883\"\n            },\n            {\n                \"assignedUser\": {\n                    \"active\": true,\n                    \"email\": \"andrei@test.com\",\n                    \"fullName\": \"Andrei Popescu\",\n                    \"id\": 8,\n                    \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n                    \"role\": \"USER\"\n                },\n                \"createdAt\": \"2026-05-24T21:37:05.514628\",\n                \"creator\": {\n                    \"active\": true,\n                    \"email\": \"mariaupdate@test.com\",\n                    \"fullName\": \"Maria Updated\",\n                    \"id\": 6,\n                    \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                    \"role\": \"USER\"\n                },\n                \"deadline\": \"2026-06-01T18:00:00\",\n                \"description\": \"Create notification system\",\n                \"id\": 5,\n                \"priority\": \"HIGH\",\n                \"status\": \"TODO\",\n                \"title\": \"Implement Notifications\",\n                \"updatedAt\": \"2026-05-24T21:57:16.306889\"\n            },\n            {\n                \"assignedUser\": {\n                    \"active\": true,\n                    \"email\": \"andrei@test.com\",\n                    \"fullName\": \"Andrei Popescu\",\n                    \"id\": 8,\n                    \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n                    \"role\": \"USER\"\n                },\n                \"createdAt\": \"2026-05-24T21:37:13.211325\",\n                \"creator\": {\n                    \"active\": true,\n                    \"email\": \"mariaupdate@test.com\",\n                    \"fullName\": \"Maria Updated\",\n                    \"id\": 6,\n                    \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                    \"role\": \"USER\"\n                },\n                \"deadline\": \"2026-06-01T18:00:00\",\n                \"description\": \"Create notification system\",\n                \"id\": 6,\n                \"priority\": \"HIGH\",\n                \"status\": \"TODO\",\n                \"title\": \"Implement Notifications\",\n                \"updatedAt\": \"2026-05-24T21:57:30.783417\"\n            },\n            {\n                \"assignedUser\": {\n                    \"active\": true,\n                    \"email\": \"andrei@test.com\",\n                    \"fullName\": \"Andrei Popescu\",\n                    \"id\": 8,\n                    \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n                    \"role\": \"USER\"\n                },\n                \"createdAt\": \"2026-05-22T23:21:45.172616\",\n                \"creator\": {\n                    \"active\": true,\n                    \"email\": \"mariaupdate@test.com\",\n                    \"fullName\": \"Maria Updated\",\n                    \"id\": 6,\n                    \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                    \"role\": \"USER\"\n                },\n                \"deadline\": \"2026-05-30T18:00:00\",\n                \"description\": \"Create MinIO upload integration\",\n                \"id\": 2,\n                \"priority\": \"HIGH\",\n                \"status\": \"IN_PROGRESS\",\n                \"title\": \"Implement Upload System\",\n                \"updatedAt\": \"2026-05-24T22:27:32.855656\"\n            },\n            {\n                \"assignedUser\": {\n                    \"active\": true,\n                    \"email\": \"andrei@test.com\",\n                    \"fullName\": \"Andrei Popescu\",\n                    \"id\": 8,\n                    \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n                    \"role\": \"USER\"\n                },\n                \"createdAt\": \"2026-05-24T21:33:07.604772\",\n                \"creator\": {\n                    \"active\": true,\n                    \"email\": \"mariaupdate@test.com\",\n                    \"fullName\": \"Maria Updated\",\n                    \"id\": 6,\n                    \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                    \"role\": \"USER\"\n                },\n                \"deadline\": \"2026-06-01T18:00:00\",\n                \"description\": \"Create notification system\",\n                \"id\": 3,\n                \"priority\": \"HIGH\",\n                \"status\": \"IN_PROGRESS\",\n                \"title\": \"Implement Notifications\",\n                \"updatedAt\": \"2026-05-24T22:28:34.577331\"\n            },\n            {\n                \"assignedUser\": {\n                    \"active\": true,\n                    \"email\": \"andrei@test.com\",\n                    \"fullName\": \"Andrei Popescu\",\n                    \"id\": 8,\n                    \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n                    \"role\": \"USER\"\n                },\n                \"createdAt\": \"2026-05-24T21:36:10.251826\",\n                \"creator\": {\n                    \"active\": true,\n                    \"email\": \"mariaupdate@test.com\",\n                    \"fullName\": \"Maria Updated\",\n                    \"id\": 6,\n                    \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                    \"role\": \"USER\"\n                },\n                \"deadline\": \"2026-06-02T18:00:00\",\n                \"description\": \"Improve request validation\",\n                \"id\": 4,\n                \"priority\": \"MEDIUM\",\n                \"status\": \"IN_PROGRESS\",\n                \"title\": \"Fix Validation Errors\",\n                \"updatedAt\": \"2026-05-24T22:28:44.230463\"\n            },\n            {\n                \"assignedUser\": {\n                    \"active\": true,\n                    \"email\": \"andrei@test.com\",\n                    \"fullName\": \"Andrei Popescu\",\n                    \"id\": 8,\n                    \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n                    \"role\": \"USER\"\n                },\n                \"createdAt\": \"2026-05-24T21:38:49.19113\",\n                \"creator\": {\n                    \"active\": true,\n                    \"email\": \"mariaupdate@test.com\",\n                    \"fullName\": \"Maria Updated\",\n                    \"id\": 6,\n                    \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                    \"role\": \"USER\"\n                },\n                \"deadline\": \"2026-06-03T18:00:00\",\n                \"description\": \"Improve GitHub documentation\",\n                \"id\": 7,\n                \"priority\": \"LOW\",\n                \"status\": \"IN_PROGRESS\",\n                \"title\": \"Update README\",\n                \"updatedAt\": \"2026-05-24T22:28:51.384422\"\n            }\n        ]\n    },\n    \"size\": 9506,\n    \"type\": \"text/markdown\",\n    \"uploadDate\": \"2026-05-24T22:36:18.6745895\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "flow19.andrei vede metadate in db ale fisierului",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbmRyZWlAdGVzdC5jb20iLCJpYXQiOjE3Nzk2NTA2MjMsImV4cCI6MTc3OTY1NDIyM30.Q5MI4kim0C2qtp-WhayGOLhtMzhbHL1St65fPpgRcgM",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/documents/project/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "documents",
+            "project",
+            "1"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "flow19.andrei vede metadate in db ale fisierului",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/documents/project/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "documents",
+                "project",
+                "1"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 24 May 2026 19:37:18 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"id\": 3,\n        \"name\": \"file1.txt\",\n        \"objectKey\": \"de81dc46-72e9-4dc7-b890-a224852f89e6_file1.txt\",\n        \"owner\": {\n            \"active\": true,\n            \"email\": \"alex@test.com\",\n            \"fullName\": \"Alex Popescu\",\n            \"id\": 4,\n            \"password\": \"$2a$10$xwxxsa8uI6yis9cxZ5r0me4g56beuQzgn9vSaG.0teXnfJe81oUZi\",\n            \"role\": \"USER\"\n        },\n        \"project\": {\n            \"createdAt\": \"2026-05-21T19:06:57.337236\",\n            \"description\": \"Spring Boot backend\",\n            \"id\": 1,\n            \"members\": [\n                {\n                    \"active\": true,\n                    \"email\": \"mariaupdate@test.com\",\n                    \"fullName\": \"Maria Updated\",\n                    \"id\": 6,\n                    \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                    \"role\": \"USER\"\n                },\n                {\n                    \"active\": true,\n                    \"email\": \"alex@test.com\",\n                    \"fullName\": \"Alex Popescu\",\n                    \"id\": 4,\n                    \"password\": \"$2a$10$xwxxsa8uI6yis9cxZ5r0me4g56beuQzgn9vSaG.0teXnfJe81oUZi\",\n                    \"role\": \"USER\"\n                },\n                {\n                    \"active\": true,\n                    \"email\": \"andrei@test.com\",\n                    \"fullName\": \"Andrei Popescu\",\n                    \"id\": 8,\n                    \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n                    \"role\": \"USER\"\n                }\n            ],\n            \"name\": \"Task Platform\",\n            \"owner\": {\n                \"active\": true,\n                \"email\": \"mariaupdate@test.com\",\n                \"fullName\": \"Maria Updated\",\n                \"id\": 6,\n                \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                \"role\": \"USER\"\n            },\n            \"status\": \"ACTIVE\",\n            \"tasks\": [\n                {\n                    \"assignedUser\": {\n                        \"active\": true,\n                        \"email\": \"alex@test.com\",\n                        \"fullName\": \"Alex Popescu\",\n                        \"id\": 4,\n                        \"password\": \"$2a$10$xwxxsa8uI6yis9cxZ5r0me4g56beuQzgn9vSaG.0teXnfJe81oUZi\",\n                        \"role\": \"USER\"\n                    },\n                    \"createdAt\": \"2026-05-22T22:12:21.200863\",\n                    \"creator\": {\n                        \"active\": true,\n                        \"email\": \"mariaupdate@test.com\",\n                        \"fullName\": \"Maria Updated\",\n                        \"id\": 6,\n                        \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                        \"role\": \"USER\"\n                    },\n                    \"deadline\": \"2026-05-30T18:00:00\",\n                    \"description\": \"Create authentication filter\",\n                    \"id\": 1,\n                    \"priority\": \"HIGH\",\n                    \"status\": \"IN_PROGRESS\",\n                    \"title\": \"Implement JWT\",\n                    \"updatedAt\": \"2026-05-23T16:15:56.015883\"\n                },\n                {\n                    \"assignedUser\": {\n                        \"active\": true,\n                        \"email\": \"andrei@test.com\",\n                        \"fullName\": \"Andrei Popescu\",\n                        \"id\": 8,\n                        \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n                        \"role\": \"USER\"\n                    },\n                    \"createdAt\": \"2026-05-24T21:37:05.514628\",\n                    \"creator\": {\n                        \"active\": true,\n                        \"email\": \"mariaupdate@test.com\",\n                        \"fullName\": \"Maria Updated\",\n                        \"id\": 6,\n                        \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                        \"role\": \"USER\"\n                    },\n                    \"deadline\": \"2026-06-01T18:00:00\",\n                    \"description\": \"Create notification system\",\n                    \"id\": 5,\n                    \"priority\": \"HIGH\",\n                    \"status\": \"TODO\",\n                    \"title\": \"Implement Notifications\",\n                    \"updatedAt\": \"2026-05-24T21:57:16.306889\"\n                },\n                {\n                    \"assignedUser\": {\n                        \"active\": true,\n                        \"email\": \"andrei@test.com\",\n                        \"fullName\": \"Andrei Popescu\",\n                        \"id\": 8,\n                        \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n                        \"role\": \"USER\"\n                    },\n                    \"createdAt\": \"2026-05-24T21:37:13.211325\",\n                    \"creator\": {\n                        \"active\": true,\n                        \"email\": \"mariaupdate@test.com\",\n                        \"fullName\": \"Maria Updated\",\n                        \"id\": 6,\n                        \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                        \"role\": \"USER\"\n                    },\n                    \"deadline\": \"2026-06-01T18:00:00\",\n                    \"description\": \"Create notification system\",\n                    \"id\": 6,\n                    \"priority\": \"HIGH\",\n                    \"status\": \"TODO\",\n                    \"title\": \"Implement Notifications\",\n                    \"updatedAt\": \"2026-05-24T21:57:30.783417\"\n                },\n                {\n                    \"assignedUser\": {\n                        \"active\": true,\n                        \"email\": \"andrei@test.com\",\n                        \"fullName\": \"Andrei Popescu\",\n                        \"id\": 8,\n                        \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n                        \"role\": \"USER\"\n                    },\n                    \"createdAt\": \"2026-05-22T23:21:45.172616\",\n                    \"creator\": {\n                        \"active\": true,\n                        \"email\": \"mariaupdate@test.com\",\n                        \"fullName\": \"Maria Updated\",\n                        \"id\": 6,\n                        \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                        \"role\": \"USER\"\n                    },\n                    \"deadline\": \"2026-05-30T18:00:00\",\n                    \"description\": \"Create MinIO upload integration\",\n                    \"id\": 2,\n                    \"priority\": \"HIGH\",\n                    \"status\": \"IN_PROGRESS\",\n                    \"title\": \"Implement Upload System\",\n                    \"updatedAt\": \"2026-05-24T22:27:32.855656\"\n                },\n                {\n                    \"assignedUser\": {\n                        \"active\": true,\n                        \"email\": \"andrei@test.com\",\n                        \"fullName\": \"Andrei Popescu\",\n                        \"id\": 8,\n                        \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n                        \"role\": \"USER\"\n                    },\n                    \"createdAt\": \"2026-05-24T21:33:07.604772\",\n                    \"creator\": {\n                        \"active\": true,\n                        \"email\": \"mariaupdate@test.com\",\n                        \"fullName\": \"Maria Updated\",\n                        \"id\": 6,\n                        \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                        \"role\": \"USER\"\n                    },\n                    \"deadline\": \"2026-06-01T18:00:00\",\n                    \"description\": \"Create notification system\",\n                    \"id\": 3,\n                    \"priority\": \"HIGH\",\n                    \"status\": \"IN_PROGRESS\",\n                    \"title\": \"Implement Notifications\",\n                    \"updatedAt\": \"2026-05-24T22:28:34.577331\"\n                },\n                {\n                    \"assignedUser\": {\n                        \"active\": true,\n                        \"email\": \"andrei@test.com\",\n                        \"fullName\": \"Andrei Popescu\",\n                        \"id\": 8,\n                        \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n                        \"role\": \"USER\"\n                    },\n                    \"createdAt\": \"2026-05-24T21:36:10.251826\",\n                    \"creator\": {\n                        \"active\": true,\n                        \"email\": \"mariaupdate@test.com\",\n                        \"fullName\": \"Maria Updated\",\n                        \"id\": 6,\n                        \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                        \"role\": \"USER\"\n                    },\n                    \"deadline\": \"2026-06-02T18:00:00\",\n                    \"description\": \"Improve request validation\",\n                    \"id\": 4,\n                    \"priority\": \"MEDIUM\",\n                    \"status\": \"IN_PROGRESS\",\n                    \"title\": \"Fix Validation Errors\",\n                    \"updatedAt\": \"2026-05-24T22:28:44.230463\"\n                },\n                {\n                    \"assignedUser\": {\n                        \"active\": true,\n                        \"email\": \"andrei@test.com\",\n                        \"fullName\": \"Andrei Popescu\",\n                        \"id\": 8,\n                        \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n                        \"role\": \"USER\"\n                    },\n                    \"createdAt\": \"2026-05-24T21:38:49.19113\",\n                    \"creator\": {\n                        \"active\": true,\n                        \"email\": \"mariaupdate@test.com\",\n                        \"fullName\": \"Maria Updated\",\n                        \"id\": 6,\n                        \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                        \"role\": \"USER\"\n                    },\n                    \"deadline\": \"2026-06-03T18:00:00\",\n                    \"description\": \"Improve GitHub documentation\",\n                    \"id\": 7,\n                    \"priority\": \"LOW\",\n                    \"status\": \"IN_PROGRESS\",\n                    \"title\": \"Update README\",\n                    \"updatedAt\": \"2026-05-24T22:28:51.384422\"\n                }\n            ]\n        },\n        \"size\": 7,\n        \"type\": \"text/plain\",\n        \"uploadDate\": \"2026-05-24T18:55:07.294189\"\n    },\n    {\n        \"id\": 4,\n        \"name\": \"file2.txt\",\n        \"objectKey\": \"67571889-2c82-48a6-89c4-a030827c256c_file2.txt\",\n        \"owner\": {\n            \"active\": true,\n            \"email\": \"alex@test.com\",\n            \"fullName\": \"Alex Popescu\",\n            \"id\": 4,\n            \"password\": \"$2a$10$xwxxsa8uI6yis9cxZ5r0me4g56beuQzgn9vSaG.0teXnfJe81oUZi\",\n            \"role\": \"USER\"\n        },\n        \"project\": {\n            \"createdAt\": \"2026-05-21T19:06:57.337236\",\n            \"description\": \"Spring Boot backend\",\n            \"id\": 1,\n            \"members\": [\n                {\n                    \"active\": true,\n                    \"email\": \"mariaupdate@test.com\",\n                    \"fullName\": \"Maria Updated\",\n                    \"id\": 6,\n                    \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                    \"role\": \"USER\"\n                },\n                {\n                    \"active\": true,\n                    \"email\": \"alex@test.com\",\n                    \"fullName\": \"Alex Popescu\",\n                    \"id\": 4,\n                    \"password\": \"$2a$10$xwxxsa8uI6yis9cxZ5r0me4g56beuQzgn9vSaG.0teXnfJe81oUZi\",\n                    \"role\": \"USER\"\n                },\n                {\n                    \"active\": true,\n                    \"email\": \"andrei@test.com\",\n                    \"fullName\": \"Andrei Popescu\",\n                    \"id\": 8,\n                    \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n                    \"role\": \"USER\"\n                }\n            ],\n            \"name\": \"Task Platform\",\n            \"owner\": {\n                \"active\": true,\n                \"email\": \"mariaupdate@test.com\",\n                \"fullName\": \"Maria Updated\",\n                \"id\": 6,\n                \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                \"role\": \"USER\"\n            },\n            \"status\": \"ACTIVE\",\n            \"tasks\": [\n                {\n                    \"assignedUser\": {\n                        \"active\": true,\n                        \"email\": \"alex@test.com\",\n                        \"fullName\": \"Alex Popescu\",\n                        \"id\": 4,\n                        \"password\": \"$2a$10$xwxxsa8uI6yis9cxZ5r0me4g56beuQzgn9vSaG.0teXnfJe81oUZi\",\n                        \"role\": \"USER\"\n                    },\n                    \"createdAt\": \"2026-05-22T22:12:21.200863\",\n                    \"creator\": {\n                        \"active\": true,\n                        \"email\": \"mariaupdate@test.com\",\n                        \"fullName\": \"Maria Updated\",\n                        \"id\": 6,\n                        \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                        \"role\": \"USER\"\n                    },\n                    \"deadline\": \"2026-05-30T18:00:00\",\n                    \"description\": \"Create authentication filter\",\n                    \"id\": 1,\n                    \"priority\": \"HIGH\",\n                    \"status\": \"IN_PROGRESS\",\n                    \"title\": \"Implement JWT\",\n                    \"updatedAt\": \"2026-05-23T16:15:56.015883\"\n                },\n                {\n                    \"assignedUser\": {\n                        \"active\": true,\n                        \"email\": \"andrei@test.com\",\n                        \"fullName\": \"Andrei Popescu\",\n                        \"id\": 8,\n                        \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n                        \"role\": \"USER\"\n                    },\n                    \"createdAt\": \"2026-05-24T21:37:05.514628\",\n                    \"creator\": {\n                        \"active\": true,\n                        \"email\": \"mariaupdate@test.com\",\n                        \"fullName\": \"Maria Updated\",\n                        \"id\": 6,\n                        \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                        \"role\": \"USER\"\n                    },\n                    \"deadline\": \"2026-06-01T18:00:00\",\n                    \"description\": \"Create notification system\",\n                    \"id\": 5,\n                    \"priority\": \"HIGH\",\n                    \"status\": \"TODO\",\n                    \"title\": \"Implement Notifications\",\n                    \"updatedAt\": \"2026-05-24T21:57:16.306889\"\n                },\n                {\n                    \"assignedUser\": {\n                        \"active\": true,\n                        \"email\": \"andrei@test.com\",\n                        \"fullName\": \"Andrei Popescu\",\n                        \"id\": 8,\n                        \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n                        \"role\": \"USER\"\n                    },\n                    \"createdAt\": \"2026-05-24T21:37:13.211325\",\n                    \"creator\": {\n                        \"active\": true,\n                        \"email\": \"mariaupdate@test.com\",\n                        \"fullName\": \"Maria Updated\",\n                        \"id\": 6,\n                        \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                        \"role\": \"USER\"\n                    },\n                    \"deadline\": \"2026-06-01T18:00:00\",\n                    \"description\": \"Create notification system\",\n                    \"id\": 6,\n                    \"priority\": \"HIGH\",\n                    \"status\": \"TODO\",\n                    \"title\": \"Implement Notifications\",\n                    \"updatedAt\": \"2026-05-24T21:57:30.783417\"\n                },\n                {\n                    \"assignedUser\": {\n                        \"active\": true,\n                        \"email\": \"andrei@test.com\",\n                        \"fullName\": \"Andrei Popescu\",\n                        \"id\": 8,\n                        \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n                        \"role\": \"USER\"\n                    },\n                    \"createdAt\": \"2026-05-22T23:21:45.172616\",\n                    \"creator\": {\n                        \"active\": true,\n                        \"email\": \"mariaupdate@test.com\",\n                        \"fullName\": \"Maria Updated\",\n                        \"id\": 6,\n                        \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                        \"role\": \"USER\"\n                    },\n                    \"deadline\": \"2026-05-30T18:00:00\",\n                    \"description\": \"Create MinIO upload integration\",\n                    \"id\": 2,\n                    \"priority\": \"HIGH\",\n                    \"status\": \"IN_PROGRESS\",\n                    \"title\": \"Implement Upload System\",\n                    \"updatedAt\": \"2026-05-24T22:27:32.855656\"\n                },\n                {\n                    \"assignedUser\": {\n                        \"active\": true,\n                        \"email\": \"andrei@test.com\",\n                        \"fullName\": \"Andrei Popescu\",\n                        \"id\": 8,\n                        \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n                        \"role\": \"USER\"\n                    },\n                    \"createdAt\": \"2026-05-24T21:33:07.604772\",\n                    \"creator\": {\n                        \"active\": true,\n                        \"email\": \"mariaupdate@test.com\",\n                        \"fullName\": \"Maria Updated\",\n                        \"id\": 6,\n                        \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                        \"role\": \"USER\"\n                    },\n                    \"deadline\": \"2026-06-01T18:00:00\",\n                    \"description\": \"Create notification system\",\n                    \"id\": 3,\n                    \"priority\": \"HIGH\",\n                    \"status\": \"IN_PROGRESS\",\n                    \"title\": \"Implement Notifications\",\n                    \"updatedAt\": \"2026-05-24T22:28:34.577331\"\n                },\n                {\n                    \"assignedUser\": {\n                        \"active\": true,\n                        \"email\": \"andrei@test.com\",\n                        \"fullName\": \"Andrei Popescu\",\n                        \"id\": 8,\n                        \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n                        \"role\": \"USER\"\n                    },\n                    \"createdAt\": \"2026-05-24T21:36:10.251826\",\n                    \"creator\": {\n                        \"active\": true,\n                        \"email\": \"mariaupdate@test.com\",\n                        \"fullName\": \"Maria Updated\",\n                        \"id\": 6,\n                        \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                        \"role\": \"USER\"\n                    },\n                    \"deadline\": \"2026-06-02T18:00:00\",\n                    \"description\": \"Improve request validation\",\n                    \"id\": 4,\n                    \"priority\": \"MEDIUM\",\n                    \"status\": \"IN_PROGRESS\",\n                    \"title\": \"Fix Validation Errors\",\n                    \"updatedAt\": \"2026-05-24T22:28:44.230463\"\n                },\n                {\n                    \"assignedUser\": {\n                        \"active\": true,\n                        \"email\": \"andrei@test.com\",\n                        \"fullName\": \"Andrei Popescu\",\n                        \"id\": 8,\n                        \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n                        \"role\": \"USER\"\n                    },\n                    \"createdAt\": \"2026-05-24T21:38:49.19113\",\n                    \"creator\": {\n                        \"active\": true,\n                        \"email\": \"mariaupdate@test.com\",\n                        \"fullName\": \"Maria Updated\",\n                        \"id\": 6,\n                        \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                        \"role\": \"USER\"\n                    },\n                    \"deadline\": \"2026-06-03T18:00:00\",\n                    \"description\": \"Improve GitHub documentation\",\n                    \"id\": 7,\n                    \"priority\": \"LOW\",\n                    \"status\": \"IN_PROGRESS\",\n                    \"title\": \"Update README\",\n                    \"updatedAt\": \"2026-05-24T22:28:51.384422\"\n                }\n            ]\n        },\n        \"size\": 50,\n        \"type\": \"text/plain\",\n        \"uploadDate\": \"2026-05-24T19:05:12.173214\"\n    },\n    {\n        \"id\": 5,\n        \"name\": \"README.md\",\n        \"objectKey\": \"f6cefb87-7e20-42de-a951-71c300cb6ca9_README.md\",\n        \"owner\": {\n            \"active\": true,\n            \"email\": \"andrei@test.com\",\n            \"fullName\": \"Andrei Popescu\",\n            \"id\": 8,\n            \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n            \"role\": \"USER\"\n        },\n        \"project\": {\n            \"createdAt\": \"2026-05-21T19:06:57.337236\",\n            \"description\": \"Spring Boot backend\",\n            \"id\": 1,\n            \"members\": [\n                {\n                    \"active\": true,\n                    \"email\": \"mariaupdate@test.com\",\n                    \"fullName\": \"Maria Updated\",\n                    \"id\": 6,\n                    \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                    \"role\": \"USER\"\n                },\n                {\n                    \"active\": true,\n                    \"email\": \"alex@test.com\",\n                    \"fullName\": \"Alex Popescu\",\n                    \"id\": 4,\n                    \"password\": \"$2a$10$xwxxsa8uI6yis9cxZ5r0me4g56beuQzgn9vSaG.0teXnfJe81oUZi\",\n                    \"role\": \"USER\"\n                },\n                {\n                    \"active\": true,\n                    \"email\": \"andrei@test.com\",\n                    \"fullName\": \"Andrei Popescu\",\n                    \"id\": 8,\n                    \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n                    \"role\": \"USER\"\n                }\n            ],\n            \"name\": \"Task Platform\",\n            \"owner\": {\n                \"active\": true,\n                \"email\": \"mariaupdate@test.com\",\n                \"fullName\": \"Maria Updated\",\n                \"id\": 6,\n                \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                \"role\": \"USER\"\n            },\n            \"status\": \"ACTIVE\",\n            \"tasks\": [\n                {\n                    \"assignedUser\": {\n                        \"active\": true,\n                        \"email\": \"alex@test.com\",\n                        \"fullName\": \"Alex Popescu\",\n                        \"id\": 4,\n                        \"password\": \"$2a$10$xwxxsa8uI6yis9cxZ5r0me4g56beuQzgn9vSaG.0teXnfJe81oUZi\",\n                        \"role\": \"USER\"\n                    },\n                    \"createdAt\": \"2026-05-22T22:12:21.200863\",\n                    \"creator\": {\n                        \"active\": true,\n                        \"email\": \"mariaupdate@test.com\",\n                        \"fullName\": \"Maria Updated\",\n                        \"id\": 6,\n                        \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                        \"role\": \"USER\"\n                    },\n                    \"deadline\": \"2026-05-30T18:00:00\",\n                    \"description\": \"Create authentication filter\",\n                    \"id\": 1,\n                    \"priority\": \"HIGH\",\n                    \"status\": \"IN_PROGRESS\",\n                    \"title\": \"Implement JWT\",\n                    \"updatedAt\": \"2026-05-23T16:15:56.015883\"\n                },\n                {\n                    \"assignedUser\": {\n                        \"active\": true,\n                        \"email\": \"andrei@test.com\",\n                        \"fullName\": \"Andrei Popescu\",\n                        \"id\": 8,\n                        \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n                        \"role\": \"USER\"\n                    },\n                    \"createdAt\": \"2026-05-24T21:37:05.514628\",\n                    \"creator\": {\n                        \"active\": true,\n                        \"email\": \"mariaupdate@test.com\",\n                        \"fullName\": \"Maria Updated\",\n                        \"id\": 6,\n                        \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                        \"role\": \"USER\"\n                    },\n                    \"deadline\": \"2026-06-01T18:00:00\",\n                    \"description\": \"Create notification system\",\n                    \"id\": 5,\n                    \"priority\": \"HIGH\",\n                    \"status\": \"TODO\",\n                    \"title\": \"Implement Notifications\",\n                    \"updatedAt\": \"2026-05-24T21:57:16.306889\"\n                },\n                {\n                    \"assignedUser\": {\n                        \"active\": true,\n                        \"email\": \"andrei@test.com\",\n                        \"fullName\": \"Andrei Popescu\",\n                        \"id\": 8,\n                        \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n                        \"role\": \"USER\"\n                    },\n                    \"createdAt\": \"2026-05-24T21:37:13.211325\",\n                    \"creator\": {\n                        \"active\": true,\n                        \"email\": \"mariaupdate@test.com\",\n                        \"fullName\": \"Maria Updated\",\n                        \"id\": 6,\n                        \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                        \"role\": \"USER\"\n                    },\n                    \"deadline\": \"2026-06-01T18:00:00\",\n                    \"description\": \"Create notification system\",\n                    \"id\": 6,\n                    \"priority\": \"HIGH\",\n                    \"status\": \"TODO\",\n                    \"title\": \"Implement Notifications\",\n                    \"updatedAt\": \"2026-05-24T21:57:30.783417\"\n                },\n                {\n                    \"assignedUser\": {\n                        \"active\": true,\n                        \"email\": \"andrei@test.com\",\n                        \"fullName\": \"Andrei Popescu\",\n                        \"id\": 8,\n                        \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n                        \"role\": \"USER\"\n                    },\n                    \"createdAt\": \"2026-05-22T23:21:45.172616\",\n                    \"creator\": {\n                        \"active\": true,\n                        \"email\": \"mariaupdate@test.com\",\n                        \"fullName\": \"Maria Updated\",\n                        \"id\": 6,\n                        \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                        \"role\": \"USER\"\n                    },\n                    \"deadline\": \"2026-05-30T18:00:00\",\n                    \"description\": \"Create MinIO upload integration\",\n                    \"id\": 2,\n                    \"priority\": \"HIGH\",\n                    \"status\": \"IN_PROGRESS\",\n                    \"title\": \"Implement Upload System\",\n                    \"updatedAt\": \"2026-05-24T22:27:32.855656\"\n                },\n                {\n                    \"assignedUser\": {\n                        \"active\": true,\n                        \"email\": \"andrei@test.com\",\n                        \"fullName\": \"Andrei Popescu\",\n                        \"id\": 8,\n                        \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n                        \"role\": \"USER\"\n                    },\n                    \"createdAt\": \"2026-05-24T21:33:07.604772\",\n                    \"creator\": {\n                        \"active\": true,\n                        \"email\": \"mariaupdate@test.com\",\n                        \"fullName\": \"Maria Updated\",\n                        \"id\": 6,\n                        \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                        \"role\": \"USER\"\n                    },\n                    \"deadline\": \"2026-06-01T18:00:00\",\n                    \"description\": \"Create notification system\",\n                    \"id\": 3,\n                    \"priority\": \"HIGH\",\n                    \"status\": \"IN_PROGRESS\",\n                    \"title\": \"Implement Notifications\",\n                    \"updatedAt\": \"2026-05-24T22:28:34.577331\"\n                },\n                {\n                    \"assignedUser\": {\n                        \"active\": true,\n                        \"email\": \"andrei@test.com\",\n                        \"fullName\": \"Andrei Popescu\",\n                        \"id\": 8,\n                        \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n                        \"role\": \"USER\"\n                    },\n                    \"createdAt\": \"2026-05-24T21:36:10.251826\",\n                    \"creator\": {\n                        \"active\": true,\n                        \"email\": \"mariaupdate@test.com\",\n                        \"fullName\": \"Maria Updated\",\n                        \"id\": 6,\n                        \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                        \"role\": \"USER\"\n                    },\n                    \"deadline\": \"2026-06-02T18:00:00\",\n                    \"description\": \"Improve request validation\",\n                    \"id\": 4,\n                    \"priority\": \"MEDIUM\",\n                    \"status\": \"IN_PROGRESS\",\n                    \"title\": \"Fix Validation Errors\",\n                    \"updatedAt\": \"2026-05-24T22:28:44.230463\"\n                },\n                {\n                    \"assignedUser\": {\n                        \"active\": true,\n                        \"email\": \"andrei@test.com\",\n                        \"fullName\": \"Andrei Popescu\",\n                        \"id\": 8,\n                        \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n                        \"role\": \"USER\"\n                    },\n                    \"createdAt\": \"2026-05-24T21:38:49.19113\",\n                    \"creator\": {\n                        \"active\": true,\n                        \"email\": \"mariaupdate@test.com\",\n                        \"fullName\": \"Maria Updated\",\n                        \"id\": 6,\n                        \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n                        \"role\": \"USER\"\n                    },\n                    \"deadline\": \"2026-06-03T18:00:00\",\n                    \"description\": \"Improve GitHub documentation\",\n                    \"id\": 7,\n                    \"priority\": \"LOW\",\n                    \"status\": \"IN_PROGRESS\",\n                    \"title\": \"Update README\",\n                    \"updatedAt\": \"2026-05-24T22:28:51.384422\"\n                }\n            ]\n        },\n        \"size\": 9506,\n        \"type\": \"text/markdown\",\n        \"uploadDate\": \"2026-05-24T22:36:18.67459\"\n    }\n]"
+        }
+      ]
+    },
+    {
+      "name": "flow20.andrei marcheaza ca DONE taskul7 ",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbmRyZWlAdGVzdC5jb20iLCJpYXQiOjE3Nzk2NTA2MjMsImV4cCI6MTc3OTY1NDIyM30.Q5MI4kim0C2qtp-WhayGOLhtMzhbHL1St65fPpgRcgM",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"status\": \"DONE\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/tasks/7",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "tasks",
+            "7"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "flow20.andrei marcheaza ca DONE taskul7",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"status\": \"DONE\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/tasks/7",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "tasks",
+                "7"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "583"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 24 May 2026 19:38:13 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"assignedUser\": {\n        \"active\": true,\n        \"email\": \"andrei@test.com\",\n        \"fullName\": \"Andrei Popescu\",\n        \"id\": 8,\n        \"password\": \"$2a$10$k46wCkligU/h7uyxvTri.ey2RJU2bd1xaSJY4osYh.oe8QAFgwuCG\",\n        \"role\": \"USER\"\n    },\n    \"createdAt\": \"2026-05-24T21:38:49.19113\",\n    \"creator\": {\n        \"active\": true,\n        \"email\": \"mariaupdate@test.com\",\n        \"fullName\": \"Maria Updated\",\n        \"id\": 6,\n        \"password\": \"$2a$10$3nx.fhINgKRmv7F1ta6jwOWj5L6hSwu2qmKameifiM5VQ0B5qtCz2\",\n        \"role\": \"USER\"\n    },\n    \"deadline\": \"2026-06-03T18:00:00\",\n    \"description\": \"Improve GitHub documentation\",\n    \"id\": 7,\n    \"priority\": \"LOW\",\n    \"status\": \"DONE\",\n    \"title\": \"Update README\",\n    \"updatedAt\": \"2026-05-24T22:38:13.237266\"\n}"
+        }
+      ]
+    }
+  ]
+}
