@@ -27,7 +27,9 @@ import io.minio.MinioClient;
 import io.minio.PutObjectArgs;
 import io.minio.RemoveObjectArgs;
 import io.minio.GetObjectArgs;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class DocumentService {
@@ -117,6 +119,8 @@ public class DocumentService {
             );
 
         }
+        //logging:
+        log.info("Document uploaded: {} by user {}", document.getName(), owner.getEmail());
 
         //salvare metadate in DB
         return documentRepository.save(document);
@@ -157,6 +161,8 @@ public class DocumentService {
             throw new RuntimeException("Failed to delete file");
 
         }
+        //log important:
+        log.warn("Document deleted: {}", document.getName());
 
         //stergere metadate DB
         documentRepository.delete(document);
@@ -183,6 +189,8 @@ public class DocumentService {
 
         ) {
 
+            //log important
+            log.info("Document downloaded: {}", document.getName());
             return stream.readAllBytes();
 
         } catch (Exception e) {

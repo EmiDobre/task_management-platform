@@ -23,6 +23,9 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class TaskService {
@@ -219,6 +222,8 @@ public class TaskService {
 
         }
 
+        //log important
+        log.warn("Task deleted: {}", task.getTitle());
         taskRepository.delete(task);
 
     }
