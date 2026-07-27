@@ -6,6 +6,8 @@ import {
   UsersRound,
 } from "lucide-react";
 
+import { useNavigate } from "react-router";
+
 import Button from "../../components/ui/Button/Button.jsx";
 import LandingHeader from "./components/LandingHeader.jsx";
 import ProductPreview from "./components/ProductPreview.jsx";
@@ -13,12 +15,14 @@ import ProductPreview from "./components/ProductPreview.jsx";
 import "./LandingPage.css";
 
 function LandingPage() {
+  const navigate = useNavigate();
+
   function handleLogin() {
-    console.log("Navigate to login");
+    navigate("/login");
   }
 
   function handleCreateAccount() {
-    console.log("Navigate to register");
+    navigate("/register");
   }
 
   function handleRequestDemo() {

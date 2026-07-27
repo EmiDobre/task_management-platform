@@ -1,8 +1,7 @@
-//import Button from "./components/ui/Button/Button.jsx";
-import LandingPage from "./pages/LandingPage/LandingPage.jsx";
+import AppRoutes from "./routes/AppRoutes.jsx";
 
 function App() {
-    return <LandingPage />;
+    return <AppRoutes />;
 }
 
 export default App;
