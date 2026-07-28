@@ -1,4 +1,6 @@
+import { Mail, Shield, UserRound } from "lucide-react";
 import { useOutletContext } from "react-router";
+import "../pages/MyProfilePage.css";
 
 function MyProfilePage() {
     const { currentUser } = useOutletContext();
@@ -14,22 +16,90 @@ function MyProfilePage() {
             </h1>
 
             <p className="dashboard-main__description">
-                View and update your personal information.
+                View and manage your personal account information.
             </p>
 
-            <div>
-                <p>
-                    <strong>Full name:</strong> {currentUser.fullName}
-                </p>
+            <section className="profile-card">
+                <div className="profile-card__header">
+                    <div className="profile-card__avatar">
+                        {currentUser.fullName
+                            .split(" ")
+                            .map((namePart) => namePart[0])
+                            .join("")
+                            .slice(0, 2)
+                            .toUpperCase()}
+                    </div>
 
-                <p>
-                    <strong>Email:</strong> {currentUser.email}
-                </p>
+                    <div>
+                        <h2 className="profile-card__name">
+                            {currentUser.fullName}
+                        </h2>
 
-                <p>
-                    <strong>Role:</strong> {currentUser.role}
-                </p>
-            </div>
+                        <p className="profile-card__subtitle">
+                            Personal account information
+                        </p>
+                    </div>
+                </div>
+
+                <div className="profile-card__details">
+                    <div className="profile-detail">
+                        <div className="profile-detail__icon">
+                            <UserRound size={19} />
+                        </div>
+
+                        <div>
+                            <span className="profile-detail__label">
+                                Full name
+                            </span>
+
+                            <p className="profile-detail__value">
+                                {currentUser.fullName}
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className="profile-detail">
+                        <div className="profile-detail__icon">
+                            <Mail size={19} />
+                        </div>
+
+                        <div>
+                            <span className="profile-detail__label">
+                                Email address
+                            </span>
+
+                            <p className="profile-detail__value">
+                                {currentUser.email}
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className="profile-detail">
+                        <div className="profile-detail__icon">
+                            <Shield size={19} />
+                        </div>
+
+                        <div>
+                            <span className="profile-detail__label">
+                                Role
+                            </span>
+
+                            <p className="profile-detail__value">
+                                {currentUser.role}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="profile-card__footer">
+                    <button
+                        className="profile-card__edit-button"
+                        type="button"
+                    >
+                        Edit profile
+                    </button>
+                </div>
+            </section>
         </main>
     );
 }
