@@ -5,8 +5,19 @@ import {
     LogOut,
     UserRound,
 } from "lucide-react";
+import { useNavigate } from "react-router";
+
+
 
 function DashboardSidebar() {
+
+    const navigate = useNavigate();
+
+    function handleLogout() {
+        sessionStorage.removeItem("token");
+        navigate("/login");
+    }
+
     return (
         <aside className="dashboard-sidebar">
             <div className="dashboard-sidebar__brand">
@@ -56,6 +67,7 @@ function DashboardSidebar() {
             <button
                 className="dashboard-sidebar__logout"
                 type="button"
+                onClick={handleLogout}
             >
                 <LogOut size={19} />
                 <span>Logout</span>

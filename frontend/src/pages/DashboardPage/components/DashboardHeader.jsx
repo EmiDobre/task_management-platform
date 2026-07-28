@@ -1,6 +1,6 @@
 import { Bell, ChevronDown } from "lucide-react";
-
-function DashboardHeader() {
+//headerul primeste userul pe care il obtin prin get in backend in dashboardpage
+function DashboardHeader({ currentUser }) {
     return (
         <header className="dashboard-header">
             <div>
@@ -31,8 +31,8 @@ function DashboardHeader() {
           </span>
 
                     <span className="dashboard-header__user">
-            <strong>Alex Constantin</strong>
-            <small>User</small>
+            <strong>{currentUser.fullName}</strong>
+            <small>{currentUser.role}</small>
           </span>
 
                     <ChevronDown size={17} />
