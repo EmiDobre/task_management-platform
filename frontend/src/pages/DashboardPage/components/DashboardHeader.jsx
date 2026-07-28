@@ -1,6 +1,14 @@
 import { Bell, ChevronDown } from "lucide-react";
 //headerul primeste userul pe care il obtin prin get in backend in dashboardpage
 function DashboardHeader({ currentUser }) {
+
+    const initials = currentUser.fullName
+        .split(" ")
+        .map((namePart) => namePart[0])
+        .join("")
+        .slice(0, 2)
+        .toUpperCase();
+
     return (
         <header className="dashboard-header">
             <div>
@@ -27,7 +35,7 @@ function DashboardHeader({ currentUser }) {
                     type="button"
                 >
           <span className="dashboard-header__avatar">
-            AC
+            {initials}
           </span>
 
                     <span className="dashboard-header__user">

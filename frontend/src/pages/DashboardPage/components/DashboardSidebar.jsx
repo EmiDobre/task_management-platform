@@ -1,16 +1,14 @@
 import {
     FolderKanban,
-    LayoutDashboard,
     ListTodo,
-    LogOut,
     UserRound,
+    Plus,
+    LogOut
 } from "lucide-react";
-import { useNavigate } from "react-router";
 
-
+import { NavLink, useNavigate } from "react-router";
 
 function DashboardSidebar() {
-
     const navigate = useNavigate();
 
     function handleLogout() {
@@ -21,47 +19,63 @@ function DashboardSidebar() {
     return (
         <aside className="dashboard-sidebar">
             <div className="dashboard-sidebar__brand">
-        <span className="dashboard-sidebar__logo">
-          TF
+        <span className="dashboard-sidebar__brand-icon">
+          T
         </span>
 
-                <span className="dashboard-sidebar__name">
-          TaskFlow
-        </span>
+                <span>TaskFlow</span>
             </div>
 
             <nav className="dashboard-sidebar__navigation">
-                <button
-                    className="dashboard-sidebar__link dashboard-sidebar__link--active"
-                    type="button"
-                >
-                    <LayoutDashboard size={19} />
-                    <span>Overview</span>
-                </button>
-
-                <button
-                    className="dashboard-sidebar__link"
-                    type="button"
+                <NavLink
+                    to="/dashboard"
+                    end
+                    className={({ isActive }) =>
+                        `dashboard-sidebar__link ${
+                            isActive ? "dashboard-sidebar__link--active" : ""
+                        }`
+                    }
                 >
                     <FolderKanban size={19} />
-                    <span>My projects</span>
-                </button>
+                    <span>My Projects</span>
+                </NavLink>
 
-                <button
-                    className="dashboard-sidebar__link"
-                    type="button"
+                <NavLink
+                    to="/dashboard/tasks"
+                    className={({ isActive }) =>
+                        `dashboard-sidebar__link ${
+                            isActive ? "dashboard-sidebar__link--active" : ""
+                        }`
+                    }
                 >
                     <ListTodo size={19} />
-                    <span>My tasks</span>
-                </button>
+                    <span>My Tasks</span>
+                </NavLink>
 
-                <button
-                    className="dashboard-sidebar__link"
-                    type="button"
+                <NavLink
+                    to="/dashboard/profile"
+                    className={({ isActive }) =>
+                        `dashboard-sidebar__link ${
+                            isActive ? "dashboard-sidebar__link--active" : ""
+                        }`
+                    }
                 >
                     <UserRound size={19} />
-                    <span>My profile</span>
-                </button>
+                    <span>My Profile</span>
+                </NavLink>
+
+                <NavLink
+                    to="/dashboard/projects/create"
+                    className={({ isActive }) =>
+                        isActive
+                            ? "dashboard-sidebar__link dashboard-sidebar__link--active"
+                            : "dashboard-sidebar__link"
+                    }
+                >
+                    <Plus size={18} />
+                    <span>Create Project</span>
+                </NavLink>
+
             </nav>
 
             <button

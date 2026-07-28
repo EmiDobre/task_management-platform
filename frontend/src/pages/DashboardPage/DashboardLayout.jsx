@@ -1,12 +1,18 @@
+//verifica tokenul - incarca currentUser cu GET pe backend
+//=> afiseaza SideBar si Headeer care sunt componente
+//si afiseaza pagina curenta prin Outlet
+
+import { Navigate, Outlet } from "react-router";
+import { useEffect, useState } from "react";
+
 import DashboardHeader from "./components/DashboardHeader.jsx";
 import DashboardSidebar from "./components/DashboardSidebar.jsx";
-import { Navigate } from "react-router";
-import { useEffect, useState } from "react";
+
 import "./DashboardPage.css";
 
-function DashboardPage() {
-
+function DashboardLayout() {
     const token = sessionStorage.getItem("token");
+
     const [currentUser, setCurrentUser] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -22,8 +28,6 @@ function DashboardPage() {
             );
 
             const data = await response.json();
-
-            console.log("Current user:", data);
 
             setCurrentUser(data);
             setIsLoading(false);
@@ -43,33 +47,16 @@ function DashboardPage() {
     }
 
     return (
-        // container pagina are 2 copii: sidebarul si partea dreapta mare
-                //partea dreapta are header si main ca si copii
         <div className="dashboard-page">
             <DashboardSidebar />
 
-
             <div className="dashboard-page__content">
-
                 <DashboardHeader currentUser={currentUser} />
 
-                <main className="dashboard-main">
-
-          <span className="dashboard-main__eyebrow">
-            Workspace overview
-          </span>
-
-                    <h1 className="dashboard-main__title">
-                        Welcome back, {currentUser.fullName}!
-                    </h1>
-
-                    <p className="dashboard-main__description">
-                        Follow your projects and continue working on your current tasks.
-                    </p>
-                </main>
+                <Outlet context={{ currentUser }} />
             </div>
         </div>
     );
 }
 
-export default DashboardPage;
+export default DashboardLayout;
