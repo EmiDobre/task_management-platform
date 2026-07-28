@@ -1,44 +1,35 @@
-import { Navigate } from "react-router";
+import DashboardHeader from "./components/DashboardHeader.jsx";
+import DashboardSidebar from "./components/DashboardSidebar.jsx";
+
+import "./DashboardPage.css";
 
 function DashboardPage() {
-    const token = sessionStorage.getItem("token");
-
-    if (!token) {
-        return <Navigate to="/login" replace />;
-    }
-
     return (
-        <main>
-            <h1>My workspace</h1>
+        // container pagina are 2 copii: sidebarul si partea dreapta mare
+                //partea dreapta are header si main ca si copii
+        <div className="dashboard-page">
+            <DashboardSidebar />
 
-            <section>
-                <h2>Projects</h2>
 
-                <article>
-                    <h3>Task Management App</h3>
-                    <p>In progress</p>
-                </article>
+            <div className="dashboard-page__content">
+                <DashboardHeader />
 
-                <article>
-                    <h3>Portfolio Website</h3>
-                    <p>Planned</p>
-                </article>
-            </section>
+                <main className="dashboard-main">
 
-            <section>
-                <h2>Tasks</h2>
+          <span className="dashboard-main__eyebrow">
+            Workspace overview
+          </span>
 
-                <article>
-                    <h3>Create dashboard</h3>
-                    <p>In progress</p>
-                </article>
+                    <h1 className="dashboard-main__title">
+                        Welcome back
+                    </h1>
 
-                <article>
-                    <h3>Connect login to backend</h3>
-                    <p>Completed</p>
-                </article>
-            </section>
-        </main>
+                    <p className="dashboard-main__description">
+                        Follow your projects and continue working on your current tasks.
+                    </p>
+                </main>
+            </div>
+        </div>
     );
 }
 
