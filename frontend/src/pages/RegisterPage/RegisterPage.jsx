@@ -4,7 +4,7 @@ import {
     Mail,
     UserRound,
 } from "lucide-react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 import Button from "../../components/ui/Button/Button.jsx";
 import Logo from "../../components/ui/Logo/Logo.jsx";
@@ -12,10 +12,35 @@ import Logo from "../../components/ui/Logo/Logo.jsx";
 import "../LoginPage/AuthPage.css";
 
 function RegisterPage() {
-    function handleSubmit(event) {
+
+    const navigate = useNavigate();
+
+    async function handleSubmit(event) {
         event.preventDefault();
 
-        console.log("Register form submitted");
+        const formData = new FormData(event.currentTarget); //declanseaza evenimentul
+        const registerData = {
+            fullName: formData.get("name"),
+            email: formData.get("email"),
+            password: formData.get("password"),
+        };
+        const response = await fetch("http://localhost:8080/api/users", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(registerData), //din java script obj in json - trnasf in login req
+        });
+
+        const data = await response.json();
+        if (!response.ok) {
+            console.log("Register failed:", data);
+            return;
+        }
+        sessionStorage.setItem("token", data.token);
+        console.log("User created:", data);
+        //spre login
+        navigate("/login");
     }
 
     return (

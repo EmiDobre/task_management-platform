@@ -1,5 +1,5 @@
 import { ArrowLeft, LockKeyhole, Mail } from "lucide-react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 import Button from "../../components/ui/Button/Button.jsx";
 import Logo from "../../components/ui/Logo/Logo.jsx";
@@ -7,10 +7,41 @@ import Logo from "../../components/ui/Logo/Logo.jsx";
 import "./AuthPage.css";
 
 function LoginPage() {
-    function handleSubmit(event) {
+
+    //salvez functie din react si o folosesc cand handleuiesc un event
+
+    const navigate = useNavigate();
+
+    //constantele primesc date aici
+    async function handleSubmit(event) {
         event.preventDefault();
 
-        console.log("Login form submitted");
+        const formData = new FormData(event.currentTarget); //declanseaza evenimentul
+
+        const loginData = {
+            email: formData.get("email"),
+            password: formData.get("password"),
+        };
+
+        const response = await fetch("http://localhost:8080/api/auth/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(loginData), //din java script obj in json - trnasf in login req
+        });
+
+        const data = await response.json();
+        //asteapta token de jwt:
+        if (!response.ok) {
+            console.log("Login failed:", data);
+            return;
+        }
+        //jwt intors ok:
+        sessionStorage.setItem("token", data.token);
+        navigate("/dashboard");
+
+        console.log(data);
     }
 
     return (
@@ -91,7 +122,7 @@ function LoginPage() {
                 </form>
 
                 <p className="auth-card__switch">
-                    Don&apos;t have an account?
+                    Don't have an account?
                     <Link to="/register">Create account</Link>
                 </p>
             </section>
