@@ -1,3 +1,7 @@
+/* =========================
+   PROFILE CARD
+   ========================= */
+
 .profile-card {
     width: 100%;
     max-width: 760px;
@@ -26,8 +30,10 @@
 .profile-card__avatar {
     display: grid;
     flex: 0 0 64px;
+
     width: 64px;
     height: 64px;
+
     place-items: center;
 
     border-radius: 18px;
@@ -56,6 +62,11 @@
     font-size: 0.9rem;
 }
 
+
+/* =========================
+   PROFILE DETAILS
+   ========================= */
+
 .profile-card__details {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -78,11 +89,25 @@
     background-color: #f5f7fa;
 }
 
+/*
+ Conținutul din dreapta iconiței trebuie să poată
+ folosi tot spațiul rămas fără să iasă din casetă.
+*/
+.profile-detail > div:last-child,
+.profile-detail__content {
+    flex: 1;
+
+    width: 100%;
+    min-width: 0;
+}
+
 .profile-detail__icon {
     display: grid;
     flex: 0 0 38px;
+
     width: 38px;
     height: 38px;
+
     place-items: center;
 
     border-radius: 11px;
@@ -92,9 +117,11 @@
 }
 
 .profile-detail__label {
+    display: block;
+
     color: #a0a3b6;
 
-    font-size: 0.72rem;
+    font-size: 0.68rem;
     font-weight: 700;
     letter-spacing: 0.05em;
     text-transform: uppercase;
@@ -107,23 +134,212 @@
 
     color: #17243a;
 
-    font-size: 0.9rem;
+    font-size: 0.86rem;
     font-weight: 600;
 }
 
-.profile-card__footer {
+
+/* =========================
+   DISPLAY NORMAL
+   ========================= */
+
+.name-change__display,
+.email-change__display,
+.profile-detail__display {
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
+    align-items: flex-start;
 
-    padding: 20px 30px;
+    width: 100%;
+    min-width: 0;
+}
 
-    border-top: 1px solid #e4e8ef;
+.profile-detail__action-button {
+    margin-top: 10px;
+    padding: 7px 10px;
 
+    border: 1px solid rgba(40, 124, 159, 0.28);
+    border-radius: 9px;
+
+    color: #287c9f;
+    background-color: #edf4f7;
+
+    font: inherit;
+    font-size: 0.72rem;
+    font-weight: 700;
+    line-height: 1.15;
+
+    cursor: pointer;
+
+    transition:
+            color 180ms ease,
+            background-color 180ms ease,
+            border-color 180ms ease,
+            transform 180ms ease,
+            box-shadow 180ms ease;
+}
+
+.profile-detail__action-button:hover {
+    color: #216b89;
+    background-color: #e3eef2;
+    border-color: rgba(40, 124, 159, 0.42);
+
+    transform: translateY(-1px);
+
+    box-shadow: 0 6px 14px rgba(40, 124, 159, 0.12);
+}
+
+.profile-detail__action-button:focus-visible {
+    outline: none;
+
+    box-shadow:
+            0 0 0 3px rgba(40, 124, 159, 0.12),
+            0 6px 14px rgba(40, 124, 159, 0.12);
+}
+
+.profile-detail__action-button:disabled {
+    color: #a0a3b6;
     background-color: #f5f7fa;
+    border-color: #e4e8ef;
+
+    cursor: not-allowed;
+
+    transform: none;
+    box-shadow: none;
+}
+
+
+/* =========================
+   EDIT NAME / EMAIL
+   ========================= */
+
+.profile-detail__edit-form,
+.email-change {
+    display: block;
+
+    width: 100%;
+    min-width: 0;
+}
+
+.profile-detail__input {
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+
+    margin-top: 7px;
+    padding: 8px 9px;
+
+    border: 1px solid #e4e8ef;
+    border-radius: 9px;
+    outline: none;
+
+    color: #17243a;
+    background-color: #ffffff;
+
+    font: inherit;
+    font-size: 0.76rem;
+    font-weight: 600;
+
+    transition:
+            border-color 180ms ease,
+            box-shadow 180ms ease;
+}
+
+.profile-detail__input:focus {
+    border-color: #287c9f;
+
+    box-shadow: 0 0 0 3px rgba(40, 124, 159, 0.12);
+}
+
+.profile-detail__input:disabled {
+    color: #a0a3b6;
+    background-color: #f5f7fa;
+
+    cursor: not-allowed;
+}
+
+
+/*
+ IMPORTANT:
+ Cancel rămâne în stânga casetei.
+ Save rămâne în dreapta casetei.
+ Butoanele sunt suficient de mici ca să încapă.
+*/
+.profile-detail__actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+
+    margin-top: 12px;
+    gap: 6px;
+}
+
+.profile-detail__actions .profile-card__cancel-button,
+.profile-detail__actions .profile-card__edit-button {
+    flex: 0 0 auto;
+
+    width: auto;
+    min-width: 0;
+    max-width: 48%;
+
+    padding: 6px 8px;
+
+    border-radius: 8px;
+
+    font-size: 0.65rem;
+    line-height: 1.1;
+    white-space: nowrap;
+}
+
+
+/* =========================
+   GENERAL ACTION BUTTONS
+   ========================= */
+
+.profile-card__actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-card__cancel-button {
+    padding: 10px 16px;
+
+    border: 1px solid #e4e8ef;
+    border-radius: 11px;
+
+    color: #74889f;
+    background-color: #ffffff;
+
+    font: inherit;
+    font-size: 0.86rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+            color 180ms ease,
+            background-color 180ms ease,
+            border-color 180ms ease,
+            transform 180ms ease;
+}
+
+.profile-card__cancel-button:hover {
+    color: #17243a;
+    background-color: #f5f7fa;
+    border-color: #d6dce5;
+
+    transform: translateY(-1px);
 }
 
 .profile-card__edit-button {
-    padding: 11px 18px;
+    padding: 10px 16px;
 
     border: 0;
     border-radius: 11px;
@@ -132,7 +348,7 @@
     background-color: #287c9f;
 
     font: inherit;
-    font-size: 0.9rem;
+    font-size: 0.86rem;
     font-weight: 700;
 
     cursor: pointer;
@@ -151,15 +367,170 @@
     box-shadow: 0 9px 20px rgba(40, 124, 159, 0.2);
 }
 
+.profile-card__edit-button:disabled,
+.profile-card__cancel-button:disabled {
+    cursor: not-allowed;
+
+    opacity: 0.65;
+    transform: none;
+    box-shadow: none;
+}
+
+
+/* =========================
+   EMAIL MESSAGES
+   ========================= */
+
+.email-change__notice {
+    margin: 8px 0 0;
+
+    color: #74889f;
+
+    font-size: 0.62rem;
+    line-height: 1.4;
+}
+
+.profile-detail .profile-card__error {
+    margin: 7px 0 0;
+    padding: 0;
+
+    color: #b42318;
+
+    font-size: 0.65rem;
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+
+/* =========================
+   GENERAL ERROR
+   ========================= */
+
+.profile-card > .profile-card__error {
+    margin: 0;
+    padding: 0 30px 18px;
+
+    color: #b42318;
+
+    font-size: 0.88rem;
+    font-weight: 600;
+}
+
+
+/* =========================
+   FOOTER
+   ========================= */
+
+.profile-card__footer {
+    display: flex;
+    justify-content: flex-end;
+
+    padding: 20px 30px;
+
+    border-top: 1px solid #e4e8ef;
+
+    background-color: #f5f7fa;
+}
+
+
+/* =========================
+   PASSWORD CARD
+   ========================= */
+
+.security-card {
+    margin-top: 24px;
+}
+
+.password-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    padding: 24px;
+}
+
+.password-form__field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.password-form__field label {
+    color: #374151;
+
+    font-size: 0.86rem;
+    font-weight: 600;
+}
+
+.password-form__field input {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 11px 12px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    outline: none;
+
+    color: #17243a;
+    background-color: #ffffff;
+
+    font: inherit;
+    font-size: 0.88rem;
+
+    transition:
+            border-color 180ms ease,
+            box-shadow 180ms ease;
+}
+
+.password-form__field input:focus {
+    border-color: #287c9f;
+
+    box-shadow: 0 0 0 3px rgba(40, 124, 159, 0.12);
+}
+
+.password-form__field input:disabled {
+    background-color: #f3f4f6;
+
+    cursor: not-allowed;
+}
+
+.profile-card__success {
+    margin: 0 24px 24px;
+
+    color: #15803d;
+
+    font-size: 0.86rem;
+    font-weight: 600;
+}
+
+
+/* =========================
+   TABLET
+   ========================= */
+
 @media (max-width: 900px) {
     .profile-card__details {
         grid-template-columns: 1fr;
     }
+
+    .profile-detail__actions .profile-card__cancel-button,
+    .profile-detail__actions .profile-card__edit-button {
+        padding: 7px 11px;
+
+        font-size: 0.72rem;
+    }
 }
+
+
+/* =========================
+   MOBILE
+   ========================= */
 
 @media (max-width: 600px) {
     .profile-card__header {
         align-items: flex-start;
+
         padding: 22px;
     }
 
@@ -171,7 +542,51 @@
         padding: 18px 22px;
     }
 
-    .profile-card__edit-button {
+    /*
+     Doar butonul din footer ocupă toată lățimea.
+     Butoanele din casetele nume/email NU sunt întinse.
+    */
+    .profile-card__footer .profile-card__edit-button {
         width: 100%;
     }
+
+    .profile-detail__actions .profile-card__cancel-button,
+    .profile-detail__actions .profile-card__edit-button {
+        width: auto;
+        min-width: 0;
+        max-width: 48%;
+
+        padding: 7px 10px;
+
+        font-size: 0.7rem;
+    }
+
+    .password-form .profile-card__actions {
+        justify-content: space-between;
+    }
+}
+
+.password-change__display {
+    display: flex;
+    align-items: flex-start;
+
+    padding: 0 30px 24px;
+}
+
+.password-change__display .profile-detail__action-button {
+    margin-top: 0;
+}
+
+.password-form__actions {
+    justify-content: space-between;
+}
+
+.password-form__error {
+    margin: 0;
+
+    color: #b42318;
+
+    font-size: 0.78rem;
+    font-weight: 600;
+    line-height: 1.4;
 }

@@ -6,6 +6,7 @@ import {
     LogOut
 } from "lucide-react";
 
+import Logo from "../../../components/ui/Logo/Logo.jsx";
 import { NavLink, useNavigate } from "react-router";
 
 function DashboardSidebar() {
@@ -19,11 +20,8 @@ function DashboardSidebar() {
     return (
         <aside className="dashboard-sidebar">
             <div className="dashboard-sidebar__brand">
-        <span className="dashboard-sidebar__brand-icon">
-          T
-        </span>
 
-                <span>TaskFlow</span>
+                <span><Logo /></span>
             </div>
 
             <nav className="dashboard-sidebar__navigation">

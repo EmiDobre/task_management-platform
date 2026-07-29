@@ -53,7 +53,7 @@ function DashboardLayout() {
             <div className="dashboard-page__content">
                 <DashboardHeader currentUser={currentUser} />
 
-                <Outlet context={{ currentUser }} />
+                <Outlet context={{ currentUser, setCurrentUser }} />
             </div>
         </div>
     );
