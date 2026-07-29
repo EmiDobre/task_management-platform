@@ -8,6 +8,8 @@ import MyProjectsPage from "../pages/DashboardPage/pages/MyProjectsPage.jsx";
 import MyTasksPage from "../pages/DashboardPage/pages/MyTasksPage.jsx";
 import MyProfilePage from "../pages/DashboardPage/pages/MyProfilePage.jsx";
 import CreateProjectPage from "../pages/DashboardPage/pages/CreateProjectPage.jsx";
+import ProjectDetailsPage from "../pages/Project/ProjectDetailsPage";
+
 
 function AppRoutes() {
     return (
@@ -20,6 +22,7 @@ function AppRoutes() {
                 <Route path="tasks" element={<MyTasksPage />} />
                 <Route path="profile" element={<MyProfilePage />} />
                 <Route path="projects/create" element={<CreateProjectPage />} />
+                <Route path="projects/:projectId" element={<ProjectDetailsPage />}/>
             </Route>
         </Routes>
     );
