@@ -1,0 +1,236 @@
+.project-task-board {
+    margin-top: 24px;
+    padding: 30px 32px;
+
+    border: 1px solid #e4e8ef;
+    border-radius: 18px;
+
+    background-color: #ffffff;
+
+    box-shadow: 0 10px 30px rgba(23, 36, 58, 0.04);
+}
+
+.project-task-board__header {
+    margin-bottom: 26px;
+}
+
+.project-task-board__eyebrow {
+    margin: 0 0 8px;
+
+    color: #287c9f;
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+}
+
+.project-task-board__title {
+    margin: 0;
+
+    color: #17243a;
+
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+}
+
+.project-task-board__description {
+    margin: 8px 0 0;
+
+    color: #74889f;
+
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.project-task-board__columns {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(260px, 1fr));
+    gap: 16px;
+
+    overflow-x: auto;
+    padding-bottom: 6px;
+}
+
+.project-task-column {
+    min-width: 260px;
+    min-height: 360px;
+    padding: 16px;
+
+    border: 1px solid #e6eaf0;
+    border-radius: 14px;
+
+    background-color: #f7f9fb;
+}
+
+.project-task-column__heading {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    margin-bottom: 16px;
+}
+
+.project-task-column__dot {
+    width: 9px;
+    height: 9px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+}
+
+.project-task-column__dot--todo {
+    background-color: #74889f;
+}
+
+.project-task-column__dot--progress {
+    background-color: #d89b45;
+}
+
+.project-task-column__dot--done {
+    background-color: #4c9a78;
+}
+
+.project-task-column__name {
+    color: #17243a;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.project-task-column__count {
+    min-width: 25px;
+    height: 25px;
+    margin-left: auto;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 999px;
+
+    color: #74889f;
+    background-color: #ffffff;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    box-shadow: 0 3px 10px rgba(23, 36, 58, 0.06);
+}
+
+.project-task-card {
+    padding: 15px;
+    margin-bottom: 12px;
+
+    border: 1px solid #e3e8ee;
+    border-radius: 12px;
+
+    background-color: #ffffff;
+
+    box-shadow: 0 5px 14px rgba(23, 36, 58, 0.05);
+
+    cursor: pointer;
+
+    transition:
+            transform 150ms ease,
+            box-shadow 150ms ease,
+            border-color 150ms ease;
+}
+
+.project-task-card:last-child {
+    margin-bottom: 0;
+}
+
+.project-task-card:hover {
+    transform: translateY(-2px);
+
+    border-color: rgba(40, 124, 159, 0.28);
+
+    box-shadow: 0 10px 22px rgba(23, 36, 58, 0.09);
+}
+
+.project-task-card--done {
+    opacity: 0.78;
+}
+
+.project-task-card__tag {
+    display: inline-flex;
+    align-items: center;
+
+    margin-bottom: 11px;
+    padding: 5px 9px;
+
+    border-radius: 999px;
+
+    color: #287c9f;
+    background-color: rgba(40, 124, 159, 0.1);
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+}
+
+.project-task-card__title {
+    margin: 0;
+
+    color: #17243a;
+
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.45;
+}
+
+.project-task-card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    margin-top: 18px;
+}
+
+.project-task-card__status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    color: #74889f;
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.project-task-card__avatar {
+    width: 29px;
+    height: 29px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    color: #ffffff;
+    background-color: #287c9f;
+
+    font-size: 10px;
+    font-weight: 700;
+}
+
+@media (max-width: 980px) {
+    .project-task-board__columns {
+        grid-template-columns: repeat(3, 280px);
+    }
+}
+
+@media (max-width: 760px) {
+    .project-task-board {
+        padding: 24px;
+    }
+
+    .project-task-board__columns {
+        grid-template-columns: repeat(3, 260px);
+    }
+}

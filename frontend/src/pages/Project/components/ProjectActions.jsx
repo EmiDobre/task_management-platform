@@ -1,0 +1,39 @@
+function ProjectActions() {
+    return (
+        <section className="project-actions">
+            <div className="project-actions__content">
+                <div>
+                    <p className="project-actions__eyebrow">
+                        Project management
+                    </p>
+
+                    <h2 className="project-actions__title">
+                        Project actions
+                    </h2>
+
+                    <p className="project-actions__description">
+                        Manage project members or open the project documents.
+                    </p>
+                </div>
+
+                <div className="project-actions__buttons">
+                    <button
+                        className="project-actions__button project-actions__button--secondary"
+                        type="button"
+                    >
+                        Manage members
+                    </button>
+
+                    <button
+                        className="project-actions__button project-actions__button--primary"
+                        type="button"
+                    >
+                        Project documents
+                    </button>
+                </div>
+            </div>
+        </section>
+    );
+}
+
+export default ProjectActions;

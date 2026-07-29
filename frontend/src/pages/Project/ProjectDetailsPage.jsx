@@ -1,15 +1,16 @@
 import "./ProjectDetailsPage.css";
+import ProjectActions from "./components/ProjectActions.jsx";
+import ProjectTaskBoard from "./components/ProjectTaskBoard.jsx";
+import ProjectHeader from "./components/ProjectHeader.jsx";
 
 function ProjectDetailsPage() {
     return (
         <main className="project-details-page">
-            <section className="project-details-page__content">
-                <h1>Project details</h1>
-
-                <p>
-                    Project page is working.
-                </p>
-            </section>
+            <div className="project-details-page__container">
+                <ProjectHeader />
+                <ProjectActions />
+                <ProjectTaskBoard />
+            </div>
         </main>
     );
 }
