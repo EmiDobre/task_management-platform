@@ -1,4 +1,6 @@
-function ProjectActions() {
+import ManageMembersPopover from "./ManageMembersPopover";
+
+function ProjectActions({ project, onProjectUpdated }) {
     return (
         <section className="project-actions">
             <div className="project-actions__content">
@@ -17,12 +19,10 @@ function ProjectActions() {
                 </div>
 
                 <div className="project-actions__buttons">
-                    <button
-                        className="project-actions__button project-actions__button--secondary"
-                        type="button"
-                    >
-                        Manage members
-                    </button>
+                    <ManageMembersPopover
+                        project={project}
+                        onProjectUpdated={onProjectUpdated}
+                    />
 
                     <button
                         className="project-actions__button project-actions__button--primary"

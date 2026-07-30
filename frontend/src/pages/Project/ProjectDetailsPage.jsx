@@ -14,53 +14,53 @@ function ProjectDetailsPage() {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState("");
 
-    useEffect(() => {
-        async function fetchProject() {
-            try {
-                setIsLoading(true);
-                setError("");
+    async function fetchProject() {
+        try {
+            setIsLoading(true);
+            setError("");
 
-                const token = sessionStorage.getItem("token");
+            const token = sessionStorage.getItem("token");
 
-                const response = await fetch(
-                    `http://localhost:8080/api/projects/${projectId}`,
-                    {
-                        method: "GET",
-                        headers: {
-                            Authorization: `Bearer ${token}`,
-                            "Content-Type": "application/json",
-                        },
-                    }
-                );
+            const response = await fetch(
+                `http://localhost:8080/api/projects/${projectId}`,
+                {
+                    method: "GET",
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                        "Content-Type": "application/json",
+                    },
+                }
+            );
 
-                if (!response.ok) {
-                    if (response.status === 401) {
-                        throw new Error("You are not authenticated.");
-                    }
-
-                    if (response.status === 403) {
-                        throw new Error(
-                            "You do not have access to this project."
-                        );
-                    }
-
-                    if (response.status === 404) {
-                        throw new Error("Project not found.");
-                    }
-
-                    throw new Error("Could not load the project.");
+            if (!response.ok) {
+                if (response.status === 401) {
+                    throw new Error("You are not authenticated.");
                 }
 
-                const data = await response.json();
+                if (response.status === 403) {
+                    throw new Error(
+                        "You do not have access to this project."
+                    );
+                }
 
-                setProject(data);
-            } catch (error) {
-                setError(error.message);
-            } finally {
-                setIsLoading(false);
+                if (response.status === 404) {
+                    throw new Error("Project not found.");
+                }
+
+                throw new Error("Could not load the project.");
             }
-        }
 
+            const data = await response.json();
+
+            setProject(data);
+        } catch (error) {
+            setError(error.message);
+        } finally {
+            setIsLoading(false);
+        }
+    }
+
+    useEffect(() => {
         fetchProject();
     }, [projectId]);
 
@@ -92,7 +92,8 @@ function ProjectDetailsPage() {
         <main className="project-details-page">
             <div className="project-details-page__container">
                 <ProjectHeader project={project} />
-                <ProjectActions project={project} />
+                <ProjectActions project={project}
+                                onProjectUpdated={fetchProject}/>
                 <ProjectTaskBoard />
             </div>
         </main>
