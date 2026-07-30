@@ -1065,3 +1065,45 @@
     border-color: #8399af;
     box-shadow: 0 0 0 3px rgba(103, 128, 153, 0.12);
 }
+
+/* status prio filtre  */
+.project-task-board__filters {
+    display: flex;
+    gap: 8px;
+
+}
+
+.project-task-board__filter {
+    padding: 8px 14px;
+
+    border: none;
+    border-radius: 9px;
+
+    color: #778899;
+    background-color: transparent;
+
+    font: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.project-task-board__filter--active {
+    color: #243447;
+    background-color: #ffffff;
+
+    box-shadow: 0 2px 8px rgba(36, 52, 71, 0.08);
+}
+
+.project-task-column__dot--low {
+    background-color: #70b797;
+}
+
+.project-task-column__dot--medium {
+    background-color: #e4ad52;
+}
+
+.project-task-column__dot--high {
+    background-color: #d96969;
+}

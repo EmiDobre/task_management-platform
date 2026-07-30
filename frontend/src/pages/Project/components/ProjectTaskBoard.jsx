@@ -3,8 +3,12 @@ import {
     CheckCircle2,
     Clock3,
 } from "lucide-react";
+import { useState } from "react";
+
 
 function ProjectTaskBoard({ tasks = [], error = "" }) {
+    const [groupBy, setGroupBy] = useState("status");
+
     const todoTasks = tasks.filter(
         (task) => task.status === "TODO"
     );
@@ -15,6 +19,18 @@ function ProjectTaskBoard({ tasks = [], error = "" }) {
 
     const doneTasks = tasks.filter(
         (task) => task.status === "DONE"
+    );
+
+    const lowPriorityTasks = tasks.filter(
+        (task) => task.priority === "LOW"
+    );
+
+    const mediumPriorityTasks = tasks.filter(
+        (task) => task.priority === "MEDIUM"
+    );
+
+    const highPriorityTasks = tasks.filter(
+        (task) => task.priority === "HIGH"
     );
 
     function formatDeadline(deadline) {
@@ -83,10 +99,17 @@ function ProjectTaskBoard({ tasks = [], error = "" }) {
                             ? "Completed"
                             : formatDeadline(task.deadline)}
                     </span>
-
-                    <span className="project-task-card__avatar">
+                    <span
+                        className="project-task-card__avatar"
+                        title={
+                            task.assignedUser?.firstName || task.assignedUser?.lastName
+                                ? `${task.assignedUser.firstName ?? ""} ${task.assignedUser.lastName ?? ""}`.trim()
+                                : task.assignedUser?.email ?? "Unassigned"
+                        }
+                    >
                         {getInitials(task.assignedUser)}
                     </span>
+
                 </div>
             </article>
         );
@@ -107,6 +130,33 @@ function ProjectTaskBoard({ tasks = [], error = "" }) {
                     <p className="project-task-board__description">
                         View all tasks assigned to this project.
                     </p>
+
+                    <div className="project-task-board__filters">
+                        <button
+                            type="button"
+                            className={`project-task-board__filter ${
+                                groupBy === "status"
+                                    ? "project-task-board__filter--active"
+                                    : ""
+                            }`}
+                            onClick={() => setGroupBy("status")}
+                        >
+                            Status
+                        </button>
+
+                        <button
+                            type="button"
+                            className={`project-task-board__filter ${
+                                groupBy === "priority"
+                                    ? "project-task-board__filter--active"
+                                    : ""
+                            }`}
+                            onClick={() => setGroupBy("priority")}
+                        >
+                            Priority
+                        </button>
+                    </div>
+
                 </div>
             </div>
 
@@ -115,62 +165,120 @@ function ProjectTaskBoard({ tasks = [], error = "" }) {
                     {error}
                 </p>
             )}
+                {groupBy === "status" ? (
+                    <div className="project-task-board__columns">
+                        <div className="project-task-column">
+                            <div className="project-task-column__heading">
+                                <span className="project-task-column__dot project-task-column__dot--todo" />
 
-            <div className="project-task-board__columns">
-                <div className="project-task-column">
-                    <div className="project-task-column__heading">
-                        <span className="project-task-column__dot project-task-column__dot--todo" />
+                                <span className="project-task-column__name">
+                    To do
+                </span>
 
-                        <span className="project-task-column__name">
-                            To do
-                        </span>
+                                <strong className="project-task-column__count">
+                                    {todoTasks.length}
+                                </strong>
+                            </div>
 
-                        <strong className="project-task-column__count">
-                            {todoTasks.length}
-                        </strong>
+                            {todoTasks.map((task) =>
+                                renderTaskCard(task)
+                            )}
+                        </div>
+
+                        <div className="project-task-column">
+                            <div className="project-task-column__heading">
+                                <span className="project-task-column__dot project-task-column__dot--progress" />
+
+                                <span className="project-task-column__name">
+                    In progress
+                </span>
+
+                                <strong className="project-task-column__count">
+                                    {progressTasks.length}
+                                </strong>
+                            </div>
+
+                            {progressTasks.map((task) =>
+                                renderTaskCard(task)
+                            )}
+                        </div>
+
+                        <div className="project-task-column">
+                            <div className="project-task-column__heading">
+                                <span className="project-task-column__dot project-task-column__dot--done" />
+
+                                <span className="project-task-column__name">
+                    Done
+                </span>
+
+                                <strong className="project-task-column__count">
+                                    {doneTasks.length}
+                                </strong>
+                            </div>
+
+                            {doneTasks.map((task) =>
+                                renderTaskCard(task)
+                            )}
+                        </div>
                     </div>
+                ) : (
+                    <div className="project-task-board__columns">
+                        <div className="project-task-column">
+                            <div className="project-task-column__heading">
+                                <span className="project-task-column__dot project-task-column__dot--low" />
 
-                    {todoTasks.map((task) =>
-                        renderTaskCard(task)
-                    )}
-                </div>
+                                <span className="project-task-column__name">
+                    Low
+                </span>
 
-                <div className="project-task-column">
-                    <div className="project-task-column__heading">
-                        <span className="project-task-column__dot project-task-column__dot--progress" />
+                                <strong className="project-task-column__count">
+                                    {lowPriorityTasks.length}
+                                </strong>
+                            </div>
 
-                        <span className="project-task-column__name">
-                            In progress
-                        </span>
+                            {lowPriorityTasks.map((task) =>
+                                renderTaskCard(task)
+                            )}
+                        </div>
 
-                        <strong className="project-task-column__count">
-                            {progressTasks.length}
-                        </strong>
+                        <div className="project-task-column">
+                            <div className="project-task-column__heading">
+                                <span className="project-task-column__dot project-task-column__dot--medium" />
+
+                                <span className="project-task-column__name">
+                    Medium
+                </span>
+
+                                <strong className="project-task-column__count">
+                                    {mediumPriorityTasks.length}
+                                </strong>
+                            </div>
+
+                            {mediumPriorityTasks.map((task) =>
+                                renderTaskCard(task)
+                            )}
+                        </div>
+
+                        <div className="project-task-column">
+                            <div className="project-task-column__heading">
+                                <span className="project-task-column__dot project-task-column__dot--high" />
+
+                                <span className="project-task-column__name">
+                    High
+                </span>
+
+                                <strong className="project-task-column__count">
+                                    {highPriorityTasks.length}
+                                </strong>
+                            </div>
+
+                            {highPriorityTasks.map((task) =>
+                                renderTaskCard(task)
+                            )}
+                        </div>
                     </div>
+                )}
 
-                    {progressTasks.map((task) =>
-                        renderTaskCard(task)
-                    )}
-                </div>
-
-                <div className="project-task-column">
-                    <div className="project-task-column__heading">
-                        <span className="project-task-column__dot project-task-column__dot--done" />
-
-                        <span className="project-task-column__name">
-                            Done
-                        </span>
-
-                        <strong className="project-task-column__count">
-                            {doneTasks.length}
-                        </strong>
-                    </div>
-
-                    {doneTasks.map((task) =>
-                        renderTaskCard(task)
-                    )}
-                </div>
-            </div>
         </section>
     );
 }
