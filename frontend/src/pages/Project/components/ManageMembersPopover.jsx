@@ -18,6 +18,16 @@ function ManageMembersPopover({ project, onProjectUpdated }) {
     async function handleSubmit(event) {
         event.preventDefault();
 
+        const alreadyMember = members.some(
+            (member) => member.id === Number(memberId)
+        );
+
+        if (alreadyMember) {
+            setSubmitError(
+                "This user is already a member of the project."
+            );
+            return;
+        }
         try {
             setIsSubmitting(true);
             setSubmitError("");
@@ -54,7 +64,13 @@ function ManageMembersPopover({ project, onProjectUpdated }) {
                 }
 
                 if (response.status === 404) {
-                    throw new Error("Project or user not found.");
+                    throw new Error("User not found.");
+                }
+
+                if (response.status === 500) {
+                    throw new Error(
+                        "This user is already a member of the project."
+                    );
                 }
 
                 throw new Error("Could not add the member.");
@@ -70,6 +86,7 @@ function ManageMembersPopover({ project, onProjectUpdated }) {
             setIsSubmitting(false);
         }
     }
+
 
     function handleClose() {
         setIsOpen(false);

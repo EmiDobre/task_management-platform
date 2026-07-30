@@ -1,6 +1,10 @@
 import ManageMembersPopover from "./ManageMembersPopover";
+import { useState } from "react";
+import AddTaskModal from "./AddTaskModal";
 
 function ProjectActions({ project, onProjectUpdated }) {
+    const [isAddTaskOpen, setIsAddTaskOpen] = useState(false);
+
     return (
         <section className="project-actions">
             <div className="project-actions__content">
@@ -30,6 +34,21 @@ function ProjectActions({ project, onProjectUpdated }) {
                     >
                         Project documents
                     </button>
+
+                    <button
+                        className="project-actions__button"
+                        type="button"
+                        onClick={() => setIsAddTaskOpen(true)}
+                    >
+                        Add task
+                    </button>
+
+                    {isAddTaskOpen && (
+                        <AddTaskModal
+                            project={project}
+                            onClose={() => setIsAddTaskOpen(false)}
+                        />
+                    )}
                 </div>
             </div>
         </section>
