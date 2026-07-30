@@ -38,7 +38,7 @@ function ProjectActions({ project,
                     </button>
 
                     <button
-                        className="project-actions__button"
+                        className="project-actions__button project-actions__button--primary"
                         type="button"
                         onClick={() => setIsAddTaskOpen(true)}
                     >

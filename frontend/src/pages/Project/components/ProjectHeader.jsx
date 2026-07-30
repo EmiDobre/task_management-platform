@@ -34,12 +34,6 @@ function ProjectHeader({ project }) {
                     </p>
                 </div>
 
-                <button
-                    className="project-header__filter-button"
-                    type="button"
-                >
-                    Filter tasks
-                </button>
             </div>
 
             <div className="project-header__details">
