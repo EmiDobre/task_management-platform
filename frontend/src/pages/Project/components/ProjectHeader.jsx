@@ -1,18 +1,36 @@
-function ProjectHeader() {
+function ProjectHeader({ project }) {
+    const statusLabel = project?.status
+        ? project.status
+            .toLowerCase()
+            .replaceAll("_", " ")
+            .replace(/^\w/, (letter) => letter.toUpperCase())
+        : "Unknown";
+
+    const ownerName = project?.owner
+        ? [
+        project.owner.firstName,
+        project.owner.lastName,
+    ]
+        .filter(Boolean)
+        .join(" ") || project.owner.email
+        : "Unknown owner";
+
+    const membersCount = project?.members?.length ?? 0;
+
     return (
-        <header className="project-header">
+        <section className="project-header">
             <div className="project-header__main">
                 <div className="project-header__content">
                     <p className="project-header__eyebrow">
-                        Project
+                        Current project
                     </p>
 
                     <h1 className="project-header__title">
-                        Website Redesign
+                        {project.name}
                     </h1>
 
                     <p className="project-header__description">
-                        Redesign and improve the main company platform.
+                        {project.description || "No project description."}
                     </p>
                 </div>
 
@@ -31,7 +49,7 @@ function ProjectHeader() {
                     </span>
 
                     <span className="project-header__status">
-                        In progress
+                        {statusLabel}
                     </span>
                 </div>
 
@@ -41,11 +59,21 @@ function ProjectHeader() {
                     </span>
 
                     <span className="project-header__detail-value">
-                        Emilia Dobre
+                        {ownerName}
+                    </span>
+                </div>
+
+                <div className="project-header__detail">
+                    <span className="project-header__detail-label">
+                        Members
+                    </span>
+
+                    <span className="project-header__detail-value">
+                        {membersCount}
                     </span>
                 </div>
             </div>
-        </header>
+        </section>
     );
 }
 

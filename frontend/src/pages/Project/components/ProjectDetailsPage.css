@@ -234,3 +234,24 @@
         grid-template-columns: repeat(3, 260px);
     }
 }
+
+.project-details-state {
+    padding: 32px;
+
+    border: 1px solid #e4e8ef;
+    border-radius: 18px;
+
+    color: #74889f;
+    background-color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    box-shadow: 0 10px 30px rgba(23, 36, 58, 0.04);
+}
+
+.project-details-state--error {
+    color: #b64a4a;
+    border-color: rgba(182, 74, 74, 0.2);
+    background-color: #fffafa;
+}
