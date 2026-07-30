@@ -104,6 +104,8 @@ public class ProjectService {
     //      si doar daca proiectul nu este arhivat
     public Project addMember( Long projectId, AddMemberRequest request ) {
 
+
+
         // cautam proiectul
         Project project = projectRepository.findById(projectId)
                 .orElseThrow(() ->
@@ -126,7 +128,15 @@ public class ProjectService {
         User user = userRepository.findById(request.getUserId())
                 .orElseThrow(() ->
                         new ResourceNotFoundException("User not found"));
+        boolean alreadyMember = project.getMembers()
+                .stream()
+                .anyMatch(member -> member.getId().equals(user.getId()));
 
+        if (alreadyMember) {
+            throw new IllegalStateException(
+                    "User is already a member of this project."
+            );
+        }
         // adaugam membrul
         project.getMembers().add(user);
 

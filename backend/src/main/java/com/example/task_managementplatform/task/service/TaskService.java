@@ -278,4 +278,26 @@ public class TaskService {
         return taskRepository.findByPriority(priority);
 
     }
+
+    //pt front: gasit task dupa proiect id
+    public List<Task> getTasksByProject(Long projectId) {
+
+        User currentUser = getCurrentUser();
+
+        Project project = projectRepository
+                .findById(projectId)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException(
+                                "Project not found"
+                        ));
+
+        if(!isMember(project, currentUser)) {
+            throw new ForbiddenException(
+                    "You are not part of this project"
+            );
+        }
+
+        return taskRepository.findByProjectId(projectId);
+
+    }
 }

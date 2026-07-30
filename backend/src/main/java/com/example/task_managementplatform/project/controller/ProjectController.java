@@ -5,6 +5,8 @@ import com.example.task_managementplatform.project.dto.CreateProjectRequest;
 import com.example.task_managementplatform.project.dto.UpdateProjectRequest;
 import com.example.task_managementplatform.project.entity.Project;
 import com.example.task_managementplatform.project.service.ProjectService;
+import com.example.task_managementplatform.task.entity.Task;
+import com.example.task_managementplatform.task.service.TaskService;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -20,6 +22,7 @@ import java.util.List;
 public class ProjectController {
 
     private final ProjectService projectService;
+    private final TaskService taskService;
 
     // 3.1. creare proiect: POST /api/projects
     @PostMapping
@@ -68,7 +71,13 @@ public class ProjectController {
     //Pt view frumos in front: get proiect id - pagina proiect
     @GetMapping("/{id}")
     public Project getProjectById(@PathVariable Long id) {
+
         return projectService.getProjectById(id);
     }
 
+    @GetMapping("/{id}/tasks")
+    public List<Task> getProjectTasks(@PathVariable Long id) {
+
+        return taskService.getTasksByProject(id);
+    }
 }

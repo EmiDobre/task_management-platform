@@ -21,4 +21,6 @@ public interface TaskRepository
     //pentru a putea gasi dupa user:
     List<Task> findByAssignedUser(User user);
 
+    //taskuri dupa proiect:
+    List<Task> findByProjectId(Long projectId);
 }
