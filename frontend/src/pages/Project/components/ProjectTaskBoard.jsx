@@ -4,7 +4,94 @@ import {
     Clock3,
 } from "lucide-react";
 
-function ProjectTaskBoard() {
+function ProjectTaskBoard({ tasks = [], error = "" }) {
+    const todoTasks = tasks.filter(
+        (task) => task.status === "TODO"
+    );
+
+    const progressTasks = tasks.filter(
+        (task) => task.status === "IN_PROGRESS"
+    );
+
+    const doneTasks = tasks.filter(
+        (task) => task.status === "DONE"
+    );
+
+    function formatDeadline(deadline) {
+        if (!deadline) {
+            return "No deadline";
+        }
+
+        return new Date(deadline).toLocaleDateString(
+            "en-GB"
+        );
+    }
+
+    function getInitials(assignedUser) {
+        if (!assignedUser) {
+            return "?";
+        }
+
+        const firstInitial =
+            assignedUser.firstName?.charAt(0) || "";
+
+        const lastInitial =
+            assignedUser.lastName?.charAt(0) || "";
+
+        if (firstInitial || lastInitial) {
+            return `${firstInitial}${lastInitial}`.toUpperCase();
+        }
+
+        return assignedUser.email
+            ?.substring(0, 2)
+            .toUpperCase() || "?";
+    }
+
+    function renderTaskCard(task) {
+        return (
+            <article
+                key={task.id}
+                className={`project-task-card ${
+                    task.status === "DONE"
+                        ? "project-task-card--done"
+                        : ""
+                }`}
+            >
+                <span className="project-task-card__tag">
+                    {task.priority}
+                </span>
+
+                <h3 className="project-task-card__title">
+                    {task.title}
+                </h3>
+
+                <div className="project-task-card__footer">
+                    <span className="project-task-card__status">
+                        {task.status === "TODO" && (
+                            <CalendarDays size={14} />
+                        )}
+
+                        {task.status === "IN_PROGRESS" && (
+                            <Clock3 size={14} />
+                        )}
+
+                        {task.status === "DONE" && (
+                            <CheckCircle2 size={14} />
+                        )}
+
+                        {task.status === "DONE"
+                            ? "Completed"
+                            : formatDeadline(task.deadline)}
+                    </span>
+
+                    <span className="project-task-card__avatar">
+                        {getInitials(task.assignedUser)}
+                    </span>
+                </div>
+            </article>
+        );
+    }
+
     return (
         <section className="project-task-board">
             <div className="project-task-board__header">
@@ -23,6 +110,12 @@ function ProjectTaskBoard() {
                 </div>
             </div>
 
+            {error && (
+                <p className="project-task-board__error">
+                    {error}
+                </p>
+            )}
+
             <div className="project-task-board__columns">
                 <div className="project-task-column">
                     <div className="project-task-column__heading">
@@ -33,51 +126,13 @@ function ProjectTaskBoard() {
                         </span>
 
                         <strong className="project-task-column__count">
-                            2
+                            {todoTasks.length}
                         </strong>
                     </div>
 
-                    <article className="project-task-card">
-                        <span className="project-task-card__tag">
-                            Design
-                        </span>
-
-                        <h3 className="project-task-card__title">
-                            Create project page
-                        </h3>
-
-                        <div className="project-task-card__footer">
-                            <span className="project-task-card__status">
-                                <CalendarDays size={14} />
-                                Today
-                            </span>
-
-                            <span className="project-task-card__avatar">
-                                ED
-                            </span>
-                        </div>
-                    </article>
-
-                    <article className="project-task-card">
-                        <span className="project-task-card__tag">
-                            Frontend
-                        </span>
-
-                        <h3 className="project-task-card__title">
-                            Build task filters
-                        </h3>
-
-                        <div className="project-task-card__footer">
-                            <span className="project-task-card__status">
-                                <CalendarDays size={14} />
-                                Tomorrow
-                            </span>
-
-                            <span className="project-task-card__avatar">
-                                AD
-                            </span>
-                        </div>
-                    </article>
+                    {todoTasks.map((task) =>
+                        renderTaskCard(task)
+                    )}
                 </div>
 
                 <div className="project-task-column">
@@ -89,51 +144,13 @@ function ProjectTaskBoard() {
                         </span>
 
                         <strong className="project-task-column__count">
-                            2
+                            {progressTasks.length}
                         </strong>
                     </div>
 
-                    <article className="project-task-card">
-                        <span className="project-task-card__tag">
-                            Development
-                        </span>
-
-                        <h3 className="project-task-card__title">
-                            Build project dashboard
-                        </h3>
-
-                        <div className="project-task-card__footer">
-                            <span className="project-task-card__status">
-                                <Clock3 size={14} />
-                                In progress
-                            </span>
-
-                            <span className="project-task-card__avatar">
-                                MI
-                            </span>
-                        </div>
-                    </article>
-
-                    <article className="project-task-card">
-                        <span className="project-task-card__tag">
-                            API
-                        </span>
-
-                        <h3 className="project-task-card__title">
-                            Connect project tasks
-                        </h3>
-
-                        <div className="project-task-card__footer">
-                            <span className="project-task-card__status">
-                                <Clock3 size={14} />
-                                In progress
-                            </span>
-
-                            <span className="project-task-card__avatar">
-                                ED
-                            </span>
-                        </div>
-                    </article>
+                    {progressTasks.map((task) =>
+                        renderTaskCard(task)
+                    )}
                 </div>
 
                 <div className="project-task-column">
@@ -145,30 +162,13 @@ function ProjectTaskBoard() {
                         </span>
 
                         <strong className="project-task-column__count">
-                            1
+                            {doneTasks.length}
                         </strong>
                     </div>
 
-                    <article className="project-task-card project-task-card--done">
-                        <span className="project-task-card__tag">
-                            Backend
-                        </span>
-
-                        <h3 className="project-task-card__title">
-                            Configure project API
-                        </h3>
-
-                        <div className="project-task-card__footer">
-                            <span className="project-task-card__status">
-                                <CheckCircle2 size={14} />
-                                Completed
-                            </span>
-
-                            <span className="project-task-card__avatar">
-                                ED
-                            </span>
-                        </div>
-                    </article>
+                    {doneTasks.map((task) =>
+                        renderTaskCard(task)
+                    )}
                 </div>
             </div>
         </section>

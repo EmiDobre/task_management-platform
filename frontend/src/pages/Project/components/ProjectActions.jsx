@@ -2,7 +2,9 @@ import ManageMembersPopover from "./ManageMembersPopover";
 import { useState } from "react";
 import AddTaskModal from "./AddTaskModal";
 
-function ProjectActions({ project, onProjectUpdated }) {
+function ProjectActions({ project,
+                            onProjectUpdated,
+                            onTasksUpdated,}) {
     const [isAddTaskOpen, setIsAddTaskOpen] = useState(false);
 
     return (
@@ -46,6 +48,7 @@ function ProjectActions({ project, onProjectUpdated }) {
                     {isAddTaskOpen && (
                         <AddTaskModal
                             project={project}
+                            onTasksUpdated={onTasksUpdated}
                             onClose={() => setIsAddTaskOpen(false)}
                         />
                     )}

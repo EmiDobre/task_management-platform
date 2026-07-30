@@ -2,7 +2,9 @@ import { useState } from "react";
 
 import "./AddTaskModal.css";
 
-function AddTaskModal({ project, onClose }) {
+function AddTaskModal({ project,
+                          onClose,
+                          onTasksUpdated,}) {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [priority, setPriority] = useState("MEDIUM");
@@ -72,6 +74,7 @@ function AddTaskModal({ project, onClose }) {
             setSuccessMessage(
                 `Task created successfully. Task ID: ${createdTask.id}`
             );
+            await onTasksUpdated?.();
         } catch (error) {
             setCreateError(error.message);
         } finally {
@@ -145,6 +148,7 @@ function AddTaskModal({ project, onClose }) {
             }
 
             setSuccessMessage("Task assigned successfully.");
+            await onTasksUpdated?.();
             setUserId("");
         } catch (error) {
             setAssignError(error.message);

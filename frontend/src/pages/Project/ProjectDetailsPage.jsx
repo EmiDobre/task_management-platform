@@ -14,6 +14,9 @@ function ProjectDetailsPage() {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState("");
 
+    const [tasks, setTasks] = useState([]);
+    const [tasksError, setTasksError] = useState("");
+
     async function fetchProject() {
         try {
             setIsLoading(true);
@@ -60,8 +63,38 @@ function ProjectDetailsPage() {
         }
     }
 
+    async function fetchTasks() {
+        try {
+            setTasksError("");
+
+            const token = sessionStorage.getItem("token");
+
+            const response = await fetch(
+                `http://localhost:8080/api/projects/${projectId}/tasks`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                }
+            );
+
+            if (!response.ok) {
+                throw new Error(
+                    "Could not load project tasks."
+                );
+            }
+
+            const data = await response.json();
+
+            setTasks(data);
+        } catch (error) {
+            setTasksError(error.message);
+        }
+    }
+
     useEffect(() => {
         fetchProject();
+        fetchTasks();
     }, [projectId]);
 
     if (isLoading) {
@@ -93,8 +126,11 @@ function ProjectDetailsPage() {
             <div className="project-details-page__container">
                 <ProjectHeader project={project} />
                 <ProjectActions project={project}
-                                onProjectUpdated={fetchProject}/>
-                <ProjectTaskBoard />
+                                onProjectUpdated={fetchProject}
+                                onTasksUpdated={fetchTasks}/>
+                <ProjectTaskBoard
+                    tasks={tasks}
+                    error={tasksError}/>
             </div>
         </main>
     );
