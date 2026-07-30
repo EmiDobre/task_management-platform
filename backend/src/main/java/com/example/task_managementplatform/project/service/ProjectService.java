@@ -207,4 +207,23 @@ public class ProjectService {
 
     }
 
+    //Pt view frumos in frontend:
+    public Project getProjectById(Long projectId) {
+
+        Project project = projectRepository.findById(projectId)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException("Project not found"));
+
+        User currentUser = getCurrentUser();
+
+        boolean owner = isOwner(project, currentUser);
+        boolean member = isMember(project, currentUser);
+
+        if (!owner && !member) {
+            throw new ForbiddenException("You are not part of this project");
+        }
+
+        return project;
+    }
+
 }

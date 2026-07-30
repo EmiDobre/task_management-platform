@@ -65,4 +65,10 @@ public class ProjectController {
 
     }
 
+    //Pt view frumos in front: get proiect id - pagina proiect
+    @GetMapping("/{id}")
+    public Project getProjectById(@PathVariable Long id) {
+        return projectService.getProjectById(id);
+    }
+
 }
