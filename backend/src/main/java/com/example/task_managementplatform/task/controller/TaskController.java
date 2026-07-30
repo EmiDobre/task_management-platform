@@ -74,5 +74,10 @@ public class TaskController {
 
     }
 
+    //taskurile useurlui curent
+    @GetMapping("/my-tasks")
+    public List<Task> getMyTasks() {
+        return taskService.getMyTasks();
+    }
 
 }

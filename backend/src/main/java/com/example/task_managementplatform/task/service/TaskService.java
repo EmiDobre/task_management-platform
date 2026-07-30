@@ -13,6 +13,7 @@ import com.example.task_managementplatform.task.repository.TaskRepository;
 import com.example.task_managementplatform.user.entity.User;
 import com.example.task_managementplatform.user.repository.UserRepository;
 import com.example.task_managementplatform.exception.*;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 import lombok.RequiredArgsConstructor;
 
@@ -22,6 +23,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -299,5 +301,19 @@ public class TaskService {
 
         return taskRepository.findByProjectId(projectId);
 
+    }
+
+    //pt pagina Mytasks: taskurile userului doar
+    public List<Task> getMyTasks() {
+        String email = Objects.requireNonNull(SecurityContextHolder
+                        .getContext()
+                        .getAuthentication())
+                .getName();
+
+        User currentUser = userRepository
+                .findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        return taskRepository.findByAssignedUserId(currentUser.getId());
     }
 }
